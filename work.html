@@ -451,10 +451,6 @@ window.addEventListener('scroll', function() {
 .wk-grid {
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
 }
-.wk-hidden-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
-  margin-top: 24px;
-}
 .wk-video-card {
   background: var(--card);
   border: 1px solid rgba(26,111,212,0.15);
@@ -578,7 +574,7 @@ window.addEventListener('scroll', function() {
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
   .wk-reviews-grid { grid-template-columns: 1fr; }
-  .wk-grid, .wk-hidden-grid { grid-template-columns: 1fr; }
+  .wk-grid { grid-template-columns: 1fr; }
   .wk-btn-row { flex-direction: column; align-items: center; }
   .wk-btn-primary, .wk-btn-outline { width: 100%; max-width: 300px; text-align: center; }
   .wk-video-card { grid-column: span 1 !important; }
@@ -690,6 +686,18 @@ window.addEventListener('scroll', function() {
         </div>
         <div class="wk-video-card">
           <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
+            <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee224717d5dd4e1466c79.png">
+              <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8a6e05d4199001cb5714.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="wk-video-body">
+            <div class="wk-video-type">Close-Up Performance Edit</div>
+            <div class="wk-video-name">Michael Little — Close-Up Magic Performance</div>
+            <p class="wk-video-desc">Sleight of hand, natural reactions, and clean presentation — a polished edit for intimate venues and professional events.</p>
+          </div>
+        </div>
+        <div class="wk-video-card">
+          <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
             <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee2240d66f2a6657bbee0.png">
               <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8a9a717d5dd4e1314765.mp4" type="video/mp4">
             </video>
@@ -700,54 +708,45 @@ window.addEventListener('scroll', function() {
             <p class="wk-video-desc">Creative, passionate editing that captures the reactions, atmosphere, and moments that matter — with real energy in every cut.</p>
           </div>
         </div>
-      </div>
 
-      <div style="text-align:center; margin: 24px 0 0;">
-        <button onclick="togglePerformanceVideos()" id="perfToggleBtn" style="display:inline-block; margin-top:0; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.78rem; letter-spacing:2px; text-transform:uppercase; color:#e05544; background:rgba(192,57,43,0.1); border:1px solid rgba(192,57,43,0.3); padding:10px 22px; border-radius:4px; cursor:pointer; transition:all 0.2s;">▼ See More Performance Videos</button>
-      </div>
-
-      <div id="perfMoreVideos" style="display:none; margin-top:22px;">
-        <div class="wk-hidden-grid">
-          <div class="wk-video-card">
-            <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
-              <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee224717d5dd4e1466c79.png">
-                <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8a6e05d4199001cb5714.mov" type="video/mp4">
-              </video>
-            </div>
-            <div class="wk-video-body">
-              <div class="wk-video-type">Close-Up Performance Edit</div>
-              <div class="wk-video-name">Michael Little — Close-Up Magic Performance</div>
-              <p class="wk-video-desc">Sleight of hand, natural reactions, and clean presentation — a polished edit for intimate venues and professional events.</p>
-            </div>
+        <div class="wk-video-card">
+          <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
+            <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee2240d66f2a6657bbee0.png">
+              <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8a9a717d5dd4e1314765.mp4" type="video/mp4">
+            </video>
           </div>
-          <div class="wk-video-card">
-            <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
-              <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0aabbb2e98e28fa1846926.png">
-                <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a02b6cd60a7a52fdc1f6930.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="wk-video-body">
-              <div class="wk-video-type">Business Client Edit</div>
-              <div class="wk-video-name">Paul Carpenter — Client Project</div>
-              <p class="wk-video-desc">A polished edit delivered fast with minimal revisions — exactly what a professional team needs to stay on schedule and on brand.</p>
-            </div>
-          </div>
-          <div class="wk-video-card">
-            <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
-              <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee2240d66f2a6657bbedf.png">
-                <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8a65717d5dd4e1313c82.mov" type="video/mp4">
-              </video>
-            </div>
-            <div class="wk-video-body">
-              <div class="wk-video-type">Magician Promo Video</div>
-              <div class="wk-video-name">Married by Magic — Promo</div>
-              <p class="wk-video-desc">A polished promo for a magic duo — built to communicate their unique performance style and capture the attention of bookers and event planners.</p>
-            </div>
+          <div class="wk-video-body">
+            <div class="wk-video-type">Performance Edit</div>
+            <div class="wk-video-name">Jason R. Smith — Magic Performance</div>
+            <p class="wk-video-desc">Creative, passionate editing that captures the reactions, atmosphere, and moments that matter — with real energy in every cut.</p>
           </div>
         </div>
-      </div>
 
-      <div class="wk-grid">
+        <div class="wk-video-card">
+          <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
+            <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0aabbb2e98e28fa1846926.png">
+              <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a02b6cd60a7a52fdc1f6930.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="wk-video-body">
+            <div class="wk-video-type">Business Client Edit</div>
+            <div class="wk-video-name">Paul Carpenter — Client Project</div>
+            <p class="wk-video-desc">A polished edit delivered fast with minimal revisions — exactly what a professional team needs to stay on schedule and on brand.</p>
+          </div>
+        </div>
+
+        <div class="wk-video-card">
+          <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
+            <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee2240d66f2a6657bbedf.png">
+              <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8a65717d5dd4e1313c82.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="wk-video-body">
+            <div class="wk-video-type">Magician Promo Video</div>
+            <div class="wk-video-name">Married by Magic — Promo</div>
+            <p class="wk-video-desc">A polished promo for a magic duo — built to communicate their unique performance style and capture the attention of bookers and event planners.</p>
+          </div>
+        </div>
 
         <!-- SHOWCASE CARD — YouTube Channel Section -->
         <div class="wk-video-card" style="border-color: rgba(192,57,43,0.35); background: linear-gradient(145deg, rgba(192,57,43,0.08), rgba(15,15,30,1)); grid-column: span 2;">
@@ -1243,18 +1242,6 @@ function toggleYouTubeVideos() {
   } else {
     grid.style.display = 'none';
     btn.textContent = '▼ See More YouTube Videos';
-  }
-}
-
-function togglePerformanceVideos() {
-  var grid = document.getElementById('perfMoreVideos');
-  var btn = document.getElementById('perfToggleBtn');
-  if (grid.style.display === 'none' || grid.style.display === '') {
-    grid.style.display = 'block';
-    btn.textContent = '▲ Hide Performance Videos';
-  } else {
-    grid.style.display = 'none';
-    btn.textContent = '▼ See More Performance Videos';
   }
 }
 </script>
