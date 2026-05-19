@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laffin Edits — FAQ | Frequently Asked Questions</title>
+  <style>html,body{margin:0;padding:0;background:#06060a;min-width:100%;}</style>
+<style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+.le-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(6,6,10,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 0 24px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s;
+}
+.le-nav.scrolled {
+  background: rgba(6,6,10,0.99);
+  border-bottom-color: rgba(192,57,43,0.35);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+.le-nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.le-nav-logo img {
+  height: 40px; width: 40px; object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(192,57,43,0.4));
+}
+.le-nav-logo-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #f0eeff;
+  text-shadow: 0 0 10px rgba(26,111,212,0.8);
+}
+.le-nav-links {
+  display: flex; align-items: center; gap: 4px;
+  list-style: none;
+}
+.le-nav-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.65);
+  text-decoration: none; padding: 6px 10px; border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.le-nav-links a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-cta {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  background: linear-gradient(135deg, #8b1a10, #e05544);
+  color: #f0eeff; padding: 8px 16px; border-radius: 4px;
+  text-decoration: none; transition: all 0.3s;
+  box-shadow: 0 0 16px rgba(192,57,43,0.3);
+  white-space: nowrap;
+}
+.le-nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 24px rgba(192,57,43,0.5); }
+
+/* Hamburger */
+.le-nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px; background: none; border: none;
+}
+.le-nav-hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: rgba(200,204,224,0.8); border-radius: 2px;
+  transition: all 0.3s;
+}
+.le-nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.le-nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.le-nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.le-nav-mobile {
+  display: none; position: fixed;
+  top: 64px; left: 0; right: 0;
+  background: rgba(6,6,10,0.98);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 20px 24px;
+  flex-direction: column; gap: 4px;
+  z-index: 9998;
+  backdrop-filter: blur(12px);
+}
+.le-nav-mobile.open { display: flex; }
+.le-nav-mobile a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 1rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.7);
+  text-decoration: none; padding: 12px 16px; border-radius: 4px;
+  transition: all 0.2s;
+  border-bottom: 1px solid rgba(26,111,212,0.08);
+}
+.le-nav-mobile a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-mobile .le-nav-cta {
+  margin-top: 8px; text-align: center; padding: 12px;
+}
+
+/* Page offset so content doesn't hide under fixed nav */
+.le-nav-spacer { height: 64px; }
+
+@media (max-width: 900px) {
+  .le-nav-links { display: none; }
+  .le-nav-cta { display: none; }
+  .le-nav-hamburger { display: flex; }
+}
+
+/* ─── FOOTER ─── */
+.le-footer {
+  background: #06060a;
+  border-top: 1px solid rgba(192,57,43,0.2);
+  padding: 50px 24px 30px;
+  width: 100%;
+}
+.le-footer-inner {
+  max-width: 1100px; margin: 0 auto;
+}
+.le-footer-top {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;
+  margin-bottom: 40px;
+}
+.le-footer-logo {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 14px; text-decoration: none;
+}
+.le-footer-logo img { height: 48px; width: 48px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(192,57,43,0.4)); }
+.le-footer-logo-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.2rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #f0eeff;
+  text-shadow: 0 0 10px rgba(26,111,212,0.8);
+}
+.le-footer-tagline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #e05544; margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.le-footer-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem; line-height: 1.65;
+  color: rgba(200,204,224,0.45);
+}
+.le-footer-col-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 0.75rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #e05544; margin-bottom: 16px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.le-footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.le-footer-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.82rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(200,204,224,0.5); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-links a:hover { color: #f0eeff; }
+.le-footer-contact { display: flex; flex-direction: column; gap: 10px; }
+.le-footer-contact-item {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Inter', sans-serif; font-size: 0.85rem;
+  color: rgba(200,204,224,0.6); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-contact-item:hover { color: #f0eeff; }
+.le-footer-contact-icon { font-size: 1rem; flex-shrink: 0; }
+.le-footer-bottom {
+  border-top: 1px solid rgba(26,111,212,0.1);
+  padding-top: 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.le-footer-copy {
+  font-family: 'Inter', sans-serif; font-size: 0.78rem;
+  color: rgba(200,204,224,0.3); letter-spacing: 0.5px;
+}
+.le-footer-copy span { color: #e05544; }
+.le-footer-google {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.4); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-google:hover { color: #e05544; }
+
+@media (max-width: 900px) {
+  .le-footer-top { grid-template-columns: 1fr; gap: 30px; }
+  .le-footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+
+<!-- HEADER HTML -->
+<nav class="le-nav" id="leNav">
+  <a href="index.html" class="le-nav-logo">
+    <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits">
+    <span class="le-nav-logo-text">Laffin Edits</span>
+  </a>
+  <ul class="le-nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="performance.html">Performance</a></li>
+    <li><a href="social.html">Social Media</a></li>
+    <li><a href="promos.html">Promos</a></li>
+    <li><a href="monthly.html">Monthly</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a></li>
+  </ul>
+  <button class="le-nav-hamburger" id="leHamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="le-nav-mobile" id="leMobileNav">
+  <a href="index.html">Home</a>
+  <a href="work.html">Work</a>
+  <a href="performance.html">Performance Edits</a>
+  <a href="social.html">Social Media</a>
+  <a href="promos.html">Promos</a>
+  <a href="monthly.html">Monthly Packages</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a>
+</div>
+
+<div class="le-nav-spacer"></div>
+
+<script>
+function toggleMobileNav() {
+  var nav = document.getElementById('leMobileNav');
+  var btn = document.getElementById('leHamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('leNav');
+  if (window.scrollY > 20) { nav.classList.add('scrolled'); }
+  else { nav.classList.remove('scrolled'); }
+});
+</script>
+
+<!-- ============================================================
+     LAFFIN EDITS — FAQ PAGE
+     Paste this entire block into a Custom Code element in Bizly
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+.fq-wrap * { margin: 0; padding: 0; box-sizing: border-box; }
+.fq-wrap {
+  --black:  #06060a;
+  --deep:   #0d0d18;
+  --card:   #0f0f1e;
+  --blue:   #1a6fd4;
+  --blue-bright: #4a9ef5;
+  --blue-dark: #0d4a8a;
+  --red:    #c0392b;
+  --red-bright: #e05544;
+  --silver: #c8cce0;
+  --white:  #f0eeff;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ─── PAGE HERO ─── */
+.fq-hero {
+  min-height: 50vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 100px 24px 70px;
+  text-align: center; position: relative; overflow: hidden;
+  background: var(--black);
+}
+.fq-hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(26,111,212,0.15) 0%, transparent 70%);
+  z-index: 1; pointer-events: none;
+}
+.fq-hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(26,111,212,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,111,212,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 75%);
+  z-index: 2;
+}
+.fq-hero-content {
+  position: relative; z-index: 3;
+  max-width: 700px;
+  animation: fq-fadeIn 0.8s ease forwards;
+}
+@keyframes fq-fadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fq-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  text-shadow: 0 0 20px rgba(192,57,43,0.7), 0 0 40px rgba(192,57,43,0.3);
+}
+.fq-label::before, .fq-label::after {
+  content: ''; height: 1px; width: 30px; background: var(--red);
+}
+.fq-hero-h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 6rem);
+  letter-spacing: 3px; line-height: 0.95;
+  color: var(--white); margin-bottom: 20px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9), 0 0 120px rgba(26,111,212,0.7);
+}
+.fq-hero-h1 span { color: var(--red-bright); text-shadow: 0 0 40px rgba(192,57,43,0.8), 0 0 80px rgba(192,57,43,0.4); }
+.fq-hero-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; line-height: 1.75;
+  color: rgba(200,204,224,0.65);
+  max-width: 520px; margin: 0 auto;
+}
+
+/* ─── SECTIONS ─── */
+.fq-section { padding: 70px 24px; width: 100%; }
+.fq-section-inner { max-width: 860px; margin: 0 auto; }
+.fq-section-header { text-align: center; margin-bottom: 40px; }
+.fq-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  letter-spacing: 2px; line-height: 1; margin-bottom: 16px;
+  text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.fq-title span { color: var(--red-bright); text-shadow: 0 0 30px rgba(192,57,43,0.8), 0 0 60px rgba(192,57,43,0.3); }
+.fq-section-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem; line-height: 1.75;
+  color: rgba(200,204,224,0.55); max-width: 560px; margin: 0 auto;
+}
+.fq-dark { background: var(--black); }
+.fq-deep { background: var(--deep); position: relative; }
+.fq-deep::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--blue), transparent); }
+
+/* ─── FAQ ITEMS ─── */
+.fq-list { display: flex; flex-direction: column; gap: 12px; }
+.fq-item {
+  background: rgba(6,6,10,0.7);
+  border: 1px solid rgba(26,111,212,0.15);
+  border-radius: 10px; overflow: hidden;
+  transition: border-color 0.3s;
+}
+.fq-item.open { border-color: rgba(192,57,43,0.4); }
+.fq-q {
+  width: 100%; background: none; border: none; cursor: pointer;
+  padding: 22px 28px; display: flex; align-items: center;
+  justify-content: space-between; gap: 16px; text-align: left;
+}
+.fq-q:hover { background: rgba(26,111,212,0.04); }
+.fq-q-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 1.05rem;
+  letter-spacing: 0.5px; color: var(--white); line-height: 1.3;
+  text-shadow: 0 0 8px rgba(26,111,212,0.8), 0 0 20px rgba(26,111,212,0.4);
+}
+.fq-icon {
+  width: 28px; height: 28px; flex-shrink: 0;
+  background: rgba(26,111,212,0.1); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--red-bright); font-size: 1.2rem;
+  transition: all 0.3s; line-height: 1; font-family: monospace;
+  text-shadow: 0 0 10px rgba(192,57,43,0.6);
+}
+.fq-item.open .fq-icon { background: rgba(192,57,43,0.15); transform: rotate(45deg); }
+.fq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 28px;
+}
+.fq-item.open .fq-a { max-height: 400px; padding: 0 28px 22px; }
+.fq-a p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem; line-height: 1.8;
+  color: rgba(200,204,224,0.62);
+}
+
+/* ─── CONTACT STRIP ─── */
+.fq-contact-strip {
+  background: rgba(192,57,43,0.05);
+  border-top: 1px solid rgba(192,57,43,0.2);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 24px; text-align: center;
+  display: flex; align-items: center; justify-content: center;
+  gap: 24px; flex-wrap: wrap;
+}
+.fq-contact-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.85rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(200,204,224,0.5);
+}
+.fq-contact-link {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.6rem; letter-spacing: 2px;
+  color: var(--red-bright); text-decoration: none;
+  text-shadow: 0 0 20px rgba(192,57,43,0.6);
+  transition: color 0.2s; display: flex; align-items: center; gap: 8px;
+}
+.fq-contact-link:hover { color: var(--white); }
+
+/* ─── CTA ─── */
+.fq-cta {
+  background: linear-gradient(135deg, #080d1a 0%, #0a1020 50%, #080d1a 100%);
+  padding: 80px 24px; text-align: center; position: relative; overflow: hidden;
+}
+.fq-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(192,57,43,0.08), transparent); }
+.fq-cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.fq-cta-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 2px; line-height: 1.05; margin-bottom: 16px;
+  text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.fq-cta-title span { color: var(--red-bright); text-shadow: 0 0 30px rgba(192,57,43,0.8), 0 0 60px rgba(192,57,43,0.3); }
+.fq-cta-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; color: rgba(200,204,224,0.65);
+  margin-bottom: 36px; line-height: 1.7;
+}
+.fq-btn-primary {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.95rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  background: linear-gradient(135deg, #8b1a10, var(--red));
+  color: var(--white); padding: 14px 32px; border-radius: 4px;
+  transition: all 0.3s; box-shadow: 0 0 24px rgba(192,57,43,0.35);
+  border: none; cursor: pointer; display: inline-block; text-decoration: none;
+}
+.fq-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(192,57,43,0.55); }
+.fq-btn-outline {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.95rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  border: 2px solid rgba(26,111,212,0.4); color: var(--blue-bright);
+  padding: 14px 32px; border-radius: 4px; transition: all 0.3s;
+  display: inline-block; cursor: pointer; background: transparent;
+  text-decoration: none;
+}
+.fq-btn-outline:hover { border-color: var(--blue); color: var(--white); transform: translateY(-2px); background: rgba(26,111,212,0.1); }
+.fq-btn-email {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.95rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  border: 2px solid rgba(192,57,43,0.4); color: var(--red-bright);
+  padding: 14px 32px; border-radius: 4px; transition: all 0.3s;
+  display: inline-block; cursor: pointer; background: transparent;
+  text-decoration: none;
+}
+.fq-btn-email:hover { border-color: var(--red); color: var(--white); transform: translateY(-2px); background: rgba(192,57,43,0.1); }
+.fq-btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .fq-btn-row { flex-direction: column; align-items: center; }
+  .fq-btn-primary, .fq-btn-outline, .fq-btn-email { width: 100%; max-width: 300px; text-align: center; }
+  .fq-contact-strip { flex-direction: column; gap: 12px; }
+  .fq-q { padding: 18px 20px; }
+  .fq-item.open .fq-a { padding: 0 20px 18px; }
+}
+</style>
+
+<div class="fq-wrap">
+
+  <!-- ─── HERO ─── -->
+  <section class="fq-hero">
+    <div class="fq-hero-bg"></div>
+    <div class="fq-hero-grid"></div>
+    <div class="fq-hero-content">
+      <div class="fq-label">Got Questions?</div>
+      <h1 class="fq-hero-h1">FAQ</h1>
+      <p class="fq-hero-desc">Everything you need to know before reaching out. If your question isn't here — just send a message and I'll get back to you fast.</p>
+    </div>
+  </section>
+
+  <!-- ─── GENERAL QUESTIONS ─── -->
+  <section class="fq-section fq-dark">
+    <div class="fq-section-inner">
+      <div class="fq-section-header">
+        <div class="fq-label">General</div>
+        <h2 class="fq-title">General <span>Questions</span></h2>
+      </div>
+      <div class="fq-list">
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">Do I need to be a magician or performer to work with you?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Not at all. I specialize in magic and performance editing but I work with any business or creator that needs high quality video editing. What matters is that you have footage and a goal — I'll handle the rest.</p></div>
+        </div>
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">Where are you based and do you work with clients worldwide?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>I'm based in Las Vegas, Nevada. All work is done remotely so location is never a barrier. I work with magicians, performers, entertainers, and businesses all over the world — footage can be sent from anywhere via Google Drive, Dropbox, or WeTransfer.</p></div>
+        </div>
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">How do I get started?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Just fill out the quote form on any page, call (702) 666-0797, or email contact@laffinedits.com. Tell me about your project and I'll get back to you quickly. No obligation — just a conversation about what you need.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES QUESTIONS ─── -->
+  <section class="fq-section fq-deep">
+    <div class="fq-section-inner">
+      <div class="fq-section-header">
+        <div class="fq-label">Services</div>
+        <h2 class="fq-title">About The <span>Services</span></h2>
+      </div>
+      <div class="fq-list">
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">What services do you offer?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>I offer performance edits and highlight reels, promo videos, social media editing, monthly content packages, YouTube channel editing, and magic product promo videos. Whether you need a one-time project or consistent monthly content — there's an option for you.</p></div>
+        </div>
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">How do you protect my methods in the edit?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Because I'm a working magician myself, I already know what can't be shown — no explanation needed. I identify angles, frames, and moments that could expose your methods and remove them before you even have to ask. You'll still review everything before it's finalized.</p></div>
+        </div>
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">What types of businesses can you edit for?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Any business that needs high quality video editing. Corporate promos, product videos, social media content, YouTube channels, marketing videos — if you have footage and a goal, I can edit it. The same performance-first approach I bring to magic videos goes into every project.</p></div>
+        </div>
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">Do you offer magic product promo videos?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Yes. If you're a magic creator with a product you want to promote — a deck, a gimmick, a download — I can edit a promo video that sells the effect and the experience. I understand what magicians look for when buying magic, which means I know how to make the product look its best.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS QUESTIONS ─── -->
+  <section class="fq-section fq-dark">
+    <div class="fq-section-inner">
+      <div class="fq-section-header">
+        <div class="fq-label">Process</div>
+        <h2 class="fq-title">The <span>Process</span></h2>
+      </div>
+      <div class="fq-list">
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">How do I send my footage?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Once we've discussed your project, you can send footage via Google Drive, Dropbox, WeTransfer, or any similar service. Just about any format works — MP4, MOV, AVI. If there are any issues with your files I'll let you know right away.</p></div>
+        </div>
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">How long does the editing process take?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Most projects receive a first draft within a few days of receiving all footage. Turnaround time depends on the scope and complexity of the project. I keep communication open throughout so you always know exactly where things stand — no disappearing, no guessing.</p></div>
+        </div>
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">How many revisions do I get?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Every project includes 2 revision rounds. That's usually all it takes — and if something specific needs adjusting beyond that we'll figure it out together. The goal is always a final video you're genuinely happy with.</p></div>
+        </div>
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">What format will I receive my final video in?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Final files are delivered in the format you need — MP4 is standard and works everywhere. If you need a specific format, resolution, or aspect ratio for a particular platform or use case just let me know and I'll deliver it ready to use.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MONTHLY PACKAGES QUESTIONS ─── -->
+  <section class="fq-section fq-deep">
+    <div class="fq-section-inner">
+      <div class="fq-section-header">
+        <div class="fq-label">Monthly Packages</div>
+        <h2 class="fq-title">Monthly <span>Packages</span></h2>
+      </div>
+      <div class="fq-list">
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">Do you offer monthly packages?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Yes. Monthly content packages are available for performers, magicians, businesses, and YouTube channels who need consistent fresh video content every month. A monthly package means priority turnaround, consistent delivery, and one less thing to worry about. Reach out and I'll put together the right package for your needs.</p></div>
+        </div>
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">What does a monthly package include?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Every monthly package is customized based on what you need — social media clips, performance highlights, YouTube videos, promo updates, or a mix of everything. Pricing is based on volume and content type. Get in touch and I'll build something that works for your budget and goals.</p></div>
+        </div>
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">Can I cancel a monthly package?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Yes — monthly packages are flexible. There are no long-term contracts. If your needs change just reach out and we'll adjust or cancel accordingly. The goal is a working relationship that works for both of us long term.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRICING QUESTIONS ─── -->
+  <section class="fq-section fq-dark">
+    <div class="fq-section-inner">
+      <div class="fq-section-header">
+        <div class="fq-label">Pricing</div>
+        <h2 class="fq-title">Pricing <span>Questions</span></h2>
+      </div>
+      <div class="fq-list">
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">What's your pricing?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Pricing depends on the type of edit, footage amount, and project scope. Every project is different so I don't publish a fixed price list. The best way to get an accurate quote is to reach out with details about your project — I'll respond quickly with pricing that makes sense for what you need.</p></div>
+        </div>
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">Do you require a deposit?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Yes — a deposit is required before work begins on any project. This is discussed and agreed on during the initial quote process. Details on deposit amounts and payment terms are covered when we set up your project.</p></div>
+        </div>
+
+        <div class="fq-item">
+          <button class="fq-q" onclick="toggleFaq(this)">
+            <span class="fq-q-text">What payment methods do you accept?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="fq-a"><p>Payment details are discussed during the project setup. Reach out and we'll cover everything you need to know before any work begins.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT STRIP ─── -->
+  <div class="fq-contact-strip">
+    <span class="fq-contact-text">Still have a question? Just reach out —</span>
+    <a href="tel:+17026660797" class="fq-contact-link">📞 (702) 666-0797</a>
+    <span class="fq-contact-text">or</span>
+    <a href="mailto:contact@laffinedits.com" class="fq-contact-link" style="font-size:1.3rem;">✉️ contact@laffinedits.com</a>
+  </div>
+
+  <!-- ─── CTA ─── -->
+  <section class="fq-cta">
+    <div class="fq-cta-inner">
+      <div class="fq-label" style="justify-content:center;">Ready to Get Started?</div>
+      <h2 class="fq-cta-title">Let's Build Something <span>Great.</span></h2>
+      <p class="fq-cta-sub">Editing that understands performance, protects what matters, and makes people take notice. One project or every month — I've got you covered.</p>
+      <div class="fq-btn-row">
+        <button onclick="document.getElementById('fqQuoteForm').scrollIntoView({behavior:'smooth'})" class="fq-btn-primary">🎩 Request a Quote</button>
+        <a href="tel:+17026660797" class="fq-btn-outline">📞 (702) 666-0797</a>
+        <a href="mailto:contact@laffinedits.com" class="fq-btn-email">✉️ contact@laffinedits.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── QUOTE FORM PLACEHOLDER ─── -->
+  <section class="fq-section" style="background: var(--deep);" id="fqQuoteForm">
+    <div class="fq-section-inner">
+      <div class="fq-section-header">
+        <div class="fq-label">Get Started</div>
+        <h2 class="fq-title">Request a <span>Quote</span></h2>
+        <p class="fq-section-desc">Fast response. No obligation. Let's talk about your project.</p>
+      </div>
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           PASTE YOUR BIZLY FORM EMBED CODE BELOW THIS LINE
+           ============================================================ -->
+      <div style="max-width:700px; margin:0 auto;">
+      <iframe
+        src="https://files.bizlyapp.com/widget/form/Y1WLIvCPVETpQre2Wfet"
+        style="width:100%;height:100%;border:none;border-radius:8px"
+        id="inline-Y1WLIvCPVETpQre2Wfet"
+        data-layout='{"id":"INLINE"}'
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Laffin Edits Quote Request"
+        data-height="undefined"
+        data-layout-iframe-id="inline-Y1WLIvCPVETpQre2Wfet"
+        data-form-id="Y1WLIvCPVETpQre2Wfet"
+        title="Laffin Edits Quote Request">
+      </iframe>
+      <script src="https://files.bizlyapp.com/js/form_embed.js"></script>
+      </div>
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           PASTE YOUR BIZLY FORM EMBED CODE ABOVE THIS LINE
+           ============================================================ -->
+    </div>
+  </section>
+
+</div>
+
+<footer class="le-footer">
+  <div class="le-footer-inner">
+    <div class="le-footer-top">
+
+      <!-- Col 1 — Brand -->
+      <div>
+        <a href="index.html" class="le-footer-logo">
+          <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits">
+          <span class="le-footer-logo-text">Laffin Edits</span>
+        </a>
+        <div class="le-footer-tagline">The World's Only Video Editor Who Is Also a Magician</div>
+        <p class="le-footer-desc">Professional video editing for magicians, performers, entertainers, and businesses. Based in Las Vegas. Serving clients worldwide.</p>
+      </div>
+
+      <!-- Col 2 — Pages -->
+      <div>
+        <div class="le-footer-col-title">Pages</div>
+        <ul class="le-footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Client Work</a></li>
+          <li><a href="performance.html">Performance Edits</a></li>
+          <li><a href="social.html">Social Media</a></li>
+          <li><a href="promos.html">Promo Videos</a></li>
+          <li><a href="monthly.html">Monthly Packages</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 — Contact -->
+      <div>
+        <div class="le-footer-col-title">Contact</div>
+        <div class="le-footer-contact">
+          <a href="tel:+17026660797" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">📞</span>
+            (702) 666-0797
+          </a>
+          <a href="mailto:contact@laffinedits.com" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">✉️</span>
+            contact@laffinedits.com
+          </a>
+          <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">⭐</span>
+            Leave a Google Review
+          </a>
+          <a href="index.html#leQuoteForm" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">🎩</span>
+            Request a Quote
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="le-footer-bottom">
+      <div class="le-footer-copy">© 2026 <span>Laffin Edits</span>. All rights reserved. Las Vegas, NV.</div>
+      <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-google">★★★★★ See Our Google Reviews</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  var item = btn.parentElement;
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.fq-item.open').forEach(function(el) { el.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
+
+var fqObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fq-item').forEach(function(el) {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.3s';
+  fqObserver.observe(el);
+});
+</script>
+</body></html>

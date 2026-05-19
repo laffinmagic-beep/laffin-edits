@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laffin Edits — Monthly Packages | Consistent Video Content Every Month</title>
+  <style>html,body{margin:0;padding:0;background:#06060a;min-width:100%;}</style>
+<style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+.le-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(6,6,10,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 0 24px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s;
+}
+.le-nav.scrolled {
+  background: rgba(6,6,10,0.99);
+  border-bottom-color: rgba(192,57,43,0.35);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+.le-nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.le-nav-logo img {
+  height: 40px; width: 40px; object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(192,57,43,0.4));
+}
+.le-nav-logo-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #f0eeff;
+  text-shadow: 0 0 10px rgba(26,111,212,0.8);
+}
+.le-nav-links {
+  display: flex; align-items: center; gap: 4px;
+  list-style: none;
+}
+.le-nav-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.65);
+  text-decoration: none; padding: 6px 10px; border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.le-nav-links a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-cta {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  background: linear-gradient(135deg, #8b1a10, #e05544);
+  color: #f0eeff; padding: 8px 16px; border-radius: 4px;
+  text-decoration: none; transition: all 0.3s;
+  box-shadow: 0 0 16px rgba(192,57,43,0.3);
+  white-space: nowrap;
+}
+.le-nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 24px rgba(192,57,43,0.5); }
+
+/* Hamburger */
+.le-nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px; background: none; border: none;
+}
+.le-nav-hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: rgba(200,204,224,0.8); border-radius: 2px;
+  transition: all 0.3s;
+}
+.le-nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.le-nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.le-nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.le-nav-mobile {
+  display: none; position: fixed;
+  top: 64px; left: 0; right: 0;
+  background: rgba(6,6,10,0.98);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 20px 24px;
+  flex-direction: column; gap: 4px;
+  z-index: 9998;
+  backdrop-filter: blur(12px);
+}
+.le-nav-mobile.open { display: flex; }
+.le-nav-mobile a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 1rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.7);
+  text-decoration: none; padding: 12px 16px; border-radius: 4px;
+  transition: all 0.2s;
+  border-bottom: 1px solid rgba(26,111,212,0.08);
+}
+.le-nav-mobile a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-mobile .le-nav-cta {
+  margin-top: 8px; text-align: center; padding: 12px;
+}
+
+/* Page offset so content doesn't hide under fixed nav */
+.le-nav-spacer { height: 64px; }
+
+@media (max-width: 900px) {
+  .le-nav-links { display: none; }
+  .le-nav-cta { display: none; }
+  .le-nav-hamburger { display: flex; }
+}
+
+/* ─── FOOTER ─── */
+.le-footer {
+  background: #06060a;
+  border-top: 1px solid rgba(192,57,43,0.2);
+  padding: 50px 24px 30px;
+  width: 100%;
+}
+.le-footer-inner {
+  max-width: 1100px; margin: 0 auto;
+}
+.le-footer-top {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;
+  margin-bottom: 40px;
+}
+.le-footer-logo {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 14px; text-decoration: none;
+}
+.le-footer-logo img { height: 48px; width: 48px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(192,57,43,0.4)); }
+.le-footer-logo-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.2rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #f0eeff;
+  text-shadow: 0 0 10px rgba(26,111,212,0.8);
+}
+.le-footer-tagline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #e05544; margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.le-footer-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem; line-height: 1.65;
+  color: rgba(200,204,224,0.45);
+}
+.le-footer-col-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 0.75rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #e05544; margin-bottom: 16px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.le-footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.le-footer-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.82rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(200,204,224,0.5); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-links a:hover { color: #f0eeff; }
+.le-footer-contact { display: flex; flex-direction: column; gap: 10px; }
+.le-footer-contact-item {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Inter', sans-serif; font-size: 0.85rem;
+  color: rgba(200,204,224,0.6); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-contact-item:hover { color: #f0eeff; }
+.le-footer-contact-icon { font-size: 1rem; flex-shrink: 0; }
+.le-footer-bottom {
+  border-top: 1px solid rgba(26,111,212,0.1);
+  padding-top: 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.le-footer-copy {
+  font-family: 'Inter', sans-serif; font-size: 0.78rem;
+  color: rgba(200,204,224,0.3); letter-spacing: 0.5px;
+}
+.le-footer-copy span { color: #e05544; }
+.le-footer-google {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.4); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-google:hover { color: #e05544; }
+
+@media (max-width: 900px) {
+  .le-footer-top { grid-template-columns: 1fr; gap: 30px; }
+  .le-footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+
+<!-- HEADER HTML -->
+<nav class="le-nav" id="leNav">
+  <a href="index.html" class="le-nav-logo">
+    <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits">
+    <span class="le-nav-logo-text">Laffin Edits</span>
+  </a>
+  <ul class="le-nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="performance.html">Performance</a></li>
+    <li><a href="social.html">Social Media</a></li>
+    <li><a href="promos.html">Promos</a></li>
+    <li><a href="monthly.html">Monthly</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a></li>
+  </ul>
+  <button class="le-nav-hamburger" id="leHamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="le-nav-mobile" id="leMobileNav">
+  <a href="index.html">Home</a>
+  <a href="work.html">Work</a>
+  <a href="performance.html">Performance Edits</a>
+  <a href="social.html">Social Media</a>
+  <a href="promos.html">Promos</a>
+  <a href="monthly.html">Monthly Packages</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a>
+</div>
+
+<div class="le-nav-spacer"></div>
+
+<script>
+function toggleMobileNav() {
+  var nav = document.getElementById('leMobileNav');
+  var btn = document.getElementById('leHamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('leNav');
+  if (window.scrollY > 20) { nav.classList.add('scrolled'); }
+  else { nav.classList.remove('scrolled'); }
+});
+</script>
+
+<!-- ============================================================
+     LAFFIN EDITS — MONTHLY PACKAGES PAGE
+     Paste this entire block into a Custom Code element in Bizly
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+.mp-wrap * { margin: 0; padding: 0; box-sizing: border-box; }
+.mp-wrap {
+  --black:  #06060a;
+  --deep:   #0d0d18;
+  --card:   #0f0f1e;
+  --blue:   #1a6fd4;
+  --blue-bright: #4a9ef5;
+  --blue-dark: #0d4a8a;
+  --red:    #c0392b;
+  --red-bright: #e05544;
+  --silver: #c8cce0;
+  --white:  #f0eeff;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ─── PAGE HERO ─── */
+.mp-hero {
+  min-height: 65vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 100px 24px 80px;
+  text-align: center; position: relative; overflow: hidden;
+  background: var(--black);
+}
+.mp-hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 50%, rgba(26,111,212,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 20% 70%, rgba(192,57,43,0.07) 0%, transparent 60%);
+  z-index: 1; pointer-events: none;
+}
+.mp-hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(26,111,212,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,111,212,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 75%);
+  z-index: 2;
+}
+.mp-hero-content {
+  position: relative; z-index: 3;
+  max-width: 860px;
+  animation: mp-fadeIn 0.8s ease forwards;
+}
+@keyframes mp-fadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.mp-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  text-shadow: 0 0 20px rgba(192,57,43,0.7), 0 0 40px rgba(192,57,43,0.3);
+}
+.mp-label::before, .mp-label::after {
+  content: ''; height: 1px; width: 30px; background: var(--red);
+}
+.mp-hero-h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  letter-spacing: 3px; line-height: 1;
+  color: var(--white); margin-bottom: 20px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9), 0 0 120px rgba(26,111,212,0.7);
+}
+.mp-hero-h1 span { color: var(--red-bright); text-shadow: 0 0 40px rgba(192,57,43,0.8), 0 0 80px rgba(192,57,43,0.4); }
+.mp-hero-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem; line-height: 1.8;
+  color: rgba(200,204,224,0.7);
+  max-width: 640px; margin: 0 auto 36px;
+}
+.mp-btn-primary {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.95rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  background: linear-gradient(135deg, #8b1a10, var(--red));
+  color: var(--white); padding: 14px 32px; border-radius: 4px;
+  transition: all 0.3s; box-shadow: 0 0 24px rgba(192,57,43,0.35);
+  border: none; cursor: pointer; display: inline-block; text-decoration: none;
+}
+.mp-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(192,57,43,0.55); }
+.mp-btn-outline {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.95rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  border: 2px solid rgba(26,111,212,0.4); color: var(--blue-bright);
+  padding: 14px 32px; border-radius: 4px; transition: all 0.3s;
+  display: inline-block; cursor: pointer; background: transparent;
+  text-decoration: none;
+}
+.mp-btn-outline:hover { border-color: var(--blue); color: var(--white); transform: translateY(-2px); background: rgba(26,111,212,0.1); }
+.mp-btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ─── SECTIONS ─── */
+.mp-section { padding: 80px 24px; width: 100%; }
+.mp-section-inner { max-width: 1200px; margin: 0 auto; }
+.mp-section-header { text-align: center; margin-bottom: 50px; }
+.mp-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: 2px; line-height: 1; margin-bottom: 16px;
+  text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.mp-title span { color: var(--red-bright); text-shadow: 0 0 30px rgba(192,57,43,0.8), 0 0 60px rgba(192,57,43,0.3); }
+.mp-section-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem; line-height: 1.75;
+  color: rgba(200,204,224,0.55); max-width: 580px; margin: 0 auto;
+}
+.mp-dark { background: var(--black); }
+.mp-deep { background: var(--deep); position: relative; }
+.mp-deep::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--blue), transparent); }
+
+/* ─── WHY MONTHLY ─── */
+.mp-why-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.mp-why-card {
+  background: var(--card);
+  border: 1px solid rgba(26,111,212,0.15);
+  border-radius: 12px; padding: 32px 24px;
+  text-align: center; transition: all 0.3s;
+  position: relative; overflow: hidden;
+}
+.mp-why-card::before {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #8b1a10, var(--red-bright));
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+}
+.mp-why-card:hover { border-color: rgba(192,57,43,0.3); transform: translateY(-5px); box-shadow: 0 16px 50px rgba(0,0,0,0.6), 0 0 20px rgba(192,57,43,0.1); }
+.mp-why-card:hover::before { transform: scaleX(1); }
+.mp-why-icon { font-size: 2.2rem; margin-bottom: 16px; }
+.mp-why-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 1.2rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--white); margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,0.8);
+}
+.mp-why-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem; line-height: 1.7;
+  color: rgba(200,204,224,0.55);
+}
+
+/* ─── THE PROBLEM ─── */
+.mp-problem-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+.mp-problem-p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem; line-height: 1.85;
+  color: rgba(200,204,224,0.72); margin-bottom: 20px;
+}
+.mp-highlight {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 1.25rem;
+  color: var(--white); font-style: italic;
+  border-top: 3px solid var(--red);
+  border-bottom: 3px solid var(--red);
+  padding: 18px 28px; margin: 32px 0;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,0.8);
+}
+
+/* ─── WHAT'S INCLUDED ─── */
+.mp-includes-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 900px; margin: 0 auto;
+}
+.mp-include-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  background: rgba(26,111,212,0.05);
+  border: 1px solid rgba(26,111,212,0.12);
+  border-radius: 10px; padding: 20px 22px;
+  transition: all 0.3s;
+}
+.mp-include-item:hover { border-color: rgba(192,57,43,0.3); background: rgba(192,57,43,0.05); }
+.mp-include-icon {
+  color: var(--red-bright); font-size: 1.1rem;
+  font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.7);
+}
+.mp-include-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 0.95rem;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  color: var(--white); margin-bottom: 4px;
+  text-shadow: 0 0 8px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,0.8);
+}
+.mp-include-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem; line-height: 1.6;
+  color: rgba(200,204,224,0.55);
+}
+
+/* ─── WHO IT'S FOR ─── */
+.mp-who-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.mp-who-card {
+  background: var(--card);
+  border: 1px solid rgba(26,111,212,0.15);
+  border-radius: 12px; padding: 28px 22px;
+  text-align: center; transition: all 0.3s;
+}
+.mp-who-card:hover { border-color: rgba(192,57,43,0.3); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+.mp-who-icon { font-size: 2rem; margin-bottom: 14px; }
+.mp-who-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 1.1rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--white); margin-bottom: 8px;
+  text-shadow: 0 0 8px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,0.8);
+}
+.mp-who-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem; line-height: 1.65;
+  color: rgba(200,204,224,0.5);
+}
+
+/* ─── HOW IT WORKS ─── */
+.mp-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; position: relative; margin-top: 50px;
+}
+.mp-steps::before {
+  content: ''; position: absolute; top: 30px; left: 12%; right: 12%; height: 1px;
+  background: linear-gradient(90deg, var(--blue-dark), var(--blue-bright), var(--blue-dark));
+}
+.mp-step { text-align: center; padding: 0 12px; }
+.mp-step-num {
+  width: 60px; height: 60px;
+  background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+  font-family: 'Oswald', sans-serif; font-size: 1.4rem;
+  box-shadow: 0 0 20px rgba(26,111,212,0.4);
+  color: var(--white);
+}
+.mp-step-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 0.85rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--white); margin-bottom: 6px;
+  text-shadow: 0 0 8px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,0.8);
+}
+.mp-step-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem; line-height: 1.55;
+  color: rgba(200,204,224,0.5);
+}
+
+/* ─── URGENCY STRIP ─── */
+.mp-urgency {
+  background: linear-gradient(135deg, rgba(192,57,43,0.12), rgba(192,57,43,0.06));
+  border-top: 1px solid rgba(192,57,43,0.25);
+  border-bottom: 1px solid rgba(192,57,43,0.25);
+  padding: 28px 24px; text-align: center;
+}
+.mp-urgency-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 1.3rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--white);
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,0.8);
+}
+.mp-urgency-text span {
+  color: var(--red-bright);
+  text-shadow: 0 0 20px rgba(192,57,43,0.8);
+}
+
+/* ─── CTA ─── */
+.mp-cta {
+  background: linear-gradient(135deg, #080d1a 0%, #0a1020 50%, #080d1a 100%);
+  padding: 80px 24px; text-align: center; position: relative; overflow: hidden;
+}
+.mp-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(192,57,43,0.1), transparent); }
+.mp-cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.mp-cta-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 2px; line-height: 1.05; margin-bottom: 16px;
+  text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.mp-cta-title span { color: var(--red-bright); text-shadow: 0 0 30px rgba(192,57,43,0.8), 0 0 60px rgba(192,57,43,0.3); }
+.mp-cta-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; color: rgba(200,204,224,0.65);
+  margin-bottom: 36px; line-height: 1.7;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .mp-why-grid { grid-template-columns: 1fr 1fr; }
+  .mp-includes-grid { grid-template-columns: 1fr; }
+  .mp-who-grid { grid-template-columns: 1fr 1fr; }
+  .mp-steps { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .mp-steps::before { display: none; }
+  .mp-btn-row { flex-direction: column; align-items: center; }
+  .mp-btn-primary, .mp-btn-outline { width: 100%; max-width: 300px; text-align: center; }
+}
+@media (max-width: 600px) {
+  .mp-why-grid { grid-template-columns: 1fr; }
+  .mp-who-grid { grid-template-columns: 1fr; }
+  .mp-steps { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="mp-wrap">
+
+  <!-- ─── HERO ─── -->
+  <section class="mp-hero">
+    <div class="mp-hero-bg"></div>
+    <div class="mp-hero-grid"></div>
+    <div class="mp-hero-content">
+      <div class="mp-label">Recurring Work · Consistent Content</div>
+      <h1 class="mp-hero-h1">Stop Chasing.<br>Start <span>Growing.</span></h1>
+      <p class="mp-hero-desc">The performers and businesses that stay booked aren't the ones who post when they feel like it. They're the ones who show up consistently — every single month. A monthly content package means fresh edited video delivered on a schedule, without the stress.</p>
+      <div class="mp-btn-row">
+        <button onclick="document.getElementById('mpQuoteForm').scrollIntoView({behavior:'smooth'})" class="mp-btn-primary">🎩 Get a Monthly Package</button>
+        <a href="tel:+17026660797" class="mp-btn-outline">📞 (702) 666-0797</a>
+      
+        <a href="mailto:contact@laffinedits.com" class="mp-btn-outline">✉️ contact@laffinedits.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── THE PROBLEM ─── -->
+  <section class="mp-section mp-deep">
+    <div class="mp-section-inner">
+      <div class="mp-problem-inner">
+        <div class="mp-label">The Problem Most Performers Have</div>
+        <h2 class="mp-title">Inconsistency <span>Kills Growth.</span></h2>
+        <p class="mp-problem-p">You film a great performance. You edit something quick. You post it. Then nothing for three weeks because life gets busy. By the time you post again your audience has moved on and the algorithm has forgotten you exist.</p>
+        <p class="mp-problem-p">The performers growing fastest on social media aren't necessarily the most talented — they're the most consistent. Regular content keeps you visible, keeps you relevant, and keeps bookers thinking of you when a gig opens up.</p>
+        <div class="mp-highlight">"You don't need to go viral. You need to show up every month — and I'll make sure you do."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY MONTHLY ─── -->
+  <section class="mp-section mp-dark">
+    <div class="mp-section-inner">
+      <div class="mp-section-header">
+        <div class="mp-label">Why Monthly Clients Win</div>
+        <h2 class="mp-title">The <span>Advantages</span></h2>
+      </div>
+      <div class="mp-why-grid">
+        <div class="mp-why-card">
+          <div class="mp-why-icon">📅</div>
+          <div class="mp-why-title">Stay Consistently Visible</div>
+          <p class="mp-why-desc">Fresh content every month keeps you in front of your audience, your followers, and the bookers who might hire you. Out of sight means out of mind — monthly packages fix that.</p>
+        </div>
+        <div class="mp-why-card">
+          <div class="mp-why-icon">💰</div>
+          <div class="mp-why-title">Better Value Per Edit</div>
+          <p class="mp-why-desc">Monthly clients get more for their money. The more we work together the better I know your brand — which means faster edits, sharper content, and better results over time.</p>
+        </div>
+        <div class="mp-why-card">
+          <div class="mp-why-icon">⚡</div>
+          <div class="mp-why-title">Priority Turnaround</div>
+          <p class="mp-why-desc">Monthly clients go to the front of the queue. You're not waiting weeks for a first draft — you get priority scheduling and faster delivery every single month.</p>
+        </div>
+        <div class="mp-why-card">
+          <div class="mp-why-icon">🎯</div>
+          <div class="mp-why-title">Content That Gets Better</div>
+          <p class="mp-why-desc">The longer we work together, the more I understand your brand, your audience, and what works. Every month the content gets sharper and more effective.</p>
+        </div>
+        <div class="mp-why-card">
+          <div class="mp-why-icon">😌</div>
+          <div class="mp-why-title">Zero Stress</div>
+          <p class="mp-why-desc">Send your footage. I handle the rest. No chasing editors, no starting from scratch every time, no wondering if this month you'll get something done. It's handled.</p>
+        </div>
+        <div class="mp-why-card">
+          <div class="mp-why-icon">📈</div>
+          <div class="mp-why-title">Compound Growth</div>
+          <p class="mp-why-desc">Each piece of content builds on the last. Your audience grows. Your credibility builds. Your booking requests increase. Consistency compounds — and that's how careers are built.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHAT'S INCLUDED ─── -->
+  <section class="mp-section mp-deep">
+    <div class="mp-section-inner">
+      <div class="mp-section-header">
+        <div class="mp-label">Every Month You Get</div>
+        <h2 class="mp-title">What's <span>Included</span></h2>
+        <p class="mp-section-desc">Every monthly package is built around your goals — not a generic template. Here's what every client gets.</p>
+      </div>
+      <div class="mp-includes-grid">
+        <div class="mp-include-item">
+          <span class="mp-include-icon">✔</span>
+          <div>
+            <div class="mp-include-title">Custom Edited Content</div>
+            <div class="mp-include-text">Your footage edited into polished platform-ready clips every month. Performance highlights, social clips, promos — whatever your goals require.</div>
+          </div>
+        </div>
+        <div class="mp-include-item">
+          <span class="mp-include-icon">✔</span>
+          <div>
+            <div class="mp-include-title">Platform-Optimized Formats</div>
+            <div class="mp-include-text">Every edit formatted for the platform it's going on — Instagram Reels, TikTok, YouTube Shorts, website, or booking profiles.</div>
+          </div>
+        </div>
+        <div class="mp-include-item">
+          <span class="mp-include-icon">✔</span>
+          <div>
+            <div class="mp-include-title">Priority Scheduling</div>
+            <div class="mp-include-text">Monthly clients always go first. Your projects get priority over one-off bookings — faster turnaround, every month, guaranteed.</div>
+          </div>
+        </div>
+        <div class="mp-include-item">
+          <span class="mp-include-icon">✔</span>
+          <div>
+            <div class="mp-include-title">Consistent Style & Branding</div>
+            <div class="mp-include-text">The longer we work together the better I know your brand. Consistent look, consistent feel, consistent quality — every single month.</div>
+          </div>
+        </div>
+        <div class="mp-include-item">
+          <span class="mp-include-icon">✔</span>
+          <div>
+            <div class="mp-include-title">2 Revision Rounds Per Deliverable</div>
+            <div class="mp-include-text">Every edit includes two revision rounds. Your feedback shapes the final product — and the longer we work together, the fewer revisions you'll need.</div>
+          </div>
+        </div>
+        <div class="mp-include-item">
+          <span class="mp-include-icon">✔</span>
+          <div>
+            <div class="mp-include-title">Flexible & Customizable</div>
+            <div class="mp-include-text">Need more social clips one month and a full promo the next? Monthly packages flex with your needs. Reach out and we'll adjust to what's working.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHO IT'S FOR ─── -->
+  <section class="mp-section mp-dark">
+    <div class="mp-section-inner">
+      <div class="mp-section-header">
+        <div class="mp-label">Is This For You?</div>
+        <h2 class="mp-title">Who <span>Benefits Most</span></h2>
+        <p class="mp-section-desc">Monthly packages work for anyone who needs consistent video content — but these are the clients who see the biggest results.</p>
+      </div>
+      <div class="mp-who-grid">
+        <div class="mp-who-card">
+          <div class="mp-who-icon">🪄</div>
+          <div class="mp-who-title">Working Magicians</div>
+          <p class="mp-who-desc">You perform regularly but rarely post. A monthly package turns every gig into fresh content — building your online presence without adding to your workload.</p>
+        </div>
+        <div class="mp-who-card">
+          <div class="mp-who-icon">🎭</div>
+          <div class="mp-who-title">Performers & Entertainers</div>
+          <p class="mp-who-desc">Comedians, variety acts, musicians, speakers — anyone who performs live and needs a consistent stream of professional content to stay visible and keep booking.</p>
+        </div>
+        <div class="mp-who-card">
+          <div class="mp-who-icon">🏢</div>
+          <div class="mp-who-title">Businesses & Brands</div>
+          <p class="mp-who-desc">Any business that needs regular video content for marketing, social media, or client outreach. Consistent content keeps your brand front of mind and drives action.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ─── -->
+  <section class="mp-section mp-deep">
+    <div class="mp-section-inner">
+      <div class="mp-section-header">
+        <div class="mp-label">Simple Every Month</div>
+        <h2 class="mp-title">How It <span>Works</span></h2>
+      </div>
+      <div class="mp-steps">
+        <div class="mp-step">
+          <div class="mp-step-num">1</div>
+          <div class="mp-step-title">We Set Up Your Package</div>
+          <p class="mp-step-desc">We discuss your goals, your platforms, and how much content you need. I build a package around what works for you.</p>
+        </div>
+        <div class="mp-step">
+          <div class="mp-step-num">2</div>
+          <div class="mp-step-title">You Send Your Footage</div>
+          <p class="mp-step-desc">Each month you send over your raw footage — performances, events, behind the scenes, whatever you've got.</p>
+        </div>
+        <div class="mp-step">
+          <div class="mp-step-num">3</div>
+          <div class="mp-step-title">I Edit & Deliver</div>
+          <p class="mp-step-desc">I edit everything, format it for your platforms, and deliver polished ready-to-post content — on schedule, every month.</p>
+        </div>
+        <div class="mp-step">
+          <div class="mp-step-num">4</div>
+          <div class="mp-step-title">You Post & Grow</div>
+          <p class="mp-step-desc">You post consistently, your audience grows, your credibility builds, and bookers start noticing. That's how it compounds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── URGENCY STRIP ─── -->
+  <div class="mp-urgency">
+    <p class="mp-urgency-text">The performers growing fastest right now all have one thing in common — <span>they show up every single month.</span></p>
+  </div>
+
+  <!-- ─── CTA ─── -->
+  <section class="mp-cta">
+    <div class="mp-cta-inner">
+      <div class="mp-label" style="justify-content:center;">Ready to Stay Consistent?</div>
+      <h2 class="mp-cta-title">Let's Build Your <span>Monthly Package.</span></h2>
+      <p class="mp-cta-sub">One conversation and we'll build a package that keeps your content flowing, your audience growing, and your calendar filling up.</p>
+      <div class="mp-btn-row">
+        <button onclick="document.getElementById('mpQuoteForm').scrollIntoView({behavior:'smooth'})" class="mp-btn-primary">🎩 Get a Monthly Package</button>
+        <a href="tel:+17026660797" class="mp-btn-outline">📞 (702) 666-0797</a>
+      
+        <a href="mailto:contact@laffinedits.com" class="mp-btn-outline">✉️ contact@laffinedits.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── QUOTE FORM PLACEHOLDER ─── -->
+  <section class="mp-section" style="background: var(--deep);" id="mpQuoteForm">
+    <div class="mp-section-inner">
+      <div class="mp-section-header">
+        <div class="mp-label">Get Started</div>
+        <h2 class="mp-title">Start Your <span>Package</span></h2>
+        <p class="mp-section-desc">Tell me about your goals and I'll put together the right package for you. Fast response. No obligation.</p>
+      </div>
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           PASTE YOUR BIZLY FORM EMBED CODE BELOW THIS LINE
+           ============================================================ -->
+      <div style="max-width:700px; margin:0 auto;">
+      <iframe
+        src="https://files.bizlyapp.com/widget/form/Y1WLIvCPVETpQre2Wfet"
+        style="width:100%;height:100%;border:none;border-radius:8px"
+        id="inline-Y1WLIvCPVETpQre2Wfet"
+        data-layout='{"id":"INLINE"}'
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Laffin Edits Quote Request"
+        data-height="undefined"
+        data-layout-iframe-id="inline-Y1WLIvCPVETpQre2Wfet"
+        data-form-id="Y1WLIvCPVETpQre2Wfet"
+        title="Laffin Edits Quote Request">
+      </iframe>
+      <script src="https://files.bizlyapp.com/js/form_embed.js"></script>
+      </div>
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           PASTE YOUR BIZLY FORM EMBED CODE ABOVE THIS LINE
+           ============================================================ -->
+    </div>
+  </section>
+
+</div>
+
+<footer class="le-footer">
+  <div class="le-footer-inner">
+    <div class="le-footer-top">
+
+      <!-- Col 1 — Brand -->
+      <div>
+        <a href="index.html" class="le-footer-logo">
+          <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits">
+          <span class="le-footer-logo-text">Laffin Edits</span>
+        </a>
+        <div class="le-footer-tagline">The World's Only Video Editor Who Is Also a Magician</div>
+        <p class="le-footer-desc">Professional video editing for magicians, performers, entertainers, and businesses. Based in Las Vegas. Serving clients worldwide.</p>
+      </div>
+
+      <!-- Col 2 — Pages -->
+      <div>
+        <div class="le-footer-col-title">Pages</div>
+        <ul class="le-footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Client Work</a></li>
+          <li><a href="performance.html">Performance Edits</a></li>
+          <li><a href="social.html">Social Media</a></li>
+          <li><a href="promos.html">Promo Videos</a></li>
+          <li><a href="monthly.html">Monthly Packages</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 — Contact -->
+      <div>
+        <div class="le-footer-col-title">Contact</div>
+        <div class="le-footer-contact">
+          <a href="tel:+17026660797" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">📞</span>
+            (702) 666-0797
+          </a>
+          <a href="mailto:contact@laffinedits.com" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">✉️</span>
+            contact@laffinedits.com
+          </a>
+          <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">⭐</span>
+            Leave a Google Review
+          </a>
+          <a href="index.html#leQuoteForm" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">🎩</span>
+            Request a Quote
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="le-footer-bottom">
+      <div class="le-footer-copy">© 2026 <span>Laffin Edits</span>. All rights reserved. Las Vegas, NV.</div>
+      <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-google">★★★★★ See Our Google Reviews</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var mpObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.mp-why-card, .mp-include-item, .mp-who-card, .mp-step').forEach(function(el) {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.3s, box-shadow 0.3s';
+  mpObserver.observe(el);
+});
+</script>
+</body></html>

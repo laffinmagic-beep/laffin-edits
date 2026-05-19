@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laffin Edits — Promo Videos | Get Booked with a Strong Promo</title>
+  <style>html,body{margin:0;padding:0;background:#06060a;min-width:100%;}</style>
+<style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+.le-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(6,6,10,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 0 24px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s;
+}
+.le-nav.scrolled {
+  background: rgba(6,6,10,0.99);
+  border-bottom-color: rgba(192,57,43,0.35);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+.le-nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.le-nav-logo img {
+  height: 40px; width: 40px; object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(192,57,43,0.4));
+}
+.le-nav-logo-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #f0eeff;
+  text-shadow: 0 0 10px rgba(26,111,212,0.8);
+}
+.le-nav-links {
+  display: flex; align-items: center; gap: 4px;
+  list-style: none;
+}
+.le-nav-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.65);
+  text-decoration: none; padding: 6px 10px; border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.le-nav-links a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-cta {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  background: linear-gradient(135deg, #8b1a10, #e05544);
+  color: #f0eeff; padding: 8px 16px; border-radius: 4px;
+  text-decoration: none; transition: all 0.3s;
+  box-shadow: 0 0 16px rgba(192,57,43,0.3);
+  white-space: nowrap;
+}
+.le-nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 24px rgba(192,57,43,0.5); }
+
+/* Hamburger */
+.le-nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px; background: none; border: none;
+}
+.le-nav-hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: rgba(200,204,224,0.8); border-radius: 2px;
+  transition: all 0.3s;
+}
+.le-nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.le-nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.le-nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.le-nav-mobile {
+  display: none; position: fixed;
+  top: 64px; left: 0; right: 0;
+  background: rgba(6,6,10,0.98);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 20px 24px;
+  flex-direction: column; gap: 4px;
+  z-index: 9998;
+  backdrop-filter: blur(12px);
+}
+.le-nav-mobile.open { display: flex; }
+.le-nav-mobile a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 1rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.7);
+  text-decoration: none; padding: 12px 16px; border-radius: 4px;
+  transition: all 0.2s;
+  border-bottom: 1px solid rgba(26,111,212,0.08);
+}
+.le-nav-mobile a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-mobile .le-nav-cta {
+  margin-top: 8px; text-align: center; padding: 12px;
+}
+
+/* Page offset so content doesn't hide under fixed nav */
+.le-nav-spacer { height: 64px; }
+
+@media (max-width: 900px) {
+  .le-nav-links { display: none; }
+  .le-nav-cta { display: none; }
+  .le-nav-hamburger { display: flex; }
+}
+
+/* ─── FOOTER ─── */
+.le-footer {
+  background: #06060a;
+  border-top: 1px solid rgba(192,57,43,0.2);
+  padding: 50px 24px 30px;
+  width: 100%;
+}
+.le-footer-inner {
+  max-width: 1100px; margin: 0 auto;
+}
+.le-footer-top {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;
+  margin-bottom: 40px;
+}
+.le-footer-logo {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 14px; text-decoration: none;
+}
+.le-footer-logo img { height: 48px; width: 48px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(192,57,43,0.4)); }
+.le-footer-logo-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.2rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #f0eeff;
+  text-shadow: 0 0 10px rgba(26,111,212,0.8);
+}
+.le-footer-tagline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #e05544; margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.le-footer-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem; line-height: 1.65;
+  color: rgba(200,204,224,0.45);
+}
+.le-footer-col-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 0.75rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #e05544; margin-bottom: 16px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.le-footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.le-footer-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.82rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(200,204,224,0.5); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-links a:hover { color: #f0eeff; }
+.le-footer-contact { display: flex; flex-direction: column; gap: 10px; }
+.le-footer-contact-item {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Inter', sans-serif; font-size: 0.85rem;
+  color: rgba(200,204,224,0.6); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-contact-item:hover { color: #f0eeff; }
+.le-footer-contact-icon { font-size: 1rem; flex-shrink: 0; }
+.le-footer-bottom {
+  border-top: 1px solid rgba(26,111,212,0.1);
+  padding-top: 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.le-footer-copy {
+  font-family: 'Inter', sans-serif; font-size: 0.78rem;
+  color: rgba(200,204,224,0.3); letter-spacing: 0.5px;
+}
+.le-footer-copy span { color: #e05544; }
+.le-footer-google {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.4); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-google:hover { color: #e05544; }
+
+@media (max-width: 900px) {
+  .le-footer-top { grid-template-columns: 1fr; gap: 30px; }
+  .le-footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+
+<!-- HEADER HTML -->
+<nav class="le-nav" id="leNav">
+  <a href="index.html" class="le-nav-logo">
+    <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits">
+    <span class="le-nav-logo-text">Laffin Edits</span>
+  </a>
+  <ul class="le-nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="performance.html">Performance</a></li>
+    <li><a href="social.html">Social Media</a></li>
+    <li><a href="promos.html">Promos</a></li>
+    <li><a href="monthly.html">Monthly</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a></li>
+  </ul>
+  <button class="le-nav-hamburger" id="leHamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="le-nav-mobile" id="leMobileNav">
+  <a href="index.html">Home</a>
+  <a href="work.html">Work</a>
+  <a href="performance.html">Performance Edits</a>
+  <a href="social.html">Social Media</a>
+  <a href="promos.html">Promos</a>
+  <a href="monthly.html">Monthly Packages</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a>
+</div>
+
+<div class="le-nav-spacer"></div>
+
+<script>
+function toggleMobileNav() {
+  var nav = document.getElementById('leMobileNav');
+  var btn = document.getElementById('leHamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('leNav');
+  if (window.scrollY > 20) { nav.classList.add('scrolled'); }
+  else { nav.classList.remove('scrolled'); }
+});
+</script>
+
+<!-- ============================================================
+     LAFFIN EDITS — PROMO VIDEOS PAGE
+     Paste this entire block into a Custom Code element in Bizly
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+.pr-wrap * { margin: 0; padding: 0; box-sizing: border-box; }
+.pr-wrap {
+  --black:  #06060a;
+  --deep:   #0d0d18;
+  --card:   #0f0f1e;
+  --blue:   #1a6fd4;
+  --blue-bright: #4a9ef5;
+  --blue-dark: #0d4a8a;
+  --red:    #c0392b;
+  --red-bright: #e05544;
+  --silver: #c8cce0;
+  --white:  #f0eeff;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ─── PAGE HERO ─── */
+.pr-hero {
+  min-height: 60vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 100px 24px 80px;
+  text-align: center; position: relative; overflow: hidden;
+  background: var(--black);
+}
+.pr-hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 50%, rgba(26,111,212,0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 40%, rgba(192,57,43,0.06) 0%, transparent 60%);
+  z-index: 1; pointer-events: none;
+}
+.pr-hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(26,111,212,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,111,212,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 75%);
+  z-index: 2;
+}
+.pr-hero-content {
+  position: relative; z-index: 3;
+  max-width: 800px;
+  animation: pr-fadeIn 0.8s ease forwards;
+}
+@keyframes pr-fadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.pr-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  text-shadow: 0 0 20px rgba(192,57,43,0.7), 0 0 40px rgba(192,57,43,0.3);
+}
+.pr-label::before, .pr-label::after {
+  content: ''; height: 1px; width: 30px; background: var(--red);
+}
+.pr-hero-h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 6rem);
+  letter-spacing: 3px; line-height: 0.95;
+  color: var(--white); margin-bottom: 20px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9), 0 0 120px rgba(26,111,212,0.7);
+}
+.pr-hero-h1 span { color: var(--red-bright); text-shadow: 0 0 40px rgba(192,57,43,0.8), 0 0 80px rgba(192,57,43,0.4); }
+.pr-hero-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem; line-height: 1.75;
+  color: rgba(200,204,224,0.65);
+  max-width: 580px; margin: 0 auto 32px;
+}
+.pr-btn-primary {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.95rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  background: linear-gradient(135deg, #8b1a10, var(--red));
+  color: var(--white); padding: 14px 32px; border-radius: 4px;
+  transition: all 0.3s; box-shadow: 0 0 24px rgba(192,57,43,0.35);
+  border: none; cursor: pointer; display: inline-block; text-decoration: none;
+}
+.pr-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(192,57,43,0.55); }
+.pr-btn-outline {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.95rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  border: 2px solid rgba(26,111,212,0.4); color: var(--blue-bright);
+  padding: 14px 32px; border-radius: 4px; transition: all 0.3s;
+  display: inline-block; cursor: pointer; background: transparent;
+  text-decoration: none;
+}
+.pr-btn-outline:hover { border-color: var(--blue); color: var(--white); transform: translateY(-2px); background: rgba(26,111,212,0.1); }
+.pr-btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ─── SECTIONS ─── */
+.pr-section { padding: 80px 24px; width: 100%; }
+.pr-section-inner { max-width: 1200px; margin: 0 auto; }
+.pr-section-header { text-align: center; margin-bottom: 50px; }
+.pr-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: 2px; line-height: 1; margin-bottom: 16px;
+  text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.pr-title span { color: var(--red-bright); text-shadow: 0 0 30px rgba(192,57,43,0.8), 0 0 60px rgba(192,57,43,0.3); }
+.pr-section-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem; line-height: 1.75;
+  color: rgba(200,204,224,0.55); max-width: 560px; margin: 0 auto;
+}
+.pr-dark { background: var(--black); }
+.pr-deep { background: var(--deep); position: relative; }
+.pr-deep::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--blue), transparent); }
+
+/* ─── WHAT A PROMO DOES ─── */
+.pr-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  max-width: 900px; margin: 0 auto;
+}
+.pr-card {
+  background: var(--card);
+  border: 1px solid rgba(26,111,212,0.15);
+  border-radius: 12px; padding: 32px 28px;
+  transition: all 0.3s; position: relative; overflow: hidden;
+}
+.pr-card::before {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #8b1a10, var(--red-bright));
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+}
+.pr-card:hover { border-color: rgba(192,57,43,0.3); transform: translateY(-5px); box-shadow: 0 16px 50px rgba(0,0,0,0.6), 0 0 20px rgba(192,57,43,0.1); }
+.pr-card:hover::before { transform: scaleX(1); }
+.pr-card-icon { font-size: 2rem; margin-bottom: 14px; }
+.pr-card-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 1.1rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--white); margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,0.8);
+}
+.pr-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; line-height: 1.7;
+  color: rgba(200,204,224,0.55);
+}
+
+/* ─── ROI SECTION ─── */
+.pr-roi-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+.pr-roi-p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; line-height: 1.85;
+  color: rgba(200,204,224,0.72); margin-bottom: 20px;
+}
+.pr-highlight {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 1.2rem;
+  color: var(--white); font-style: italic;
+  border-top: 3px solid var(--red);
+  border-bottom: 3px solid var(--red);
+  padding: 16px 24px; margin: 28px 0;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,0.8);
+}
+
+/* ─── TYPES OF PROMOS ─── */
+.pr-types-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.pr-type-card {
+  background: var(--card);
+  border: 1px solid rgba(26,111,212,0.15);
+  border-radius: 12px; padding: 28px 22px;
+  text-align: center; transition: all 0.3s;
+}
+.pr-type-card:hover { border-color: rgba(192,57,43,0.3); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+.pr-type-icon { font-size: 2rem; margin-bottom: 14px; }
+.pr-type-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 1.2rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--white); margin-bottom: 8px;
+  text-shadow: 0 0 8px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,0.8);
+}
+.pr-type-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem; line-height: 1.65;
+  color: rgba(200,204,224,0.5);
+}
+
+/* ─── STATS ─── */
+.pr-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  max-width: 800px; margin: 0 auto;
+}
+.pr-stat {
+  background: rgba(26,111,212,0.06);
+  border: 1px solid rgba(26,111,212,0.15);
+  border-radius: 10px; padding: 28px; text-align: center;
+  transition: all 0.3s;
+}
+.pr-stat:hover { border-color: rgba(192,57,43,0.3); transform: translateY(-4px); }
+.pr-stat-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem; letter-spacing: 2px;
+  color: var(--red-bright); line-height: 1;
+  text-shadow: 0 0 20px rgba(192,57,43,0.7), 0 0 40px rgba(192,57,43,0.3);
+}
+.pr-stat-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 0.8rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--silver); margin-top: 6px;
+}
+
+/* ─── CTA ─── */
+.pr-cta {
+  background: linear-gradient(135deg, #080d1a 0%, #0a1020 50%, #080d1a 100%);
+  padding: 80px 24px; text-align: center; position: relative; overflow: hidden;
+}
+.pr-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(192,57,43,0.08), transparent); }
+.pr-cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.pr-cta-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 2px; line-height: 1.05; margin-bottom: 16px;
+  text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.pr-cta-title span { color: var(--red-bright); text-shadow: 0 0 30px rgba(192,57,43,0.8), 0 0 60px rgba(192,57,43,0.3); }
+.pr-cta-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; color: rgba(200,204,224,0.65);
+  margin-bottom: 36px; line-height: 1.7;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .pr-grid { grid-template-columns: 1fr; }
+  .pr-types-grid { grid-template-columns: 1fr 1fr; }
+  .pr-stats { grid-template-columns: 1fr 1fr; }
+  .pr-btn-row { flex-direction: column; align-items: center; }
+  .pr-btn-primary, .pr-btn-outline { width: 100%; max-width: 300px; text-align: center; }
+}
+@media (max-width: 600px) {
+  .pr-types-grid { grid-template-columns: 1fr; }
+  .pr-stats { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="pr-wrap">
+
+  <!-- ─── HERO ─── -->
+  <section class="pr-hero">
+    <div class="pr-hero-bg"></div>
+    <div class="pr-hero-grid"></div>
+    <div class="pr-hero-content">
+      <div class="pr-label">Get Booked</div>
+      <h1 class="pr-hero-h1">Promo<br><span>Videos</span></h1>
+      <p class="pr-hero-desc">Strong, polished marketing videos that communicate your value at a glance. The difference between getting the gig and being passed over.</p>
+      <div class="pr-btn-row">
+        <button onclick="document.getElementById('prQuoteForm').scrollIntoView({behavior:'smooth'})" class="pr-btn-primary">🎩 Request a Quote</button>
+        <a href="tel:+17026660797" class="pr-btn-outline">📞 (702) 666-0797</a>
+      
+        <a href="mailto:contact@laffinedits.com" class="pr-btn-outline">✉️ contact@laffinedits.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHAT A PROMO DOES ─── -->
+  <section class="pr-section pr-dark">
+    <div class="pr-section-inner">
+      <div class="pr-section-header">
+        <div class="pr-label">What a Promo Video Does</div>
+        <h2 class="pr-title">Your <span>Promo</span></h2>
+        <p class="pr-section-desc">A great promo video is the highest-ROI investment any performer or business can make.</p>
+      </div>
+      <div class="pr-grid">
+        <div class="pr-card">
+          <div class="pr-card-icon">🎯</div>
+          <div class="pr-card-name">Hook Bookers Fast</div>
+          <p class="pr-card-desc">A promo needs to communicate your value in under 90 seconds. Every second is designed with the booker's decision in mind — not the performer's ego.</p>
+        </div>
+        <div class="pr-card">
+          <div class="pr-card-icon">✨</div>
+          <div class="pr-card-name">Polished & Professional</div>
+          <p class="pr-card-desc">Clean intro, strong highlights, and a clear call to action. The kind of video that makes a corporate buyer say "this is who we want at our event."</p>
+        </div>
+        <div class="pr-card">
+          <div class="pr-card-icon">😮</div>
+          <div class="pr-card-name">Reaction-Led Storytelling</div>
+          <p class="pr-card-desc">The best promo for any performer isn't about you — it's about how people react to you. The edit leads with the strongest audience moments.</p>
+        </div>
+        <div class="pr-card">
+          <div class="pr-card-icon">📋</div>
+          <div class="pr-card-name">Versatile & Shareable</div>
+          <p class="pr-card-desc">Works on your website, booking profiles, email pitches, and social channels. One strong video that works everywhere you need it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ROI SECTION ─── -->
+  <section class="pr-section pr-deep">
+    <div class="pr-section-inner">
+      <div class="pr-roi-inner">
+        <div class="pr-label">The Investment That Pays Off</div>
+        <h2 class="pr-title">Why a Promo <span>Matters.</span></h2>
+        <p class="pr-roi-p">Most performers lose bookings not because they aren't good enough — but because their video doesn't show it fast enough. Bookers make decisions in seconds. Your promo is your first impression, your pitch, and your proof all in one.</p>
+        <p class="pr-roi-p">A great promo video is the highest-ROI investment a working performer or business can make. One booking from a strong promo can pay for itself many times over.</p>
+        <div class="pr-highlight">"A strong promo video isn't a luxury — it's the difference between getting the call and being passed over."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STATS ─── -->
+  <section class="pr-section pr-dark">
+    <div class="pr-section-inner">
+      <div class="pr-section-header">
+        <div class="pr-label">The Reality</div>
+        <h2 class="pr-title">What Bookers <span>Want</span></h2>
+      </div>
+      <div class="pr-stats">
+        <div class="pr-stat">
+          <div class="pr-stat-num">:10</div>
+          <div class="pr-stat-label">Seconds to Hook a Booker Before They Move On</div>
+        </div>
+        <div class="pr-stat">
+          <div class="pr-stat-num">60-90</div>
+          <div class="pr-stat-label">Seconds — Ideal Promo Length for Bookers</div>
+        </div>
+        <div class="pr-stat">
+          <div class="pr-stat-num">71%</div>
+          <div class="pr-stat-label">Of Viewers Decide in the First Few Seconds Whether to Keep Watching</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TYPES OF PROMOS ─── -->
+  <section class="pr-section pr-deep">
+    <div class="pr-section-inner">
+      <div class="pr-section-header">
+        <div class="pr-label">Types of Promo Videos</div>
+        <h2 class="pr-title">Built For <span>Every Need</span></h2>
+        <p class="pr-section-desc">Different goals need different promos. Here's what I can build for you.</p>
+      </div>
+      <div class="pr-types-grid">
+        <div class="pr-type-card">
+          <div class="pr-type-icon">🎭</div>
+          <div class="pr-type-name">Performer Promo</div>
+          <p class="pr-type-desc">Built for magicians, entertainers, and variety acts. Showcases your best moments and communicates your value to bookers fast.</p>
+        </div>
+        <div class="pr-type-card">
+          <div class="pr-type-icon">🏢</div>
+          <div class="pr-type-name">Corporate Promo</div>
+          <p class="pr-type-desc">Clean, professional, and polished for corporate clients. Built to impress event planners, HR teams, and decision makers.</p>
+        </div>
+        <div class="pr-type-card">
+          <div class="pr-type-icon">📱</div>
+          <div class="pr-type-name">Business Promo</div>
+          <p class="pr-type-desc">Any business that needs a strong marketing video. Services, products, brands — edited to communicate value and drive action.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="pr-cta">
+    <div class="pr-cta-inner">
+      <div class="pr-label" style="justify-content:center;">Ready to Get More Bookings?</div>
+      <h2 class="pr-cta-title">Let's Build Your <span>Promo.</span></h2>
+      <p class="pr-cta-sub">A great promo video is the highest-ROI investment a working performer or business can make. Let's build yours.</p>
+      <div class="pr-btn-row">
+        <button onclick="document.getElementById('prQuoteForm').scrollIntoView({behavior:'smooth'})" class="pr-btn-primary">🎩 Request a Quote</button>
+        <a href="tel:+17026660797" class="pr-btn-outline">📞 (702) 666-0797</a>
+      
+        <a href="mailto:contact@laffinedits.com" class="pr-btn-outline">✉️ contact@laffinedits.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── QUOTE FORM PLACEHOLDER ─── -->
+  <section class="pr-section" style="background: var(--deep);" id="prQuoteForm">
+    <div class="pr-section-inner">
+      <div class="pr-section-header">
+        <div class="pr-label">Get Started</div>
+        <h2 class="pr-title">Request a <span>Quote</span></h2>
+        <p class="pr-section-desc">Fast response. No obligation. Let's talk about your project.</p>
+      </div>
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           PASTE YOUR BIZLY FORM EMBED CODE BELOW THIS LINE
+           ============================================================ -->
+      <div style="max-width:700px; margin:0 auto;">
+      <iframe
+        src="https://files.bizlyapp.com/widget/form/Y1WLIvCPVETpQre2Wfet"
+        style="width:100%;height:100%;border:none;border-radius:8px"
+        id="inline-Y1WLIvCPVETpQre2Wfet"
+        data-layout='{"id":"INLINE"}'
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Laffin Edits Quote Request"
+        data-height="undefined"
+        data-layout-iframe-id="inline-Y1WLIvCPVETpQre2Wfet"
+        data-form-id="Y1WLIvCPVETpQre2Wfet"
+        title="Laffin Edits Quote Request">
+      </iframe>
+      <script src="https://files.bizlyapp.com/js/form_embed.js"></script>
+      </div>
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           PASTE YOUR BIZLY FORM EMBED CODE ABOVE THIS LINE
+           ============================================================ -->
+    </div>
+  </section>
+
+</div>
+
+<footer class="le-footer">
+  <div class="le-footer-inner">
+    <div class="le-footer-top">
+
+      <!-- Col 1 — Brand -->
+      <div>
+        <a href="index.html" class="le-footer-logo">
+          <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits">
+          <span class="le-footer-logo-text">Laffin Edits</span>
+        </a>
+        <div class="le-footer-tagline">The World's Only Video Editor Who Is Also a Magician</div>
+        <p class="le-footer-desc">Professional video editing for magicians, performers, entertainers, and businesses. Based in Las Vegas. Serving clients worldwide.</p>
+      </div>
+
+      <!-- Col 2 — Pages -->
+      <div>
+        <div class="le-footer-col-title">Pages</div>
+        <ul class="le-footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Client Work</a></li>
+          <li><a href="performance.html">Performance Edits</a></li>
+          <li><a href="social.html">Social Media</a></li>
+          <li><a href="promos.html">Promo Videos</a></li>
+          <li><a href="monthly.html">Monthly Packages</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 — Contact -->
+      <div>
+        <div class="le-footer-col-title">Contact</div>
+        <div class="le-footer-contact">
+          <a href="tel:+17026660797" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">📞</span>
+            (702) 666-0797
+          </a>
+          <a href="mailto:contact@laffinedits.com" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">✉️</span>
+            contact@laffinedits.com
+          </a>
+          <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">⭐</span>
+            Leave a Google Review
+          </a>
+          <a href="index.html#leQuoteForm" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">🎩</span>
+            Request a Quote
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="le-footer-bottom">
+      <div class="le-footer-copy">© 2026 <span>Laffin Edits</span>. All rights reserved. Las Vegas, NV.</div>
+      <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-google">★★★★★ See Our Google Reviews</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var prObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.pr-card, .pr-type-card, .pr-stat').forEach(function(el) {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.3s, box-shadow 0.3s';
+  prObserver.observe(el);
+});
+</script>
+</body></html>

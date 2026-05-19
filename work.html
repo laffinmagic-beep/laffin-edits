@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laffin Edits — Client Work | Portfolio & Reviews</title>
+  <style>html,body{margin:0;padding:0;background:#06060a;min-width:100%;}</style>
+<style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+.le-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(6,6,10,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 0 24px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s;
+}
+.le-nav.scrolled {
+  background: rgba(6,6,10,0.99);
+  border-bottom-color: rgba(192,57,43,0.35);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+.le-nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.le-nav-logo img {
+  height: 40px; width: 40px; object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(192,57,43,0.4));
+}
+.le-nav-logo-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #f0eeff;
+  text-shadow: 0 0 10px rgba(26,111,212,0.8);
+}
+.le-nav-links {
+  display: flex; align-items: center; gap: 4px;
+  list-style: none;
+}
+.le-nav-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.65);
+  text-decoration: none; padding: 6px 10px; border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.le-nav-links a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-cta {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  background: linear-gradient(135deg, #8b1a10, #e05544);
+  color: #f0eeff; padding: 8px 16px; border-radius: 4px;
+  text-decoration: none; transition: all 0.3s;
+  box-shadow: 0 0 16px rgba(192,57,43,0.3);
+  white-space: nowrap;
+}
+.le-nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 24px rgba(192,57,43,0.5); }
+
+/* Hamburger */
+.le-nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px; background: none; border: none;
+}
+.le-nav-hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: rgba(200,204,224,0.8); border-radius: 2px;
+  transition: all 0.3s;
+}
+.le-nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.le-nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.le-nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.le-nav-mobile {
+  display: none; position: fixed;
+  top: 64px; left: 0; right: 0;
+  background: rgba(6,6,10,0.98);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 20px 24px;
+  flex-direction: column; gap: 4px;
+  z-index: 9998;
+  backdrop-filter: blur(12px);
+}
+.le-nav-mobile.open { display: flex; }
+.le-nav-mobile a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 1rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.7);
+  text-decoration: none; padding: 12px 16px; border-radius: 4px;
+  transition: all 0.2s;
+  border-bottom: 1px solid rgba(26,111,212,0.08);
+}
+.le-nav-mobile a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-mobile .le-nav-cta {
+  margin-top: 8px; text-align: center; padding: 12px;
+}
+
+/* Page offset so content doesn't hide under fixed nav */
+.le-nav-spacer { height: 64px; }
+
+@media (max-width: 900px) {
+  .le-nav-links { display: none; }
+  .le-nav-cta { display: none; }
+  .le-nav-hamburger { display: flex; }
+}
+
+/* ─── FOOTER ─── */
+.le-footer {
+  background: #06060a;
+  border-top: 1px solid rgba(192,57,43,0.2);
+  padding: 50px 24px 30px;
+  width: 100%;
+}
+.le-footer-inner {
+  max-width: 1100px; margin: 0 auto;
+}
+.le-footer-top {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;
+  margin-bottom: 40px;
+}
+.le-footer-logo {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 14px; text-decoration: none;
+}
+.le-footer-logo img { height: 48px; width: 48px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(192,57,43,0.4)); }
+.le-footer-logo-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.2rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #f0eeff;
+  text-shadow: 0 0 10px rgba(26,111,212,0.8);
+}
+.le-footer-tagline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #e05544; margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.le-footer-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem; line-height: 1.65;
+  color: rgba(200,204,224,0.45);
+}
+.le-footer-col-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 0.75rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #e05544; margin-bottom: 16px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.le-footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.le-footer-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.82rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(200,204,224,0.5); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-links a:hover { color: #f0eeff; }
+.le-footer-contact { display: flex; flex-direction: column; gap: 10px; }
+.le-footer-contact-item {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Inter', sans-serif; font-size: 0.85rem;
+  color: rgba(200,204,224,0.6); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-contact-item:hover { color: #f0eeff; }
+.le-footer-contact-icon { font-size: 1rem; flex-shrink: 0; }
+.le-footer-bottom {
+  border-top: 1px solid rgba(26,111,212,0.1);
+  padding-top: 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.le-footer-copy {
+  font-family: 'Inter', sans-serif; font-size: 0.78rem;
+  color: rgba(200,204,224,0.3); letter-spacing: 0.5px;
+}
+.le-footer-copy span { color: #e05544; }
+.le-footer-google {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.4); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-google:hover { color: #e05544; }
+
+@media (max-width: 900px) {
+  .le-footer-top { grid-template-columns: 1fr; gap: 30px; }
+  .le-footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+
+<!-- HEADER HTML -->
+<nav class="le-nav" id="leNav">
+  <a href="index.html" class="le-nav-logo">
+    <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits">
+    <span class="le-nav-logo-text">Laffin Edits</span>
+  </a>
+  <ul class="le-nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="performance.html">Performance</a></li>
+    <li><a href="social.html">Social Media</a></li>
+    <li><a href="promos.html">Promos</a></li>
+    <li><a href="monthly.html">Monthly</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a></li>
+  </ul>
+  <button class="le-nav-hamburger" id="leHamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="le-nav-mobile" id="leMobileNav">
+  <a href="index.html">Home</a>
+  <a href="work.html">Work</a>
+  <a href="performance.html">Performance Edits</a>
+  <a href="social.html">Social Media</a>
+  <a href="promos.html">Promos</a>
+  <a href="monthly.html">Monthly Packages</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a>
+</div>
+
+<div class="le-nav-spacer"></div>
+
+<script>
+function toggleMobileNav() {
+  var nav = document.getElementById('leMobileNav');
+  var btn = document.getElementById('leHamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('leNav');
+  if (window.scrollY > 20) { nav.classList.add('scrolled'); }
+  else { nav.classList.remove('scrolled'); }
+});
+</script>
+
+<!-- ============================================================
+     LAFFIN EDITS — WORK / PORTFOLIO + REVIEWS PAGE
+     Paste this entire block into a Custom Code element in Bizly
+
+     IMPORTANT VIDEO INSTRUCTIONS:
+     This page has video placeholders. To add your videos:
+     1. After pasting this code block, go to the Bizly editor
+     2. Find each placeholder box marked [ADD VIDEO HERE]
+     3. Add a Bizly Video element directly below each placeholder
+     4. The featured video goes at the top — Chris Workman Corporate Magic
+     5. Additional videos go in the grid section below
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+.wk-wrap * { margin: 0; padding: 0; box-sizing: border-box; }
+.wk-wrap {
+  --black:  #06060a;
+  --deep:   #0d0d18;
+  --card:   #0f0f1e;
+  --blue:   #1a6fd4;
+  --blue-bright: #4a9ef5;
+  --blue-dark: #0d4a8a;
+  --red:    #c0392b;
+  --red-bright: #e05544;
+  --silver: #c8cce0;
+  --white:  #f0eeff;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ─── PAGE HERO ─── */
+.wk-hero {
+  padding: 80px 24px 50px;
+  text-align: center; position: relative; overflow: hidden;
+  background: var(--black);
+}
+.wk-hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 30%, rgba(26,111,212,0.15) 0%, transparent 70%);
+  z-index: 1; pointer-events: none;
+}
+.wk-hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(26,111,212,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,111,212,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 30%, black 20%, transparent 75%);
+  z-index: 2;
+}
+.wk-hero-content {
+  position: relative; z-index: 3;
+  max-width: 800px; margin: 0 auto;
+  animation: wk-fadeIn 0.8s ease forwards;
+}
+@keyframes wk-fadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.wk-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  text-shadow: 0 0 20px rgba(192,57,43,0.7), 0 0 40px rgba(192,57,43,0.3);
+}
+.wk-label::before, .wk-label::after {
+  content: ''; height: 1px; width: 30px; background: var(--red);
+}
+.wk-hero-h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 6rem);
+  letter-spacing: 3px; line-height: 0.95;
+  color: var(--white); margin-bottom: 16px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.wk-hero-h1 span { color: var(--red-bright); text-shadow: 0 0 40px rgba(192,57,43,0.8), 0 0 80px rgba(192,57,43,0.4); }
+.wk-hero-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; line-height: 1.75;
+  color: rgba(200,204,224,0.65);
+  max-width: 560px; margin: 0 auto;
+}
+
+/* ─── SECTIONS ─── */
+.wk-section { padding: 60px 24px; width: 100%; }
+.wk-section-inner { max-width: 1100px; margin: 0 auto; }
+.wk-section-header { text-align: center; margin-bottom: 40px; }
+.wk-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: 2px; line-height: 1; margin-bottom: 12px;
+  text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.wk-title span { color: var(--red-bright); text-shadow: 0 0 30px rgba(192,57,43,0.8), 0 0 60px rgba(192,57,43,0.3); }
+.wk-section-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem; line-height: 1.75;
+  color: rgba(200,204,224,0.55); max-width: 520px; margin: 0 auto;
+}
+.wk-dark { background: var(--black); }
+.wk-deep { background: var(--deep); position: relative; }
+.wk-deep::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--blue), transparent); }
+
+/* ─── FEATURED VIDEO ─── */
+.wk-featured { background: var(--black); padding: 0 24px 60px; }
+.wk-featured-inner { max-width: 900px; margin: 0 auto; }
+.wk-featured-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.72rem;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 12px; text-align: center;
+  text-shadow: 0 0 15px rgba(192,57,43,0.6);
+}
+.wk-featured-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.6rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--white); margin-bottom: 6px; text-align: center;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,0.8);
+}
+.wk-featured-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem; color: rgba(200,204,224,0.5);
+  text-align: center; margin-bottom: 24px;
+}
+
+/* ─── VIDEO PLACEHOLDER ─── */
+.wk-video-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: rgba(26,111,212,0.05);
+  border: 2px dashed rgba(26,111,212,0.3);
+  border-radius: 12px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 12px; margin-bottom: 20px;
+}
+.wk-video-placeholder-text {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(26,111,212,0.5);
+}
+.wk-video-placeholder-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem; color: rgba(200,204,224,0.3);
+}
+.wk-video-icon { font-size: 2.5rem; opacity: 0.4; }
+
+/* ─── FEATURED VIDEO LINK ─── */
+.wk-featured-link-row { text-align: center; margin-top: 16px; }
+.wk-featured-meta {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.72rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 14px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.wk-btn-outline {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.9rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  border: 2px solid rgba(26,111,212,0.4); color: var(--blue-bright);
+  padding: 12px 28px; border-radius: 4px; transition: all 0.3s;
+  display: inline-block; cursor: pointer; background: transparent;
+  text-decoration: none;
+}
+.wk-btn-outline:hover { border-color: var(--blue); color: var(--white); transform: translateY(-2px); background: rgba(26,111,212,0.1); }
+.wk-btn-primary {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.9rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  background: linear-gradient(135deg, #8b1a10, var(--red));
+  color: var(--white); padding: 12px 28px; border-radius: 4px;
+  transition: all 0.3s; box-shadow: 0 0 20px rgba(192,57,43,0.3);
+  border: none; cursor: pointer; display: inline-block; text-decoration: none;
+}
+.wk-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(192,57,43,0.5); }
+.wk-btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+
+/* ─── MORE VIDEOS GRID ─── */
+.wk-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+}
+.wk-video-card {
+  background: var(--card);
+  border: 1px solid rgba(26,111,212,0.15);
+  border-radius: 12px; overflow: hidden;
+  transition: all 0.3s;
+}
+.wk-video-card:hover { border-color: rgba(192,57,43,0.3); transform: translateY(-4px); box-shadow: 0 16px 50px rgba(0,0,0,0.6); }
+.wk-video-slot {
+  width: 100%; aspect-ratio: 16/9;
+  background: rgba(26,111,212,0.04);
+  border-bottom: 1px solid rgba(26,111,212,0.1);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px;
+}
+.wk-video-slot-icon { font-size: 1.8rem; opacity: 0.35; }
+.wk-video-slot-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(26,111,212,0.4);
+}
+.wk-video-body { padding: 18px 20px; }
+.wk-video-type {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.68rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 4px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.wk-video-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 1.1rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--white); margin-bottom: 6px;
+  text-shadow: 0 0 8px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,0.8);
+}
+.wk-video-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem; line-height: 1.55;
+  color: rgba(200,204,224,0.5);
+}
+
+/* ─── REVIEWS ─── */
+.wk-reviews-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.wk-review-card {
+  background: var(--card);
+  border: 1px solid rgba(26,111,212,0.12);
+  border-radius: 14px; padding: 28px 22px;
+  text-align: left; position: relative; transition: all 0.3s;
+}
+.wk-review-card:hover { border-color: rgba(192,57,43,0.3); transform: translateY(-4px); box-shadow: 0 16px 50px rgba(0,0,0,0.5); }
+.wk-review-summary {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.68rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 10px;
+  text-shadow: 0 0 12px rgba(192,57,43,0.6);
+}
+.wk-review-stars { color: #f59e0b; font-size: 0.95rem; letter-spacing: 2px; margin-bottom: 12px; display: block; text-shadow: 0 0 10px rgba(245,158,11,0.5); }
+.wk-review-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem; line-height: 1.75;
+  color: rgba(200,204,224,0.72); margin-bottom: 18px; font-style: italic;
+}
+.wk-review-text::before { content: '"'; color: var(--red-bright); font-size: 1.3rem; line-height: 0; vertical-align: -0.3em; margin-right: 2px; font-style: normal; }
+.wk-review-text::after  { content: '"'; color: var(--red-bright); font-size: 1.3rem; line-height: 0; vertical-align: -0.3em; margin-left: 2px; font-style: normal; }
+.wk-review-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(26,111,212,0.1); padding-top: 14px; }
+.wk-review-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: linear-gradient(135deg, #8b1a10, var(--red));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Oswald', sans-serif; font-size: 0.9rem;
+  color: var(--white); flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(192,57,43,0.3);
+}
+.wk-review-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 0.85rem;
+  letter-spacing: 1px; text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 8px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,0.8);
+}
+.wk-review-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem; color: var(--red-bright); margin-top: 2px;
+  text-shadow: 0 0 8px rgba(192,57,43,0.4);
+}
+.wk-review-links { display: flex; gap: 8px; margin-top: 5px; flex-wrap: wrap; }
+.wk-review-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: 'Inter', sans-serif; font-size: 0.68rem;
+  color: rgba(200,204,224,0.4); text-decoration: none;
+  transition: color 0.2s;
+}
+.wk-review-link:hover { color: var(--blue-bright); }
+.wk-review-link svg { width: 11px; height: 11px; fill: currentColor; }
+
+/* ─── CTA ─── */
+.wk-cta {
+  background: linear-gradient(135deg, #080d1a 0%, #0a1020 50%, #080d1a 100%);
+  padding: 80px 24px; text-align: center; position: relative; overflow: hidden;
+}
+.wk-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(192,57,43,0.08), transparent); }
+.wk-cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.wk-cta-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 2px; line-height: 1.05; margin-bottom: 16px;
+  text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.wk-cta-title span { color: var(--red-bright); text-shadow: 0 0 30px rgba(192,57,43,0.8), 0 0 60px rgba(192,57,43,0.3); }
+.wk-cta-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; color: rgba(200,204,224,0.65);
+  margin-bottom: 36px; line-height: 1.7;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .wk-reviews-grid { grid-template-columns: 1fr; }
+  .wk-grid { grid-template-columns: 1fr; }
+  .wk-btn-row { flex-direction: column; align-items: center; }
+  .wk-btn-primary, .wk-btn-outline { width: 100%; max-width: 300px; text-align: center; }
+  .wk-video-card { grid-column: span 1 !important; }
+  #ytGrid { grid-template-columns: 1fr !important; }
+  .wk-video-card video { max-height: 220px !important; width: 100% !important; height: auto !important; object-fit: cover !important; }
+  .wk-video-card iframe { height: 200px !important; min-height: 200px !important; max-height: 200px !important; }
+  .wk-video-slot { max-height: 220px !important; overflow: hidden !important; }
+  div[style*="max-height:420px"] { max-height: 220px !important; }
+  div[style*="max-height: 420px"] { max-height: 220px !important; }
+  div[style*="max-height:300px"] { max-height: 200px !important; }
+  div[style*="max-height: 300px"] { max-height: 200px !important; }
+  .wk-grid > div[style*="grid-column: span 2"] { grid-column: span 1 !important; }
+  div[style*="aspect-ratio:16/9"] { aspect-ratio: 16/9 !important; height: auto !important; }
+}
+</style>
+
+<div class="wk-wrap">
+
+  <!-- ─── HERO ─── -->
+  <section class="wk-hero">
+    <div class="wk-hero-bg"></div>
+    <div class="wk-hero-grid"></div>
+    <div class="wk-hero-content">
+      <div class="wk-label">Real Performers · Real Results</div>
+      <h1 class="wk-hero-h1">Client <span>Work</span></h1>
+      <p class="wk-hero-desc">Real performers. Real footage. Real results. Every edit built to protect performance, highlight reactions, and make bookers take notice.</p>
+    </div>
+  </section>
+
+  <!-- ─── FEATURED VIDEO ─── -->
+  <section class="wk-featured">
+    <div class="wk-featured-inner">
+      <div class="wk-featured-label">Featured Edit</div>
+      <div class="wk-featured-title">Chris Workman — Corporate Magic Performance</div>
+      <div class="wk-featured-sub">Corporate Promo Edit · 00:57</div>
+
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           ADD YOUR FEATURED VIDEO HERE IN BIZLY
+           After pasting this code block:
+           1. Click Edit on this page in Bizly
+           2. Find this section
+           3. Add a Bizly Video element directly below this placeholder
+           4. Set it to full width
+           ============================================================ -->
+      <div style="width:100%; border-radius:12px; overflow:hidden; margin-bottom:20px;">
+        <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee2249fe87a9994497a7d.png">
+          <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eedf0cb0e5e2bb7f0c817e.mov" type="video/mp4">
+        </video>
+      </div>
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           END FEATURED VIDEO PLACEHOLDER
+           ============================================================ -->
+
+      <div class="wk-featured-link-row">
+        <div class="wk-featured-meta">Corporate Promo Edit · Polished for Professional Events</div>
+        <div class="wk-btn-row">
+          <!-- UPDATE THIS LINK when you have the direct video URL -->
+          <a href="https://www.laffinedits.com" target="_blank" rel="noopener" class="wk-btn-outline">▶ Watch Full Video</a>
+          <button onclick="document.getElementById('wkQuoteForm').scrollIntoView({behavior:'smooth'})" class="wk-btn-primary">🎩 Get a Quote Like This</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MORE VIDEOS ─── -->
+  <section class="wk-section wk-deep">
+    <div class="wk-section-inner">
+      <div class="wk-section-header">
+        <div class="wk-label">More Client Work</div>
+        <h2 class="wk-title">More <span>Edits</span></h2>
+        <p class="wk-section-desc">Click any video to watch. More work added regularly as new projects come in.</p>
+      </div>
+
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           ADD YOUR ADDITIONAL VIDEOS HERE IN BIZLY
+           After pasting this code, go into Bizly editor and:
+           1. Add video blocks below this section for each client video
+           2. Each video: Luke Harrison, Robert Apodaca, Mike Little
+           3. To add more videos later just drag in a new video block
+           4. No code editing needed — just add blocks in Bizly
+           ============================================================ -->
+      <div class="wk-grid">
+        <div class="wk-video-card">
+          <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
+            <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee224717d5dd4e1466c7a.png">
+              <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8d3805d4199001cbe01d.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="wk-video-body">
+            <div class="wk-video-type">Performance Edit</div>
+            <div class="wk-video-name">Luke Harrison — Sword Swallowing & Comedy</div>
+            <p class="wk-video-desc">A live sword swallowing performance blending genuine danger with sharp comedic timing and audience interaction.</p>
+          </div>
+        </div>
+        <div class="wk-video-card">
+          <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
+            <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee224717d5dd4e1466c7b.png">
+              <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8a749fe87a999433ea0b.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="wk-video-body">
+            <div class="wk-video-type">Performance Highlight</div>
+            <div class="wk-video-name">Robert Apodaca — Magic Highlight Reel</div>
+            <p class="wk-video-desc">Live comedy magic featuring strong audience interaction, natural reactions, and clean pacing — ideal for booking.</p>
+          </div>
+        </div>
+        <div class="wk-video-card">
+          <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
+            <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee224717d5dd4e1466c79.png">
+              <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8a6e05d4199001cb5714.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="wk-video-body">
+            <div class="wk-video-type">Close-Up Performance Edit</div>
+            <div class="wk-video-name">Michael Little — Close-Up Magic Performance</div>
+            <p class="wk-video-desc">Sleight of hand, natural reactions, and clean presentation — a polished edit for intimate venues and professional events.</p>
+          </div>
+        </div>
+        <div class="wk-video-card">
+          <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
+            <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee2240d66f2a6657bbee0.png">
+              <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8a9a717d5dd4e1314765.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="wk-video-body">
+            <div class="wk-video-type">Performance Edit</div>
+            <div class="wk-video-name">Jason R. Smith — Magic Performance</div>
+            <p class="wk-video-desc">Creative, passionate editing that captures the reactions, atmosphere, and moments that matter — with real energy in every cut.</p>
+          </div>
+        </div>
+
+        <div class="wk-video-card">
+          <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
+            <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee2240d66f2a6657bbee0.png">
+              <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8a9a717d5dd4e1314765.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="wk-video-body">
+            <div class="wk-video-type">Performance Edit</div>
+            <div class="wk-video-name">Jason R. Smith — Magic Performance</div>
+            <p class="wk-video-desc">Creative, passionate editing that captures the reactions, atmosphere, and moments that matter — with real energy in every cut.</p>
+          </div>
+        </div>
+
+        <div class="wk-video-card">
+          <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
+            <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0aabbb2e98e28fa1846926.png">
+              <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a02b6cd60a7a52fdc1f6930.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="wk-video-body">
+            <div class="wk-video-type">Business Client Edit</div>
+            <div class="wk-video-name">Paul Carpenter — Client Project</div>
+            <p class="wk-video-desc">A polished edit delivered fast with minimal revisions — exactly what a professional team needs to stay on schedule and on brand.</p>
+          </div>
+        </div>
+
+        <div class="wk-video-card">
+          <div class="wk-video-slot" style="padding:0; overflow:hidden; border-radius:12px 12px 0 0;">
+            <video width="100%" style="display:block; aspect-ratio:16/9; object-fit:cover;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee2240d66f2a6657bbedf.png">
+              <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8a65717d5dd4e1313c82.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="wk-video-body">
+            <div class="wk-video-type">Magician Promo Video</div>
+            <div class="wk-video-name">Married by Magic — Promo</div>
+            <p class="wk-video-desc">A polished promo for a magic duo — built to communicate their unique performance style and capture the attention of bookers and event planners.</p>
+          </div>
+        </div>
+
+        <!-- SHOWCASE CARD — YouTube Channel Section -->
+        <div class="wk-video-card" style="border-color: rgba(192,57,43,0.35); background: linear-gradient(145deg, rgba(192,57,43,0.08), rgba(15,15,30,1)); grid-column: span 2;">
+          <div style="background: rgba(192,57,43,0.15); padding: 6px 14px; display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:3px; text-transform:uppercase; color:#e05544;">Service Showcase · YouTube Channel Monthly</span>
+          </div>
+
+          <!-- Featured YouTube Video — Kent Axell -->
+          <div style="padding:0; overflow:hidden; position:relative; aspect-ratio:16/9;">
+            <iframe width="100%" height="100%" style="display:block; position:absolute; top:0; left:0;" src="https://www.youtube.com/embed/6oziZGfPWZg" title="Kent Axell Interview Promo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+
+          <div class="wk-video-body">
+            <div class="wk-video-type" style="color:#e05544;">YouTube Channel · Featured Video</div>
+            <div class="wk-video-name">Kent Axell — Interview Promo</div>
+            <p class="wk-video-desc">YouTube channel content edited for engagement, watch time, and growth. This is what a monthly YouTube package looks like — consistent, professional, and built for the platform.</p>
+
+            <!-- See More Button -->
+            <button onclick="toggleYouTubeVideos()" id="ytToggleBtn" style="display:inline-block; margin-top:16px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.78rem; letter-spacing:2px; text-transform:uppercase; color:#e05544; background:rgba(192,57,43,0.1); border:1px solid rgba(192,57,43,0.3); padding:8px 20px; border-radius:4px; cursor:pointer; transition:all 0.2s;">▼ See More YouTube Videos</button>
+
+            <!-- Expandable YouTube Videos -->
+            <div id="ytMoreVideos" style="display:none; margin-top:20px; display:none;">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px;" id="ytGrid">
+
+                <!-- Eric Masters -->
+                <div style="border-radius:8px; overflow:hidden; border:1px solid rgba(192,57,43,0.2);">
+                  <div style="position:relative; aspect-ratio:16/9;">
+                    <iframe width="100%" height="100%" style="display:block; position:absolute; top:0; left:0;" src="https://www.youtube.com/embed/xHGQBtXZcnk" title="Eric Masters — Richard Lord" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <div style="padding:12px 14px; background:rgba(6,6,10,0.8);">
+                    <div style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:#e05544; margin-bottom:4px;">YouTube Channel</div>
+                    <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:1rem; letter-spacing:1px; text-transform:uppercase; color:#f0eeff;">Eric Masters — Richard Lord</div>
+                  </div>
+                </div>
+
+                <!-- Bobby Berosini -->
+                <div style="border-radius:8px; overflow:hidden; border:1px solid rgba(192,57,43,0.2);">
+                  <div style="position:relative; aspect-ratio:16/9;">
+                    <iframe width="100%" height="100%" style="display:block; position:absolute; top:0; left:0;" src="https://www.youtube.com/embed/PGTeXbWNJMs" title="Bobby Berosini" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <div style="padding:12px 14px; background:rgba(6,6,10,0.8);">
+                    <div style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:#e05544; margin-bottom:4px;">YouTube Channel</div>
+                    <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:1rem; letter-spacing:1px; text-transform:uppercase; color:#f0eeff;">Bobby Berosini</div>
+                  </div>
+                </div>
+
+                <!-- Paul Carpenter Interview -->
+                <div style="border-radius:8px; overflow:hidden; border:1px solid rgba(192,57,43,0.2);">
+                  <div style="position:relative; aspect-ratio:16/9;">
+                    <video width="100%" style="display:block; position:absolute; top:0; left:0; object-fit:cover; height:100%;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0aabbb2e98e28fa1846926.png">
+                      <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ac1528d08689eb2b11e44.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div style="padding:12px 14px; background:rgba(6,6,10,0.8);">
+                    <div style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:#e05544; margin-bottom:4px;">YouTube Channel · Interview</div>
+                    <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:1rem; letter-spacing:1px; text-transform:uppercase; color:#f0eeff;">Paul Carpenter — Interview</div>
+                  </div>
+                </div>
+
+                <!-- ADD MORE YOUTUBE VIDEOS HERE — copy the block above and paste below -->
+
+              </div>
+            </div>
+
+            <a href="monthly.html" style="display:inline-block; margin-top:12px; margin-left:12px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; color:#e05544; text-decoration:none;">→ See Monthly Packages</a>
+          </div>
+        </div>
+
+        <!-- SHOWCASE CARD — Social Media Section -->
+        <div class="wk-video-card" style="border-color: rgba(192,57,43,0.35); background: linear-gradient(145deg, rgba(192,57,43,0.08), rgba(15,15,30,1)); grid-column: span 2;">
+          <div style="background: rgba(192,57,43,0.15); padding: 6px 14px; display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:3px; text-transform:uppercase; color:#e05544;">Service Showcase · Social Media Editing</span>
+          </div>
+
+          <!-- Featured Social Media Video — Houdini Wraps -->
+          <div style="padding:0; overflow:hidden; display:flex; justify-content:center; background:#06060a; max-height:420px;">
+            <video style="display:block; height:420px; width:auto; max-width:100%; object-fit:contain;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ab6232e98e28fa1863d6b.png">
+              <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ab55d2e98e28fa1861b21.mov" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="wk-video-body">
+            <div class="wk-video-type" style="color:#e05544;">Social Media Edit · Featured</div>
+            <div class="wk-video-name">Houdini Wraps — Social Media Content</div>
+            <p class="wk-video-desc">Scroll-stopping social media content edited for maximum engagement. Platform-optimized edits that reach new audiences and keep people watching — every single post.</p>
+
+            <!-- See More Button -->
+            <button onclick="toggleSocialVideos()" id="smToggleBtn" style="display:inline-block; margin-top:16px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.78rem; letter-spacing:2px; text-transform:uppercase; color:#e05544; background:rgba(192,57,43,0.1); border:1px solid rgba(192,57,43,0.3); padding:8px 20px; border-radius:4px; cursor:pointer; transition:all 0.2s;">▼ See More Social Media Videos</button>
+
+            <!-- Expandable Social Media Videos -->
+            <div id="smMoreVideos" style="display:none; margin-top:20px;">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px;">
+
+                <!-- Prestige Worldwide 1 -->
+                <div style="border-radius:8px; overflow:hidden; border:1px solid rgba(192,57,43,0.2);">
+                  <div style="display:flex; justify-content:center; background:#06060a; max-height:300px;">
+                    <video style="display:block; height:300px; width:auto; max-width:100%; object-fit:contain;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ab9bf19e1ac5f52a4b816.png">
+                      <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ab9ce19e1ac5f52a4ba57.mov" type="video/mp4">
+                    </video>
+                  </div>
+                  <div style="padding:12px 14px; background:rgba(6,6,10,0.8);">
+                    <div style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:#e05544; margin-bottom:4px;">Social Media</div>
+                    <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:1rem; letter-spacing:1px; text-transform:uppercase; color:#f0eeff;">Prestige Worldwide — Vol. 1</div>
+                  </div>
+                </div>
+
+                <!-- Prestige Worldwide 2 -->
+                <div style="border-radius:8px; overflow:hidden; border:1px solid rgba(192,57,43,0.2);">
+                  <div style="display:flex; justify-content:center; background:#06060a; max-height:300px;">
+                    <video style="display:block; height:300px; width:auto; max-width:100%; object-fit:contain;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0abb4bdbe569a25dc45fc3.png">
+                      <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0abaed19e1ac5f52a4eadc.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div style="padding:12px 14px; background:rgba(6,6,10,0.8);">
+                    <div style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:#e05544; margin-bottom:4px;">Social Media</div>
+                    <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:1rem; letter-spacing:1px; text-transform:uppercase; color:#f0eeff;">Prestige Worldwide — Vol. 2</div>
+                  </div>
+                </div>
+
+                <!-- ADD MORE SOCIAL MEDIA VIDEOS HERE — copy the block above and paste below -->
+
+              </div>
+              <p style="font-family:'Inter',sans-serif; font-size:0.8rem; color:rgba(200,204,224,0.35); text-align:center; margin-top:16px; letter-spacing:1px;">More social media work added regularly.</p>
+            </div>
+
+            <a href="social.html" style="display:inline-block; margin-top:12px; margin-left:12px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; color:#e05544; text-decoration:none;">→ See Social Media Services</a>
+          </div>
+        </div>
+
+        <!-- SHOWCASE CARD — Kenny Bang Bang — Phobia Deck Magic Product Promo -->
+        <div class="wk-video-card" style="border-color: rgba(192,57,43,0.35); background: linear-gradient(145deg, rgba(192,57,43,0.08), rgba(15,15,30,1));">
+          <div style="background: rgba(192,57,43,0.15); padding: 6px 14px; display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:3px; text-transform:uppercase; color:#e05544;">Service Showcase · Magic Product Promo</span>
+            <span style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.65rem; letter-spacing:2px; text-transform:uppercase; color:rgba(200,204,224,0.4);">Vertical Format</span>
+          </div>
+          <div style="padding:0; overflow:hidden; display:flex; justify-content:center; background:#06060a; max-height:420px;">
+            <video style="display:block; height:420px; width:auto; max-width:100%; object-fit:contain;" controls poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee2249fe87a9994497a7c.png">
+              <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8a6905d4199001cb55e6.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="wk-video-body">
+            <div class="wk-video-type" style="color:#e05544;">Magic Product Promo · Creator Content</div>
+            <div class="wk-video-name">Kenny Bang Bang — Phobia Deck Promo</div>
+            <p class="wk-video-desc">Promo videos for magic creators — showcasing magic products made by magicians, for magicians. Edited to sell the effect, the feel, and the experience of the product.</p>
+            <a href="promos.html" style="display:inline-block; margin-top:12px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; color:#e05544; text-decoration:none;">→ See Promo Videos</a>
+          </div>
+        </div>
+      </div>
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           END VIDEO GRID
+           ============================================================ -->
+
+    </div>
+  </section>
+
+  <!-- ─── REVIEWS ─── -->
+  <section class="wk-section wk-dark">
+    <div class="wk-section-inner">
+      <div class="wk-section-header">
+        <div class="wk-label">Real Performers</div>
+        <h2 class="wk-title">What They <span>Say</span></h2>
+        <p class="wk-section-desc">Don't take my word for it. Here's what magicians, performers, and businesses are saying after working with Laffin Edits.</p>
+      </div>
+      <div class="wk-reviews-grid">
+
+        <!-- REVIEW 1 -->
+        <div class="wk-review-card">
+          <div class="wk-review-summary">Booked better gigs directly from his promo video</div>
+          <span class="wk-review-stars">★★★★★</span>
+          <p class="wk-review-text">I've already booked better gigs because of this promo video. Cory knows exactly how to showcase a performer's best moments.</p>
+          <div class="wk-review-author">
+            <div class="wk-review-avatar" style="background:none; overflow:hidden;">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae52edbe569a25dcd24a1.png" style="width:100%; height:100%; object-fit:cover; object-position:center top;" alt="">
+            </div>
+            <div>
+              <div class="wk-review-name">Luke Harrison</div>
+              <div class="wk-review-role">Sword Swallower & Magician</div>
+              <div class="wk-review-links">
+                <a href="https://www.instagram.com/lewquee" target="_blank" rel="noopener" class="wk-review-link">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  @lewquee
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 2 -->
+        <div class="wk-review-card">
+          <div class="wk-review-summary">High quality professional video with all the greatest hits</div>
+          <span class="wk-review-stars">★★★★★</span>
+          <p class="wk-review-text">Cory did an amazing job creating a promo video for my magic business. He created a high quality, professional video with all the greatest hits.</p>
+          <div class="wk-review-author">
+            <div class="wk-review-avatar" style="background:none; overflow:hidden;">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b8d08689eb2b89a73.png" style="width:100%; height:100%; object-fit:cover; object-position:center top;" alt="">
+            </div>
+            <div>
+              <div class="wk-review-name">Michael Little</div>
+              <div class="wk-review-role">Magician</div>
+              <div class="wk-review-links">
+                <a href="https://www.instagram.com/mlittlemagic" target="_blank" rel="noopener" class="wk-review-link">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  @mlittlemagic
+                </a>
+                <a href="https://www.google.com/maps/contrib/105048810953603667803/place/ChIJ3TVtaLRujWgRKlRAv8nGfUk/" target="_blank" rel="noopener" class="wk-review-link">
+                  <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                  Google Review
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 3 -->
+        <div class="wk-review-card">
+          <div class="wk-review-summary">Creative, passionate, and captures the moments that matter</div>
+          <span class="wk-review-stars">★★★★★</span>
+          <p class="wk-review-text">Cory was easy to work with, creative, and genuinely passionate about capturing the reactions, atmosphere, and moments that matter. He brings real energy and a creative eye to every project.</p>
+          <div class="wk-review-author">
+            <div class="wk-review-avatar" style="background:none; overflow:hidden;">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b2e98e28fa18ff8de.png" style="width:100%; height:100%; object-fit:cover; object-position:center top;" alt="">
+            </div>
+            <div>
+              <div class="wk-review-name">Jason R. Smith</div>
+              <div class="wk-review-role">Magician</div>
+              <div class="wk-review-links">
+                <a href="https://www.instagram.com/jrsmithlv" target="_blank" rel="noopener" class="wk-review-link">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  @jrsmithlv
+                </a>
+                <a href="https://www.google.com/maps/contrib/101133152507777965207/place/ChIJ3TVtaLRujWgRKlRAv8nGfUk/" target="_blank" rel="noopener" class="wk-review-link">
+                  <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                  Google Review
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 4 -->
+        <div class="wk-review-card">
+          <div class="wk-review-summary">Nailed the editing and delivered a final product I'm really happy with</div>
+          <span class="wk-review-stars">★★★★★</span>
+          <p class="wk-review-text">Cory nailed the editing, making everything flow smoothly while capturing the energy of my performance. He picked out the best moments, was super responsive to feedback, and delivered a final product I'm really happy with.</p>
+          <div class="wk-review-author">
+            <div class="wk-review-avatar" style="background:none; overflow:hidden;">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b19e1ac5f52add52d.png" style="width:100%; height:100%; object-fit:cover; object-position:center top;" alt="">
+            </div>
+            <div>
+              <div class="wk-review-name">Robert Apodaca</div>
+              <div class="wk-review-role">Magician</div>
+              <div class="wk-review-links">
+                <a href="https://www.instagram.com/vegasmagicman" target="_blank" rel="noopener" class="wk-review-link">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  @vegasmagicman
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 5 -->
+        <div class="wk-review-card">
+          <div class="wk-review-summary">The Vernon of video editing — the Copperfield of storytelling</div>
+          <span class="wk-review-stars">★★★★★</span>
+          <p class="wk-review-text">Helpful, fast, and brilliant — Cory is the Vernon of Video editing and the Copperfield of storytelling. He saw possibilities in the footage I never imagined. Highly recommended!</p>
+          <div class="wk-review-author">
+            <div class="wk-review-avatar" style="background:none; overflow:hidden;">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b8d08689eb2b89a72.png" style="width:100%; height:100%; object-fit:cover; object-position:center top;" alt="">
+            </div>
+            <div>
+              <div class="wk-review-name">Bryan Ignozzi</div>
+              <div class="wk-review-role">Magician · @MarriedByMagic</div>
+              <div class="wk-review-links">
+                <a href="https://www.instagram.com/marriedbymagic" target="_blank" rel="noopener" class="wk-review-link">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  @MarriedByMagic
+                </a>
+                <a href="https://www.google.com/maps/contrib/114206902688102124364/place/ChIJ3TVtaLRujWgRKlRAv8nGfUk/" target="_blank" rel="noopener" class="wk-review-link">
+                  <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                  Google Review
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 6 -->
+        <div class="wk-review-card">
+          <div class="wk-review-summary">Professional, polished, and highly recommended</div>
+          <span class="wk-review-stars">★★★★★</span>
+          <p class="wk-review-text">Cory was a pleasure to work with. He was professional and polished. His editing was superb. Would highly recommend any content creator to hire Cory.</p>
+          <div class="wk-review-author">
+            <div class="wk-review-avatar" style="background:none; overflow:hidden;">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae6fb19e1ac5f52ae00b8.png" style="width:100%; height:100%; object-fit:cover; object-position:center top;" alt="">
+            </div>
+            <div>
+              <div class="wk-review-name">Kenny Stewart</div>
+              <div class="wk-review-role">Magician</div>
+              <div class="wk-review-links">
+                <a href="https://www.instagram.com/magic_kenny_bangbang" target="_blank" rel="noopener" class="wk-review-link">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  @magic_kenny_bangbang
+                </a>
+                <a href="https://www.google.com/maps/contrib/115224319398940209681/place/ChIJ3TVtaLRujWgRKlRAv8nGfUk/" target="_blank" rel="noopener" class="wk-review-link">
+                  <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                  Google Review
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 7 -->
+        <div class="wk-review-card">
+          <div class="wk-review-summary">Business client — consistent quality, fast turnaround</div>
+          <span class="wk-review-stars">★★★★★</span>
+          <p class="wk-review-text">Cory has been an amazing part to our team and the quality and speed we get the work back. Not only does he get the vision, he understands the overall scope of what we are looking for. With minor if any re edits.</p>
+          <div class="wk-review-author">
+            <div class="wk-review-avatar" style="background:none; overflow:hidden;">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae6fb8d08689eb2b8c526.png" style="width:100%; height:100%; object-fit:cover; object-position:center top;" alt="">
+            </div>
+            <div>
+              <div class="wk-review-name">Paul Carpenter</div>
+              <div class="wk-review-role">Local Guide · 78 Reviews</div>
+              <div class="wk-review-links">
+                <a href="https://www.google.com/maps/contrib/102403463315060937043/place/ChIJ3TVtaLRujWgRKlRAv8nGfUk/" target="_blank" rel="noopener" class="wk-review-link">
+                  <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                  Google Review
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="wk-cta">
+    <div class="wk-cta-inner">
+      <div class="wk-label" style="justify-content:center;">Ready to Get Results Like These?</div>
+      <h2 class="wk-cta-title">Let's Build Your <span>Video.</span></h2>
+      <p class="wk-cta-sub">Editing that understands performance, protects what matters, and makes people take notice. One project or every month — I've got you covered.</p>
+      <div class="wk-btn-row">
+        <button onclick="document.getElementById('wkQuoteForm').scrollIntoView({behavior:'smooth'})" class="wk-btn-primary">🎩 Request a Quote</button>
+        <a href="tel:+17026660797" class="wk-btn-outline">📞 (702) 666-0797</a>
+      
+        <a href="mailto:contact@laffinedits.com" class="wk-btn-outline">✉️ contact@laffinedits.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── QUOTE FORM PLACEHOLDER ─── -->
+  <section class="wk-section" style="background: var(--deep);" id="wkQuoteForm">
+    <div class="wk-section-inner">
+      <div class="wk-section-header">
+        <div class="wk-label">Get Started</div>
+        <h2 class="wk-title">Request a <span>Quote</span></h2>
+        <p class="wk-section-desc">Fast response. No obligation. Let's talk about your project.</p>
+      </div>
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           PASTE YOUR BIZLY FORM EMBED CODE BELOW THIS LINE
+           ============================================================ -->
+      <div style="max-width:700px; margin:0 auto;">
+      <iframe
+        src="https://files.bizlyapp.com/widget/form/Y1WLIvCPVETpQre2Wfet"
+        style="width:100%;height:100%;border:none;border-radius:8px"
+        id="inline-Y1WLIvCPVETpQre2Wfet"
+        data-layout='{"id":"INLINE"}'
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Laffin Edits Quote Request"
+        data-height="undefined"
+        data-layout-iframe-id="inline-Y1WLIvCPVETpQre2Wfet"
+        data-form-id="Y1WLIvCPVETpQre2Wfet"
+        title="Laffin Edits Quote Request">
+      </iframe>
+      <script src="https://files.bizlyapp.com/js/form_embed.js"></script>
+      </div>
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           PASTE YOUR BIZLY FORM EMBED CODE ABOVE THIS LINE
+           ============================================================ -->
+    </div>
+  </section>
+
+</div>
+
+<footer class="le-footer">
+  <div class="le-footer-inner">
+    <div class="le-footer-top">
+
+      <!-- Col 1 — Brand -->
+      <div>
+        <a href="index.html" class="le-footer-logo">
+          <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits">
+          <span class="le-footer-logo-text">Laffin Edits</span>
+        </a>
+        <div class="le-footer-tagline">The World's Only Video Editor Who Is Also a Magician</div>
+        <p class="le-footer-desc">Professional video editing for magicians, performers, entertainers, and businesses. Based in Las Vegas. Serving clients worldwide.</p>
+      </div>
+
+      <!-- Col 2 — Pages -->
+      <div>
+        <div class="le-footer-col-title">Pages</div>
+        <ul class="le-footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Client Work</a></li>
+          <li><a href="performance.html">Performance Edits</a></li>
+          <li><a href="social.html">Social Media</a></li>
+          <li><a href="promos.html">Promo Videos</a></li>
+          <li><a href="monthly.html">Monthly Packages</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 — Contact -->
+      <div>
+        <div class="le-footer-col-title">Contact</div>
+        <div class="le-footer-contact">
+          <a href="tel:+17026660797" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">📞</span>
+            (702) 666-0797
+          </a>
+          <a href="mailto:contact@laffinedits.com" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">✉️</span>
+            contact@laffinedits.com
+          </a>
+          <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">⭐</span>
+            Leave a Google Review
+          </a>
+          <a href="index.html#leQuoteForm" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">🎩</span>
+            Request a Quote
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="le-footer-bottom">
+      <div class="le-footer-copy">© 2026 <span>Laffin Edits</span>. All rights reserved. Las Vegas, NV.</div>
+      <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-google">★★★★★ See Our Google Reviews</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var wkObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.wk-review-card, .wk-video-card').forEach(function(el) {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.3s, box-shadow 0.3s';
+  wkObserver.observe(el);
+});
+
+function toggleSocialVideos() {
+  var grid = document.getElementById('smMoreVideos');
+  var btn = document.getElementById('smToggleBtn');
+  if (grid.style.display === 'none' || grid.style.display === '') {
+    grid.style.display = 'block';
+    btn.textContent = '▲ Hide Social Media Videos';
+  } else {
+    grid.style.display = 'none';
+    btn.textContent = '▼ See More Social Media Videos';
+  }
+}
+
+function toggleYouTubeVideos() {
+  var grid = document.getElementById('ytMoreVideos');
+  var btn = document.getElementById('ytToggleBtn');
+  if (grid.style.display === 'none' || grid.style.display === '') {
+    grid.style.display = 'block';
+    btn.textContent = '▲ Hide YouTube Videos';
+  } else {
+    grid.style.display = 'none';
+    btn.textContent = '▼ See More YouTube Videos';
+  }
+}
+</script>
+</body></html>

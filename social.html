@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laffin Edits — Social Media Editing | Instagram, TikTok, YouTube</title>
+  <style>html,body{margin:0;padding:0;background:#06060a;min-width:100%;}</style>
+<style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+.le-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(6,6,10,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 0 24px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s;
+}
+.le-nav.scrolled {
+  background: rgba(6,6,10,0.99);
+  border-bottom-color: rgba(192,57,43,0.35);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+.le-nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.le-nav-logo img {
+  height: 40px; width: 40px; object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(192,57,43,0.4));
+}
+.le-nav-logo-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #f0eeff;
+  text-shadow: 0 0 10px rgba(26,111,212,0.8);
+}
+.le-nav-links {
+  display: flex; align-items: center; gap: 4px;
+  list-style: none;
+}
+.le-nav-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.65);
+  text-decoration: none; padding: 6px 10px; border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.le-nav-links a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-cta {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  background: linear-gradient(135deg, #8b1a10, #e05544);
+  color: #f0eeff; padding: 8px 16px; border-radius: 4px;
+  text-decoration: none; transition: all 0.3s;
+  box-shadow: 0 0 16px rgba(192,57,43,0.3);
+  white-space: nowrap;
+}
+.le-nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 24px rgba(192,57,43,0.5); }
+
+/* Hamburger */
+.le-nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px; background: none; border: none;
+}
+.le-nav-hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: rgba(200,204,224,0.8); border-radius: 2px;
+  transition: all 0.3s;
+}
+.le-nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.le-nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.le-nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.le-nav-mobile {
+  display: none; position: fixed;
+  top: 64px; left: 0; right: 0;
+  background: rgba(6,6,10,0.98);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 20px 24px;
+  flex-direction: column; gap: 4px;
+  z-index: 9998;
+  backdrop-filter: blur(12px);
+}
+.le-nav-mobile.open { display: flex; }
+.le-nav-mobile a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 1rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.7);
+  text-decoration: none; padding: 12px 16px; border-radius: 4px;
+  transition: all 0.2s;
+  border-bottom: 1px solid rgba(26,111,212,0.08);
+}
+.le-nav-mobile a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-mobile .le-nav-cta {
+  margin-top: 8px; text-align: center; padding: 12px;
+}
+
+/* Page offset so content doesn't hide under fixed nav */
+.le-nav-spacer { height: 64px; }
+
+@media (max-width: 900px) {
+  .le-nav-links { display: none; }
+  .le-nav-cta { display: none; }
+  .le-nav-hamburger { display: flex; }
+}
+
+/* ─── FOOTER ─── */
+.le-footer {
+  background: #06060a;
+  border-top: 1px solid rgba(192,57,43,0.2);
+  padding: 50px 24px 30px;
+  width: 100%;
+}
+.le-footer-inner {
+  max-width: 1100px; margin: 0 auto;
+}
+.le-footer-top {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;
+  margin-bottom: 40px;
+}
+.le-footer-logo {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 14px; text-decoration: none;
+}
+.le-footer-logo img { height: 48px; width: 48px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(192,57,43,0.4)); }
+.le-footer-logo-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.2rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #f0eeff;
+  text-shadow: 0 0 10px rgba(26,111,212,0.8);
+}
+.le-footer-tagline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #e05544; margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.le-footer-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem; line-height: 1.65;
+  color: rgba(200,204,224,0.45);
+}
+.le-footer-col-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 0.75rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #e05544; margin-bottom: 16px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.le-footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.le-footer-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.82rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(200,204,224,0.5); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-links a:hover { color: #f0eeff; }
+.le-footer-contact { display: flex; flex-direction: column; gap: 10px; }
+.le-footer-contact-item {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Inter', sans-serif; font-size: 0.85rem;
+  color: rgba(200,204,224,0.6); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-contact-item:hover { color: #f0eeff; }
+.le-footer-contact-icon { font-size: 1rem; flex-shrink: 0; }
+.le-footer-bottom {
+  border-top: 1px solid rgba(26,111,212,0.1);
+  padding-top: 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.le-footer-copy {
+  font-family: 'Inter', sans-serif; font-size: 0.78rem;
+  color: rgba(200,204,224,0.3); letter-spacing: 0.5px;
+}
+.le-footer-copy span { color: #e05544; }
+.le-footer-google {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.4); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-google:hover { color: #e05544; }
+
+@media (max-width: 900px) {
+  .le-footer-top { grid-template-columns: 1fr; gap: 30px; }
+  .le-footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+
+<!-- HEADER HTML -->
+<nav class="le-nav" id="leNav">
+  <a href="index.html" class="le-nav-logo">
+    <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits">
+    <span class="le-nav-logo-text">Laffin Edits</span>
+  </a>
+  <ul class="le-nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="performance.html">Performance</a></li>
+    <li><a href="social.html">Social Media</a></li>
+    <li><a href="promos.html">Promos</a></li>
+    <li><a href="monthly.html">Monthly</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a></li>
+  </ul>
+  <button class="le-nav-hamburger" id="leHamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="le-nav-mobile" id="leMobileNav">
+  <a href="index.html">Home</a>
+  <a href="work.html">Work</a>
+  <a href="performance.html">Performance Edits</a>
+  <a href="social.html">Social Media</a>
+  <a href="promos.html">Promos</a>
+  <a href="monthly.html">Monthly Packages</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a>
+</div>
+
+<div class="le-nav-spacer"></div>
+
+<script>
+function toggleMobileNav() {
+  var nav = document.getElementById('leMobileNav');
+  var btn = document.getElementById('leHamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('leNav');
+  if (window.scrollY > 20) { nav.classList.add('scrolled'); }
+  else { nav.classList.remove('scrolled'); }
+});
+</script>
+
+<!-- ============================================================
+     LAFFIN EDITS — SOCIAL MEDIA EDITING PAGE
+     Paste this entire block into a Custom Code element in Bizly
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+.sm-wrap * { margin: 0; padding: 0; box-sizing: border-box; }
+.sm-wrap {
+  --black:  #06060a;
+  --deep:   #0d0d18;
+  --card:   #0f0f1e;
+  --blue:   #1a6fd4;
+  --blue-bright: #4a9ef5;
+  --blue-dark: #0d4a8a;
+  --red:    #c0392b;
+  --red-bright: #e05544;
+  --silver: #c8cce0;
+  --white:  #f0eeff;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ─── PAGE HERO ─── */
+.sm-hero {
+  min-height: 60vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 100px 24px 80px;
+  text-align: center; position: relative; overflow: hidden;
+  background: var(--black);
+}
+.sm-hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 50%, rgba(26,111,212,0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 40%, rgba(192,57,43,0.06) 0%, transparent 60%);
+  z-index: 1; pointer-events: none;
+}
+.sm-hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(26,111,212,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,111,212,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 75%);
+  z-index: 2;
+}
+.sm-hero-content {
+  position: relative; z-index: 3;
+  max-width: 800px;
+  animation: sm-fadeIn 0.8s ease forwards;
+}
+@keyframes sm-fadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.sm-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  text-shadow: 0 0 20px rgba(192,57,43,0.7), 0 0 40px rgba(192,57,43,0.3);
+}
+.sm-label::before, .sm-label::after {
+  content: ''; height: 1px; width: 30px; background: var(--red);
+}
+.sm-hero-h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 6rem);
+  letter-spacing: 3px; line-height: 0.95;
+  color: var(--white); margin-bottom: 20px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9), 0 0 120px rgba(26,111,212,0.7);
+}
+.sm-hero-h1 span { color: var(--red-bright); text-shadow: 0 0 40px rgba(192,57,43,0.8), 0 0 80px rgba(192,57,43,0.4); }
+.sm-hero-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem; line-height: 1.75;
+  color: rgba(200,204,224,0.65);
+  max-width: 580px; margin: 0 auto 32px;
+}
+.sm-btn-primary {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.95rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  background: linear-gradient(135deg, #8b1a10, var(--red));
+  color: var(--white); padding: 14px 32px; border-radius: 4px;
+  transition: all 0.3s; box-shadow: 0 0 24px rgba(192,57,43,0.35);
+  border: none; cursor: pointer; display: inline-block; text-decoration: none;
+}
+.sm-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(192,57,43,0.55); }
+.sm-btn-outline {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.95rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  border: 2px solid rgba(26,111,212,0.4); color: var(--blue-bright);
+  padding: 14px 32px; border-radius: 4px; transition: all 0.3s;
+  display: inline-block; cursor: pointer; background: transparent;
+  text-decoration: none;
+}
+.sm-btn-outline:hover { border-color: var(--blue); color: var(--white); transform: translateY(-2px); background: rgba(26,111,212,0.1); }
+.sm-btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ─── SECTIONS ─── */
+.sm-section { padding: 80px 24px; width: 100%; }
+.sm-section-inner { max-width: 1200px; margin: 0 auto; }
+.sm-section-header { text-align: center; margin-bottom: 50px; }
+.sm-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: 2px; line-height: 1; margin-bottom: 16px;
+  text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.sm-title span { color: var(--red-bright); text-shadow: 0 0 30px rgba(192,57,43,0.8), 0 0 60px rgba(192,57,43,0.3); }
+.sm-section-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem; line-height: 1.75;
+  color: rgba(200,204,224,0.55); max-width: 560px; margin: 0 auto;
+}
+.sm-dark { background: var(--black); }
+.sm-deep { background: var(--deep); position: relative; }
+.sm-deep::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--blue), transparent); }
+
+/* ─── PLATFORM CARDS ─── */
+.sm-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.sm-card {
+  background: var(--card);
+  border: 1px solid rgba(26,111,212,0.15);
+  border-radius: 12px; padding: 30px 24px;
+  text-align: center; transition: all 0.3s;
+  position: relative; overflow: hidden;
+}
+.sm-card::before {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #8b1a10, var(--red-bright));
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+}
+.sm-card:hover { border-color: rgba(192,57,43,0.3); transform: translateY(-5px); box-shadow: 0 16px 50px rgba(0,0,0,0.6), 0 0 20px rgba(192,57,43,0.1); }
+.sm-card:hover::before { transform: scaleX(1); }
+.sm-card-icon { font-size: 2rem; margin-bottom: 14px; }
+.sm-card-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 1rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--white); margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,0.8);
+}
+.sm-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem; line-height: 1.7;
+  color: rgba(200,204,224,0.55);
+}
+
+/* ─── STATS ─── */
+.sm-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  max-width: 800px; margin: 0 auto;
+}
+.sm-stat {
+  background: rgba(26,111,212,0.06);
+  border: 1px solid rgba(26,111,212,0.15);
+  border-radius: 10px; padding: 28px; text-align: center;
+  transition: all 0.3s;
+}
+.sm-stat:hover { border-color: rgba(192,57,43,0.3); transform: translateY(-4px); }
+.sm-stat-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem; letter-spacing: 2px;
+  color: var(--red-bright); line-height: 1;
+  text-shadow: 0 0 20px rgba(192,57,43,0.7), 0 0 40px rgba(192,57,43,0.3);
+}
+.sm-stat-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 0.8rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--silver); margin-top: 6px;
+}
+
+/* ─── WHY SECTION ─── */
+.sm-about-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+.sm-about-p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; line-height: 1.85;
+  color: rgba(200,204,224,0.72); margin-bottom: 20px;
+}
+.sm-highlight {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 1.2rem;
+  color: var(--white); font-style: italic;
+  border-top: 3px solid var(--red);
+  border-bottom: 3px solid var(--red);
+  padding: 16px 24px; margin: 28px 0;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,0.8);
+}
+
+/* ─── PACKAGES ─── */
+.sm-packages {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  max-width: 900px; margin: 0 auto;
+}
+.sm-package {
+  background: var(--card);
+  border: 1px solid rgba(26,111,212,0.15);
+  border-radius: 12px; padding: 32px;
+  transition: all 0.3s;
+}
+.sm-package:hover { border-color: rgba(192,57,43,0.3); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+.sm-package-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.4rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--white); margin-bottom: 8px;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,0.8);
+}
+.sm-package-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.72rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 14px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.6);
+}
+.sm-package-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; line-height: 1.7;
+  color: rgba(200,204,224,0.6);
+}
+
+/* ─── CTA ─── */
+.sm-cta {
+  background: linear-gradient(135deg, #080d1a 0%, #0a1020 50%, #080d1a 100%);
+  padding: 80px 24px; text-align: center; position: relative; overflow: hidden;
+}
+.sm-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(192,57,43,0.08), transparent); }
+.sm-cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.sm-cta-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 2px; line-height: 1.05; margin-bottom: 16px;
+  text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.sm-cta-title span { color: var(--red-bright); text-shadow: 0 0 30px rgba(192,57,43,0.8), 0 0 60px rgba(192,57,43,0.3); }
+.sm-cta-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; color: rgba(200,204,224,0.65);
+  margin-bottom: 36px; line-height: 1.7;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .sm-grid { grid-template-columns: 1fr 1fr; }
+  .sm-stats { grid-template-columns: 1fr 1fr; }
+  .sm-packages { grid-template-columns: 1fr; }
+  .sm-btn-row { flex-direction: column; align-items: center; }
+  .sm-btn-primary, .sm-btn-outline { width: 100%; max-width: 300px; text-align: center; }
+}
+@media (max-width: 600px) {
+  .sm-grid { grid-template-columns: 1fr; }
+  .sm-stats { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="sm-wrap">
+
+  <!-- ─── HERO ─── -->
+  <section class="sm-hero">
+    <div class="sm-hero-bg"></div>
+    <div class="sm-hero-grid"></div>
+    <div class="sm-hero-content">
+      <div class="sm-label">Grow Your Audience</div>
+      <h1 class="sm-hero-h1">Social Media<br><span>Editing</span></h1>
+      <p class="sm-hero-desc">Scroll-stopping content for Instagram, TikTok, YouTube, and more. Platform-optimized edits that reach new audiences, build your following, and keep people watching.</p>
+      <div class="sm-btn-row">
+        <button onclick="document.getElementById('smQuoteForm').scrollIntoView({behavior:'smooth'})" class="sm-btn-primary">🎩 Request a Quote</button>
+        <a href="tel:+17026660797" class="sm-btn-outline">📞 (702) 666-0797</a>
+      
+        <a href="mailto:contact@laffinedits.com" class="sm-btn-outline">✉️ contact@laffinedits.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PLATFORMS ─── -->
+  <section class="sm-section sm-dark">
+    <div class="sm-section-inner">
+      <div class="sm-section-header">
+        <div class="sm-label">Platforms & Formats</div>
+        <h2 class="sm-title">What's <span>Covered</span></h2>
+        <p class="sm-section-desc">Every platform has its own rules. I edit for the platform — not just the footage.</p>
+      </div>
+      <div class="sm-grid">
+        <div class="sm-card">
+          <div class="sm-card-icon">📸</div>
+          <div class="sm-card-name">Instagram Reels</div>
+          <p class="sm-card-desc">Short-form vertical video optimized for Reels. Paced for the algorithm, designed for the viewer. Magic content that stops the scroll and earns the save.</p>
+        </div>
+        <div class="sm-card">
+          <div class="sm-card-icon">🎵</div>
+          <div class="sm-card-name">TikTok Edits</div>
+          <p class="sm-card-desc">Fast-paced, attention-grabbing cuts built around TikTok's viewing behavior. First 3 seconds engineered to hook the viewer every time.</p>
+        </div>
+        <div class="sm-card">
+          <div class="sm-card-icon">▶️</div>
+          <div class="sm-card-name">YouTube Content</div>
+          <p class="sm-card-desc">Longer-form edits for YouTube — whether it's a full performance, a behind-the-scenes, or a polished highlight. Professional quality that builds your channel.</p>
+        </div>
+        <div class="sm-card">
+          <div class="sm-card-icon">💼</div>
+          <div class="sm-card-name">LinkedIn & Professional</div>
+          <p class="sm-card-desc">Clean, professional edits for corporate bookings and B2B audiences. A different tone, a different purpose — same attention to your performance.</p>
+        </div>
+        <div class="sm-card">
+          <div class="sm-card-icon">🔄</div>
+          <div class="sm-card-name">Multi-Platform Packages</div>
+          <p class="sm-card-desc">One set of footage edited into multiple formats for multiple platforms. Maximize the value of every performance you film.</p>
+        </div>
+        <div class="sm-card">
+          <div class="sm-card-icon">📊</div>
+          <div class="sm-card-name">Content Strategy Alignment</div>
+          <p class="sm-card-desc">Edits that match your posting strategy, brand voice, and audience expectations — not generic templates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STATS ─── -->
+  <section class="sm-section sm-deep">
+    <div class="sm-section-inner">
+      <div class="sm-section-header">
+        <div class="sm-label">Why Social Media Matters</div>
+        <h2 class="sm-title">The <span>Numbers</span></h2>
+      </div>
+      <div class="sm-stats">
+        <div class="sm-stat">
+          <div class="sm-stat-num">3x</div>
+          <div class="sm-stat-label">More Reach With Video vs Photos</div>
+        </div>
+        <div class="sm-stat">
+          <div class="sm-stat-num">90%</div>
+          <div class="sm-stat-label">Of Bookers Research Performers Online First</div>
+        </div>
+        <div class="sm-stat">
+          <div class="sm-stat-num">8s</div>
+          <div class="sm-stat-label">Average Attention Span — Hook Fast</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY ─── -->
+  <section class="sm-section sm-dark">
+    <div class="sm-section-inner">
+      <div class="sm-about-inner">
+        <div class="sm-label">Why It Works</div>
+        <h2 class="sm-title">Content That <span>Converts.</span></h2>
+        <p class="sm-about-p">Most magic content fails on social media not because the magic is bad — but because the edit doesn't understand how social media works. Wrong format, wrong pacing, wrong hook. The reaction that would stop someone in person gets buried by a bad cut.</p>
+        <p class="sm-about-p">I edit social content with the same performance-first mindset I bring to every project. The hook lands. The reaction hits. The edit serves the magic — and the algorithm.</p>
+        <div class="sm-highlight">"One well-edited clip can bring in more bookings than a month of posting unedited footage."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PACKAGES ─── -->
+  <section class="sm-section sm-deep">
+    <div class="sm-section-inner">
+      <div class="sm-section-header">
+        <div class="sm-label">Options</div>
+        <h2 class="sm-title">One-Time or <span>Monthly</span></h2>
+        <p class="sm-section-desc">Whether you need a single clip or consistent monthly content — there's an option that fits.</p>
+      </div>
+      <div class="sm-packages">
+        <div class="sm-package">
+          <div class="sm-package-tag">Single Project</div>
+          <div class="sm-package-name">One-Time Edit</div>
+          <p class="sm-package-desc">Have footage ready to go? Send it over and I'll turn it into a polished platform-ready clip. Perfect for a single performance, event, or moment you want to capture.</p>
+        </div>
+        <div class="sm-package">
+          <div class="sm-package-tag">Best Value · Recurring Work</div>
+          <div class="sm-package-name">Monthly Package</div>
+          <p class="sm-package-desc">Fresh edited content delivered every month. Priority turnaround, consistent style, and someone who knows your brand. The easiest way to stay visible and keep growing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="sm-cta">
+    <div class="sm-cta-inner">
+      <div class="sm-label" style="justify-content:center;">Ready to Grow Your Following?</div>
+      <h2 class="sm-cta-title">Let's Build Your <span>Audience.</span></h2>
+      <p class="sm-cta-sub">Turn your footage into content that builds your following and your bookings.</p>
+      <div class="sm-btn-row">
+        <button onclick="document.getElementById('smQuoteForm').scrollIntoView({behavior:'smooth'})" class="sm-btn-primary">🎩 Request a Quote</button>
+        <a href="tel:+17026660797" class="sm-btn-outline">📞 (702) 666-0797</a>
+      
+        <a href="mailto:contact@laffinedits.com" class="sm-btn-outline">✉️ contact@laffinedits.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── QUOTE FORM PLACEHOLDER ─── -->
+  <section class="sm-section" style="background: var(--deep);" id="smQuoteForm">
+    <div class="sm-section-inner">
+      <div class="sm-section-header">
+        <div class="sm-label">Get Started</div>
+        <h2 class="sm-title">Request a <span>Quote</span></h2>
+        <p class="sm-section-desc">Fast response. No obligation. Let's talk about your project.</p>
+      </div>
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           PASTE YOUR BIZLY FORM EMBED CODE BELOW THIS LINE
+           ============================================================ -->
+      <div style="max-width:700px; margin:0 auto;">
+      <iframe
+        src="https://files.bizlyapp.com/widget/form/Y1WLIvCPVETpQre2Wfet"
+        style="width:100%;height:100%;border:none;border-radius:8px"
+        id="inline-Y1WLIvCPVETpQre2Wfet"
+        data-layout='{"id":"INLINE"}'
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Laffin Edits Quote Request"
+        data-height="undefined"
+        data-layout-iframe-id="inline-Y1WLIvCPVETpQre2Wfet"
+        data-form-id="Y1WLIvCPVETpQre2Wfet"
+        title="Laffin Edits Quote Request">
+      </iframe>
+      <script src="https://files.bizlyapp.com/js/form_embed.js"></script>
+      </div>
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+<!-- ============================================================
+           PASTE YOUR BIZLY FORM EMBED CODE ABOVE THIS LINE
+           ============================================================ -->
+    </div>
+  </section>
+
+</div>
+
+<footer class="le-footer">
+  <div class="le-footer-inner">
+    <div class="le-footer-top">
+
+      <!-- Col 1 — Brand -->
+      <div>
+        <a href="index.html" class="le-footer-logo">
+          <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits">
+          <span class="le-footer-logo-text">Laffin Edits</span>
+        </a>
+        <div class="le-footer-tagline">The World's Only Video Editor Who Is Also a Magician</div>
+        <p class="le-footer-desc">Professional video editing for magicians, performers, entertainers, and businesses. Based in Las Vegas. Serving clients worldwide.</p>
+      </div>
+
+      <!-- Col 2 — Pages -->
+      <div>
+        <div class="le-footer-col-title">Pages</div>
+        <ul class="le-footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Client Work</a></li>
+          <li><a href="performance.html">Performance Edits</a></li>
+          <li><a href="social.html">Social Media</a></li>
+          <li><a href="promos.html">Promo Videos</a></li>
+          <li><a href="monthly.html">Monthly Packages</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 — Contact -->
+      <div>
+        <div class="le-footer-col-title">Contact</div>
+        <div class="le-footer-contact">
+          <a href="tel:+17026660797" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">📞</span>
+            (702) 666-0797
+          </a>
+          <a href="mailto:contact@laffinedits.com" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">✉️</span>
+            contact@laffinedits.com
+          </a>
+          <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">⭐</span>
+            Leave a Google Review
+          </a>
+          <a href="index.html#leQuoteForm" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">🎩</span>
+            Request a Quote
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="le-footer-bottom">
+      <div class="le-footer-copy">© 2026 <span>Laffin Edits</span>. All rights reserved. Las Vegas, NV.</div>
+      <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-google">★★★★★ See Our Google Reviews</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var smObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.sm-card, .sm-stat, .sm-package').forEach(function(el) {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.3s, box-shadow 0.3s';
+  smObserver.observe(el);
+});
+</script>
+</body></html>
