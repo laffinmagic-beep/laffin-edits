@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laffin Edits — Reviews | What Clients Say</title>
+  <style>html,body{margin:0;padding:0;background:#06060a;min-width:100%;}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+.le-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(6,6,10,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 0 24px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s;
+}
+.le-nav.scrolled {
+  background: rgba(6,6,10,0.99);
+  border-bottom-color: rgba(192,57,43,0.35);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+.le-nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.le-nav-logo img { height: 40px; width: 40px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(192,57,43,0.4)); }
+.le-nav-logo-text { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; color: #f0eeff; text-shadow: 0 0 10px rgba(26,111,212,0.8); }
+.le-nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+.le-nav-links a { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,204,224,0.65); text-decoration: none; padding: 6px 10px; border-radius: 4px; transition: all 0.2s; white-space: nowrap; }
+.le-nav-links a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-cta { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(135deg, #8b1a10, #e05544); color: #f0eeff; padding: 8px 16px; border-radius: 4px; text-decoration: none; transition: all 0.3s; box-shadow: 0 0 16px rgba(192,57,43,0.3); white-space: nowrap; }
+.le-nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 24px rgba(192,57,43,0.5); }
+.le-nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.le-nav-hamburger span { display: block; width: 24px; height: 2px; background: rgba(200,204,224,0.8); border-radius: 2px; transition: all 0.3s; }
+.le-nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.le-nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.le-nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.le-nav-mobile { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(6,6,10,0.98); border-bottom: 1px solid rgba(192,57,43,0.2); padding: 20px 24px; flex-direction: column; gap: 4px; z-index: 9998; backdrop-filter: blur(12px); }
+.le-nav-mobile.open { display: flex; }
+.le-nav-mobile a { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,204,224,0.7); text-decoration: none; padding: 12px 16px; border-radius: 4px; transition: all 0.2s; border-bottom: 1px solid rgba(26,111,212,0.08); }
+.le-nav-mobile a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-mobile .le-nav-cta { margin-top: 8px; text-align: center; padding: 12px; }
+.le-nav-spacer { height: 64px; }
+@media (max-width: 900px) {
+  .le-nav-links { display: none; }
+  .le-nav-cta { display: none; }
+  .le-nav-hamburger { display: flex; }
+}
+
+/* ─── FOOTER ─── */
+.le-footer { background: #06060a; border-top: 1px solid rgba(192,57,43,0.2); padding: 50px 24px 30px; width: 100%; }
+.le-footer-inner { max-width: 1100px; margin: 0 auto; }
+.le-footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.le-footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; text-decoration: none; }
+.le-footer-logo img { height: 48px; width: 48px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(192,57,43,0.4)); }
+.le-footer-logo-text { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; color: #f0eeff; text-shadow: 0 0 10px rgba(26,111,212,0.8); }
+.le-footer-tagline { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #e05544; margin-bottom: 10px; text-shadow: 0 0 10px rgba(192,57,43,0.5); }
+.le-footer-desc { font-family: 'Inter', sans-serif; font-size: 0.82rem; line-height: 1.65; color: rgba(200,204,224,0.45); }
+.le-footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #e05544; margin-bottom: 16px; text-shadow: 0 0 10px rgba(192,57,43,0.5); }
+.le-footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.le-footer-links a { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 1px; text-transform: uppercase; color: rgba(200,204,224,0.5); text-decoration: none; transition: color 0.2s; }
+.le-footer-links a:hover { color: #f0eeff; }
+.le-footer-contact { display: flex; flex-direction: column; gap: 10px; }
+.le-footer-contact-item { display: flex; align-items: center; gap: 10px; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: rgba(200,204,224,0.6); text-decoration: none; transition: color 0.2s; }
+.le-footer-contact-item:hover { color: #f0eeff; }
+.le-footer-contact-icon { font-size: 1rem; flex-shrink: 0; }
+.le-footer-bottom { border-top: 1px solid rgba(26,111,212,0.1); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.le-footer-copy { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: rgba(200,204,224,0.3); letter-spacing: 0.5px; }
+.le-footer-copy span { color: #e05544; }
+.le-footer-google { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,204,224,0.4); text-decoration: none; transition: color 0.2s; }
+.le-footer-google:hover { color: #e05544; }
+@media (max-width: 900px) {
+  .le-footer-top { grid-template-columns: 1fr; gap: 30px; }
+  .le-footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+
+<!-- HEADER -->
+<nav class="le-nav" id="leNav">
+  <a href="index.html" class="le-nav-logo">
+    <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits">
+    <span class="le-nav-logo-text">Laffin Edits</span>
+  </a>
+  <ul class="le-nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="performance.html">Performance</a></li>
+    <li><a href="social.html">Social Media</a></li>
+    <li><a href="promos.html">Promos</a></li>
+    <li><a href="monthly.html">Monthly</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a></li>
+  </ul>
+  <button class="le-nav-hamburger" id="leHamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="le-nav-mobile" id="leMobileNav">
+  <a href="index.html">Home</a>
+  <a href="work.html">Work</a>
+  <a href="performance.html">Performance Edits</a>
+  <a href="social.html">Social Media</a>
+  <a href="promos.html">Promos</a>
+  <a href="monthly.html">Monthly Packages</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a>
+</div>
+
+<div class="le-nav-spacer"></div>
+
+<script>
+function toggleMobileNav() {
+  var nav = document.getElementById('leMobileNav');
+  var btn = document.getElementById('leHamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('leNav');
+  if (window.scrollY > 20) { nav.classList.add('scrolled'); }
+  else { nav.classList.remove('scrolled'); }
+});
+</script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+.rv-wrap * { margin: 0; padding: 0; box-sizing: border-box; }
+.rv-wrap {
+  --black:  #06060a;
+  --deep:   #0d0d18;
+  --card:   #0f0f1e;
+  --blue:   #1a6fd4;
+  --blue-bright: #4a9ef5;
+  --red:    #c0392b;
+  --red-bright: #e05544;
+  --silver: #c8cce0;
+  --white:  #f0eeff;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ─── HERO ─── */
+.rv-hero {
+  min-height: 50vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 100px 24px 70px;
+  text-align: center; position: relative; overflow: hidden;
+  background: var(--black);
+}
+.rv-hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(192,57,43,0.15) 0%, transparent 70%);
+  z-index: 1; pointer-events: none;
+}
+.rv-hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(192,57,43,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(192,57,43,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 20%, transparent 75%);
+  z-index: 2;
+}
+.rv-hero-content { position: relative; z-index: 3; max-width: 700px; animation: rv-fadeIn 0.8s ease forwards; }
+@keyframes rv-fadeIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.rv-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  text-shadow: 0 0 20px rgba(192,57,43,0.7);
+}
+.rv-label::before, .rv-label::after { content: ''; height: 1px; width: 30px; background: var(--red); }
+.rv-hero-h1 {
+  font-family: 'Oswald', sans-serif; font-weight: 700;
+  font-size: clamp(3rem, 8vw, 6rem);
+  letter-spacing: 3px; line-height: 0.95;
+  color: var(--white); margin-bottom: 20px; text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.rv-hero-h1 span { color: var(--red-bright); text-shadow: 0 0 40px rgba(192,57,43,0.8); }
+.rv-hero-desc { font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.75; color: rgba(200,204,224,0.65); max-width: 520px; margin: 0 auto 28px; }
+
+/* ─── GOOGLE STRIP ─── */
+.rv-google-strip {
+  background: rgba(192,57,43,0.06);
+  border-top: 1px solid rgba(192,57,43,0.15);
+  border-bottom: 1px solid rgba(192,57,43,0.15);
+  padding: 18px 24px;
+  display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+}
+.rv-google-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(200,204,224,0.55); }
+.rv-google-link {
+  font-family: 'Oswald', sans-serif; font-size: 1rem; letter-spacing: 2px;
+  color: var(--red-bright); text-decoration: none;
+  text-shadow: 0 0 15px rgba(192,57,43,0.6);
+  transition: color 0.2s; display: flex; align-items: center; gap: 8px;
+}
+.rv-google-link:hover { color: var(--white); }
+
+/* ─── REVIEWS GRID ─── */
+.rv-section { padding: 70px 24px; width: 100%; }
+.rv-section-inner { max-width: 1100px; margin: 0 auto; }
+.rv-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.rv-card {
+  background: var(--card);
+  border: 1px solid rgba(192,57,43,0.12);
+  border-radius: 14px; padding: 28px 24px;
+  text-align: left; transition: all 0.3s;
+}
+.rv-card:hover { border-color: rgba(192,57,43,0.35); transform: translateY(-4px); box-shadow: 0 16px 50px rgba(0,0,0,0.5); }
+.rv-summary { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--red-bright); margin-bottom: 10px; text-shadow: 0 0 12px rgba(192,57,43,0.6); }
+.rv-stars { color: #f59e0b; font-size: 0.95rem; letter-spacing: 2px; margin-bottom: 12px; display: block; text-shadow: 0 0 10px rgba(245,158,11,0.5); }
+.rv-text { font-family: 'Inter', sans-serif; font-size: 0.9rem; line-height: 1.75; color: rgba(200,204,224,0.75); margin-bottom: 20px; font-style: italic; }
+.rv-text::before { content: '"'; color: var(--red-bright); font-size: 1.3rem; line-height: 0; vertical-align: -0.3em; margin-right: 2px; font-style: normal; }
+.rv-text::after  { content: '"'; color: var(--red-bright); font-size: 1.3rem; line-height: 0; vertical-align: -0.3em; margin-left: 2px; font-style: normal; }
+.rv-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(192,57,43,0.15); padding-top: 16px; }
+.rv-avatar { width: 42px; height: 42px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 2px solid rgba(192,57,43,0.25); box-shadow: 0 0 12px rgba(192,57,43,0.3); }
+.rv-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.rv-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; color: var(--white); text-shadow: 0 0 8px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,0.8); }
+.rv-role { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: var(--red-bright); margin-top: 2px; }
+.rv-links { display: flex; gap: 8px; margin-top: 5px; flex-wrap: wrap; }
+.rv-link { display: inline-flex; align-items: center; gap: 4px; font-family: 'Inter', sans-serif; font-size: 0.68rem; color: rgba(200,204,224,0.4); text-decoration: none; transition: color 0.2s; }
+.rv-link:hover { color: var(--blue-bright); }
+.rv-link svg { width: 11px; height: 11px; fill: currentColor; }
+
+/* ─── CTA ─── */
+.rv-cta { background: linear-gradient(135deg, #080d1a 0%, #0a1020 50%, #080d1a 100%); padding: 80px 24px; text-align: center; position: relative; overflow: hidden; }
+.rv-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(192,57,43,0.08), transparent); }
+.rv-cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.rv-cta-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(2rem, 5vw, 4rem); letter-spacing: 2px; line-height: 1.05; margin-bottom: 16px; text-transform: uppercase; color: var(--white); text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9); }
+.rv-cta-title span { color: var(--red-bright); text-shadow: 0 0 30px rgba(192,57,43,0.8); }
+.rv-cta-sub { font-family: 'Inter', sans-serif; font-size: 1rem; color: rgba(200,204,224,0.65); margin-bottom: 36px; line-height: 1.7; }
+.rv-btn-primary { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; background: linear-gradient(135deg, #8b1a10, var(--red)); color: var(--white); padding: 14px 32px; border-radius: 4px; transition: all 0.3s; box-shadow: 0 0 24px rgba(192,57,43,0.35); border: none; cursor: pointer; display: inline-block; text-decoration: none; }
+.rv-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(192,57,43,0.55); }
+.rv-btn-outline { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; border: 2px solid rgba(26,111,212,0.4); color: var(--blue-bright); padding: 14px 32px; border-radius: 4px; transition: all 0.3s; display: inline-block; cursor: pointer; background: transparent; text-decoration: none; }
+.rv-btn-outline:hover { border-color: var(--blue); color: var(--white); transform: translateY(-2px); background: rgba(26,111,212,0.1); }
+.rv-btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .rv-grid { grid-template-columns: 1fr 1fr; }
+  .rv-btn-row { flex-direction: column; align-items: center; }
+  .rv-btn-primary, .rv-btn-outline { width: 100%; max-width: 300px; text-align: center; }
+  .rv-google-strip { flex-direction: column; gap: 10px; }
+}
+@media (max-width: 600px) {
+  .rv-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="rv-wrap">
+
+  <!-- ─── HERO ─── -->
+  <section class="rv-hero">
+    <div class="rv-hero-bg"></div>
+    <div class="rv-hero-grid"></div>
+    <div class="rv-hero-content">
+      <div class="rv-label">Real Performers · Real Results</div>
+      <h1 class="rv-hero-h1">Client <span>Reviews</span></h1>
+      <p class="rv-hero-desc">Magicians, performers, and businesses on what it's like to work with Laffin Edits.</p>
+    </div>
+  </section>
+
+  <!-- ─── GOOGLE STRIP ─── -->
+  <div class="rv-google-strip">
+    <span class="rv-google-text">★★★★★ Rated on Google</span>
+    <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="rv-google-link">⭐ Leave a Google Review</a>
+  </div>
+
+  <!-- ─── REVIEWS ─── -->
+  <section class="rv-section" style="background: var(--black);">
+    <div class="rv-section-inner">
+      <div class="rv-grid">
+
+        <!-- Luke Harrison -->
+        <div class="rv-card">
+          <div class="rv-summary">Booked better gigs directly from his promo video</div>
+          <span class="rv-stars">★★★★★</span>
+          <p class="rv-text">I've already booked better gigs because of this promo video. Cory knows exactly how to showcase a performer's best moments.</p>
+          <div class="rv-author">
+            <div class="rv-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae52edbe569a25dcd24a1.png" alt=""></div>
+            <div>
+              <div class="rv-name">Luke Harrison</div>
+              <div class="rv-role">Sword Swallower &amp; Magician</div>
+              <div class="rv-links">
+                <a href="https://www.instagram.com/lewquee" target="_blank" rel="noopener" class="rv-link">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  @lewquee
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Michael Little -->
+        <div class="rv-card">
+          <div class="rv-summary">High quality professional video with all the greatest hits</div>
+          <span class="rv-stars">★★★★★</span>
+          <p class="rv-text">Cory did an amazing job creating a promo video for my magic business. He created a high quality, professional video with all the greatest hits.</p>
+          <div class="rv-author">
+            <div class="rv-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b8d08689eb2b89a73.png" alt=""></div>
+            <div>
+              <div class="rv-name">Michael Little</div>
+              <div class="rv-role">Magician</div>
+              <div class="rv-links">
+                <a href="https://www.instagram.com/mlittlemagic" target="_blank" rel="noopener" class="rv-link">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  @mlittlemagic
+                </a>
+                <a href="https://www.google.com/maps/contrib/105048810953603667803/place/ChIJ3TVtaLRujWgRKlRAv8nGfUk/" target="_blank" rel="noopener" class="rv-link">
+                  <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                  Google Review
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jason R. Smith -->
+        <div class="rv-card">
+          <div class="rv-summary">Creative, passionate, and captures the moments that matter</div>
+          <span class="rv-stars">★★★★★</span>
+          <p class="rv-text">Cory was easy to work with, creative, and genuinely passionate about capturing the reactions, atmosphere, and moments that matter. He brings real energy and a creative eye to every project.</p>
+          <div class="rv-author">
+            <div class="rv-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b2e98e28fa18ff8de.png" alt=""></div>
+            <div>
+              <div class="rv-name">Jason R. Smith</div>
+              <div class="rv-role">Magician</div>
+              <div class="rv-links">
+                <a href="https://www.instagram.com/jrsmithlv" target="_blank" rel="noopener" class="rv-link">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  @jrsmithlv
+                </a>
+                <a href="https://www.google.com/maps/contrib/101133152507777965207/place/ChIJ3TVtaLRujWgRKlRAv8nGfUk/" target="_blank" rel="noopener" class="rv-link">
+                  <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                  Google Review
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Robert Apodaca -->
+        <div class="rv-card">
+          <div class="rv-summary">Nailed the editing and delivered a final product I'm really happy with</div>
+          <span class="rv-stars">★★★★★</span>
+          <p class="rv-text">Cory nailed the editing, making everything flow smoothly while capturing the energy of my performance. He picked out the best moments, was super responsive to feedback, and delivered a final product I'm really happy with.</p>
+          <div class="rv-author">
+            <div class="rv-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b19e1ac5f52add52d.png" alt=""></div>
+            <div>
+              <div class="rv-name">Robert Apodaca</div>
+              <div class="rv-role">Magician</div>
+              <div class="rv-links">
+                <a href="https://www.instagram.com/vegasmagicman" target="_blank" rel="noopener" class="rv-link">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.0
