@@ -302,10 +302,14 @@
 .le-review-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(192,57,43,0.15); padding-top: 16px; }
 .le-review-avatar {
   width: 40px; height: 40px; border-radius: 50%;
+  overflow: hidden;
   background: linear-gradient(135deg, #8b1a10, var(--red));
   display: flex; align-items: center; justify-content: center;
   font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--white); flex-shrink: 0;
   box-shadow: 0 0 15px rgba(192,57,43,0.4);
+}
+.le-review-avatar img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
 }
 .le-review-name {
   font-family: 'Barlow Condensed', sans-serif;
@@ -391,6 +395,7 @@
   .le-services-grid { grid-template-columns: 1fr; }
   .le-why-grid { grid-template-columns: 1fr; }
   .le-process-steps { grid-template-columns: 1fr; }
+  .le-why, .le-process { display: none; }
 }
 </style>
 
@@ -517,7 +522,7 @@
           <span class="le-review-stars">★★★★★</span>
           <p class="le-review-text">I've already booked better gigs because of this promo video. Cory knows exactly how to showcase a performer's best moments.</p>
           <div class="le-review-author">
-            <div class="le-review-avatar">LH</div>
+            <div class="le-review-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae52edbe569a25dcd24a1.png" alt="Luke Harrison"></div>
             <div>
               <div class="le-review-name">Luke Harrison</div>
               <div class="le-review-role">Sword Swallower &amp; Magician</div>
@@ -535,7 +540,7 @@
           <span class="le-review-stars">★★★★★</span>
           <p class="le-review-text">Helpful, fast, and brilliant — Cory is the Vernon of Video editing and the Copperfield of storytelling. Highly recommended!</p>
           <div class="le-review-author">
-            <div class="le-review-avatar">BI</div>
+            <div class="le-review-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b8d08689eb2b89a72.png" alt="Bryan Ignozzi"></div>
             <div>
               <div class="le-review-name">Bryan Ignozzi</div>
               <div class="le-review-role">Magician</div>
@@ -557,7 +562,7 @@
           <span class="le-review-stars">★★★★★</span>
           <p class="le-review-text">Cory has been an amazing part to our team and the quality and speed we get the work back. Not only does he get the vision, he understands the overall scope of what we are looking for.</p>
           <div class="le-review-author">
-            <div class="le-review-avatar">PC</div>
+            <div class="le-review-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae6fb8d08689eb2b8c526.png" alt="Paul Carpenter"></div>
             <div>
               <div class="le-review-name">Paul Carpenter</div>
               <div class="le-review-role">Local Guide · 78 Reviews</div>
