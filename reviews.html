@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laffin Edits — Reviews | Video Editing for Magicians & Performers</title>
+  <style>html,body{margin:0;padding:0;background:#06060a;min-width:100%;}</style>
+<style>html,body,#root,.page-wrapper,.container{background:#06060a !important;min-width:100% !important;}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+.le-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(6,6,10,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 0 24px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s;
+}
+.le-nav.scrolled {
+  background: rgba(6,6,10,0.99);
+  border-bottom-color: rgba(192,57,43,0.35);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+.le-nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.le-nav-logo img {
+  height: 40px; width: 40px; object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(192,57,43,0.4));
+}
+.le-nav-logo-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #f0eeff;
+  text-shadow: 0 0 10px rgba(26,111,212,0.8);
+}
+.le-nav-links {
+  display: flex; align-items: center; gap: 4px;
+  list-style: none;
+}
+.le-nav-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.65);
+  text-decoration: none; padding: 6px 10px; border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.le-nav-links a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-cta {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  background: linear-gradient(135deg, #8b1a10, #e05544);
+  color: #f0eeff; padding: 8px 16px; border-radius: 4px;
+  text-decoration: none; transition: all 0.3s;
+  box-shadow: 0 0 16px rgba(192,57,43,0.3);
+  white-space: nowrap;
+}
+.le-nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 24px rgba(192,57,43,0.5); }
+
+.le-nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px; background: none; border: none;
+}
+.le-nav-hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: rgba(200,204,224,0.8); border-radius: 2px;
+  transition: all 0.3s;
+}
+.le-nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.le-nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.le-nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.le-nav-mobile {
+  display: none; position: fixed;
+  top: 64px; left: 0; right: 0;
+  background: rgba(6,6,10,0.98);
+  border-bottom: 1px solid rgba(192,57,43,0.2);
+  padding: 20px 24px;
+  flex-direction: column; gap: 4px;
+  z-index: 9998;
+  backdrop-filter: blur(12px);
+}
+.le-nav-mobile.open { display: flex; }
+.le-nav-mobile a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 1rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.7);
+  text-decoration: none; padding: 12px 16px; border-radius: 4px;
+  transition: all 0.2s;
+  border-bottom: 1px solid rgba(26,111,212,0.08);
+}
+.le-nav-mobile a:hover { color: #f0eeff; background: rgba(192,57,43,0.1); }
+.le-nav-mobile .le-nav-cta {
+  margin-top: 8px; text-align: center; padding: 12px;
+}
+
+.le-nav-spacer { height: 64px; }
+
+@media (max-width: 900px) {
+  .le-nav-links { display: none; }
+  .le-nav-cta { display: none; }
+  .le-nav-hamburger { display: flex; }
+}
+
+/* ─── FOOTER ─── */
+.le-footer {
+  background: #06060a;
+  border-top: 1px solid rgba(192,57,43,0.2);
+  padding: 50px 24px 30px;
+  width: 100%;
+}
+.le-footer-inner {
+  max-width: 1100px; margin: 0 auto;
+}
+.le-footer-top {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;
+  margin-bottom: 40px;
+}
+.le-footer-logo {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 14px; text-decoration: none;
+}
+.le-footer-logo img { height: 48px; width: 48px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(192,57,43,0.4)); }
+.le-footer-logo-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700; font-size: 1.2rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #f0eeff;
+  text-shadow: 0 0 10px rgba(26,111,212,0.8);
+}
+.le-footer-tagline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #e05544; margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.le-footer-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem; line-height: 1.65;
+  color: rgba(200,204,224,0.45);
+}
+.le-footer-col-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 0.75rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #e05544; margin-bottom: 16px;
+  text-shadow: 0 0 10px rgba(192,57,43,0.5);
+}
+.le-footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.le-footer-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.82rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(200,204,224,0.5); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-links a:hover { color: #f0eeff; }
+.le-footer-contact { display: flex; flex-direction: column; gap: 10px; }
+.le-footer-contact-item {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Inter', sans-serif; font-size: 0.85rem;
+  color: rgba(200,204,224,0.6); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-contact-item:hover { color: #f0eeff; }
+.le-footer-contact-icon { font-size: 1rem; flex-shrink: 0; }
+.le-footer-bottom {
+  border-top: 1px solid rgba(26,111,212,0.1);
+  padding-top: 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.le-footer-copy {
+  font-family: 'Inter', sans-serif; font-size: 0.78rem;
+  color: rgba(200,204,224,0.3); letter-spacing: 0.5px;
+}
+.le-footer-copy span { color: #e05544; }
+.le-footer-google {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(200,204,224,0.4); text-decoration: none;
+  transition: color 0.2s;
+}
+.le-footer-google:hover { color: #e05544; }
+
+@media (max-width: 900px) {
+  .le-footer-top { grid-template-columns: 1fr; gap: 30px; }
+  .le-footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+.rv-wrap * { margin: 0; padding: 0; box-sizing: border-box; }
+.rv-wrap {
+  --black:  #06060a;
+  --deep:   #0d0d18;
+  --card:   #0f0f1e;
+  --blue:   #1a6fd4;
+  --blue-bright: #4a9ef5;
+  --blue-dark: #0d4a8a;
+  --red:    #c0392b;
+  --red-bright: #e05544;
+  --silver: #c8cce0;
+  --white:  #f0eeff;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ─── PAGE HERO ─── */
+.rv-hero {
+  padding: 80px 24px 50px;
+  text-align: center; position: relative; overflow: hidden;
+  background: var(--black);
+}
+.rv-hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 30%, rgba(26,111,212,0.15) 0%, transparent 70%);
+  z-index: 1; pointer-events: none;
+}
+.rv-hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(26,111,212,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,111,212,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 30%, black 20%, transparent 75%);
+  z-index: 2;
+}
+.rv-hero-content {
+  position: relative; z-index: 3;
+  max-width: 800px; margin: 0 auto;
+  animation: rv-fadeIn 0.8s ease forwards;
+}
+@keyframes rv-fadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rv-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  text-shadow: 0 0 20px rgba(192,57,43,0.7), 0 0 40px rgba(192,57,43,0.3);
+}
+.rv-label::before, .rv-label::after {
+  content: ''; height: 1px; width: 30px; background: var(--red);
+}
+.rv-hero-h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 6rem);
+  letter-spacing: 3px; line-height: 0.95;
+  color: var(--white); margin-bottom: 16px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.rv-hero-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; line-height: 1.75;
+  color: rgba(200,204,224,0.65);
+  max-width: 560px; margin: 0 auto;
+}
+
+/* ─── REVIEWS SECTION ─── */
+.rv-section { padding: 60px 24px; width: 100%; }
+.rv-section-inner { max-width: 1100px; margin: 0 auto; }
+.rv-section-header { text-align: center; margin-bottom: 40px; }
+.rv-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: 2px; line-height: 1; margin-bottom: 12px;
+  text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.rv-section-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem; line-height: 1.75;
+  color: rgba(200,204,224,0.55); max-width: 520px; margin: 0 auto;
+}
+
+/* ─── REVIEWS GRID ─── */
+.rv-reviews-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.rv-review-card {
+  background: var(--card);
+  border: 1px solid rgba(26,111,212,0.12);
+  border-radius: 14px; padding: 28px 22px;
+  text-align: left; position: relative; transition: all 0.3s;
+}
+.rv-review-card:hover { border-color: rgba(192,57,43,0.3); transform: translateY(-4px); box-shadow: 0 16px 50px rgba(0,0,0,0.5); }
+.rv-review-summary {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.68rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 10px;
+  text-shadow: 0 0 12px rgba(192,57,43,0.6);
+}
+.rv-review-stars { color: #f59e0b; font-size: 0.95rem; letter-spacing: 2px; margin-bottom: 12px; display: block; text-shadow: 0 0 10px rgba(245,158,11,0.5); }
+.rv-review-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem; line-height: 1.75;
+  color: rgba(200,204,224,0.72); margin-bottom: 18px; font-style: italic;
+}
+.rv-review-text::before { content: '"'; color: var(--red-bright); font-size: 1.3rem; line-height: 0; vertical-align: -0.3em; margin-right: 2px; font-style: normal; }
+.rv-review-text::after  { content: '"'; color: var(--red-bright); font-size: 1.3rem; line-height: 0; vertical-align: -0.3em; margin-left: 2px; font-style: normal; }
+.rv-review-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(26,111,212,0.1); padding-top: 14px; }
+.rv-review-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: linear-gradient(135deg, #8b1a10, var(--red));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Oswald', sans-serif; font-size: 0.9rem;
+  color: var(--white); flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(192,57,43,0.3);
+}
+.rv-review-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.rv-review-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 0.85rem;
+  letter-spacing: 1px; text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 8px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,0.8);
+}
+.rv-review-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem; color: var(--red-bright); margin-top: 2px;
+  text-shadow: 0 0 8px rgba(192,57,43,0.4);
+}
+.rv-review-links { display: flex; gap: 8px; margin-top: 5px; flex-wrap: wrap; }
+.rv-review-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: 'Inter', sans-serif; font-size: 0.68rem;
+  color: rgba(200,204,224,0.4); text-decoration: none;
+  transition: color 0.2s;
+}
+.rv-review-link:hover { color: var(--blue-bright); }
+.rv-review-link svg { width: 11px; height: 11px; fill: currentColor; }
+
+/* ─── CTA SECTION ─── */
+.rv-cta {
+  background: linear-gradient(135deg, #080d1a 0%, #0a1020 50%, #080d1a 100%);
+  padding: 80px 24px; text-align: center; position: relative; overflow: hidden;
+}
+.rv-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(192,57,43,0.08), transparent); }
+.rv-cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.rv-cta-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 2px; line-height: 1.05; margin-bottom: 16px;
+  text-transform: uppercase; color: var(--white);
+  text-shadow: 0 0 10px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,1), 0 0 40px rgba(26,111,212,1), 0 0 80px rgba(26,111,212,0.9);
+}
+.rv-cta-title span { color: var(--red-bright); text-shadow: 0 0 30px rgba(192,57,43,0.8), 0 0 60px rgba(192,57,43,0.3); }
+.rv-cta-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; color: rgba(200,204,224,0.65);
+  margin-bottom: 36px; line-height: 1.7;
+}
+
+/* ─── BUTTONS ─── */
+.rv-btn-primary {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; font-size: 0.9rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  background: linear-gradient(135deg, #8b1a10, var(--red));
+  color: var(--white); padding: 12px 28px; border-radius: 4px;
+  transition: all 0.3s; box-shadow: 0 0 20px rgba(192,57,43,0.3);
+  border: none; cursor: pointer; display: inline-block; text-decoration: none;
+}
+.rv-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(192,57,43,0.5); }
+.rv-btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+
+/* ─── ANIMATIONS ─── */
+.rv-review-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: rv-slideUp 0.5s ease forwards;
+}
+@keyframes rv-slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+.rv-review-card:nth-child(1) { animation-delay: 0.1s; }
+.rv-review-card:nth-child(2) { animation-delay: 0.2s; }
+.rv-review-card:nth-child(3) { animation-delay: 0.3s; }
+.rv-review-card:nth-child(4) { animation-delay: 0.4s; }
+.rv-review-card:nth-child(5) { animation-delay: 0.5s; }
+.rv-review-card:nth-child(6) { animation-delay: 0.6s; }
+.rv-review-card:nth-child(7) { animation-delay: 0.7s; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .rv-reviews-grid { grid-template-columns: 1fr; }
+  .rv-btn-row { flex-direction: column; align-items: center; }
+  .rv-btn-primary { width: 100%; max-width: 300px; text-align: center; }
+}
+</style>
+
+<!-- HEADER HTML -->
+<nav class="le-nav" id="leNav">
+  <a href="index.html" class="le-nav-logo">
+    <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits">
+    <span class="le-nav-logo-text">Laffin Edits</span>
+  </a>
+  <ul class="le-nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="performance.html">Performance</a></li>
+    <li><a href="social.html">Social Media</a></li>
+    <li><a href="promos.html">Promos</a></li>
+    <li><a href="monthly.html">Monthly</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a></li>
+  </ul>
+  <button class="le-nav-hamburger" id="leHamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="le-nav-mobile" id="leMobileNav">
+  <a href="index.html">Home</a>
+  <a href="work.html">Work</a>
+  <a href="performance.html">Performance Edits</a>
+  <a href="social.html">Social Media</a>
+  <a href="promos.html">Promos</a>
+  <a href="monthly.html">Monthly Packages</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a>
+</div>
+
+<div class="le-nav-spacer"></div>
+
+<script>
+function toggleMobileNav() {
+  var nav = document.getElementById('leMobileNav');
+  var btn = document.getElementById('leHamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('leNav');
+  if (window.scrollY > 20) { nav.classList.add('scrolled'); }
+  else { nav.classList.remove('scrolled'); }
+});
+</script>
+
+<div class="rv-wrap">
+
+  <!-- ─── HERO ─── -->
+  <section class="rv-hero">
+    <div class="rv-hero-bg"></div>
+    <div class="rv-hero-grid"></div>
+    <div class="rv-hero-content">
+      <div class="rv-label">Real Performers</div>
+      <h1 class="rv-hero-h1">What They <span style="color: #e05544;">Say</span></h1>
+      <p class="rv-hero-desc">Real performers. Real results.</p>
+    </div>
+  </section>
+
+  <!-- ─── REVIEWS ─── -->
+  <section class="rv-section">
+    <div class="rv-section-inner">
+
+      <div class="rv-reviews-grid">
+
+        <!-- REVIEW 1 -->
+        <div class="rv-review-card">
+          <div class="rv-review-summary">Booked better gigs directly from his promo video</div>
+          <span class="rv-review-stars">★★★★★</span>
+          <p class="rv-review-text">I've already booked better gigs because of this promo video. Cory knows exactly how to showcase a performer's best moments.</p>
+          <div class="rv-review-author">
+            <div class="rv-review-avatar">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae52edbe569a25dcd24a1.png" alt="">
+            </div>
+            <div>
+              <div class="rv-review-name">Luke Harrison</div>
+              <div class="rv-review-role">Sword Swallower & Magician</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 2 -->
+        <div class="rv-review-card">
+          <div class="rv-review-summary">High quality professional video with all the greatest hits</div>
+          <span class="rv-review-stars">★★★★★</span>
+          <p class="rv-review-text">Cory did an amazing job creating a promo video for my magic business. He created a high quality, professional video with all the greatest hits.</p>
+          <div class="rv-review-author">
+            <div class="rv-review-avatar">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b8d08689eb2b89a73.png" alt="">
+            </div>
+            <div>
+              <div class="rv-review-name">Michael Little</div>
+              <div class="rv-review-role">Magician</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 3 -->
+        <div class="rv-review-card">
+          <div class="rv-review-summary">Creative, passionate, and captures the moments that matter</div>
+          <span class="rv-review-stars">★★★★★</span>
+          <p class="rv-review-text">Cory was easy to work with, creative, and genuinely passionate about capturing the reactions, atmosphere, and moments that matter. He brings real energy and a creative eye to every project.</p>
+          <div class="rv-review-author">
+            <div class="rv-review-avatar">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b2e98e28fa18ff8de.png" alt="">
+            </div>
+            <div>
+              <div class="rv-review-name">Jason R. Smith</div>
+              <div class="rv-review-role">Magician</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 4 -->
+        <div class="rv-review-card">
+          <div class="rv-review-summary">Nailed the editing and delivered a final product I'm really happy with</div>
+          <span class="rv-review-stars">★★★★★</span>
+          <p class="rv-review-text">Cory nailed the editing, making everything flow smoothly while capturing the energy of my performance. He picked out the best moments, was super responsive to feedback, and delivered a final product I'm really happy with.</p>
+          <div class="rv-review-author">
+            <div class="rv-review-avatar">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b19e1ac5f52add52d.png" alt="">
+            </div>
+            <div>
+              <div class="rv-review-name">Robert Apodaca</div>
+              <div class="rv-review-role">Magician</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 5 -->
+        <div class="rv-review-card">
+          <div class="rv-review-summary">The Vernon of video editing — the Copperfield of storytelling</div>
+          <span class="rv-review-stars">★★★★★</span>
+          <p class="rv-review-text">Helpful, fast, and brilliant — Cory is the Vernon of Video editing and the Copperfield of storytelling. He saw possibilities in the footage I never imagined. Highly recommended!</p>
+          <div class="rv-review-author">
+            <div class="rv-review-avatar">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b8d08689eb2b89a72.png" alt="">
+            </div>
+            <div>
+              <div class="rv-review-name">Bryan Ignozzi</div>
+              <div class="rv-review-role">Magician · @MarriedByMagic</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 6 -->
+        <div class="rv-review-card">
+          <div class="rv-review-summary">Professional, polished, and highly recommended</div>
+          <span class="rv-review-stars">★★★★★</span>
+          <p class="rv-review-text">Cory was a pleasure to work with. He was professional and polished. His editing was superb. Would highly recommend any content creator to hire Cory.</p>
+          <div class="rv-review-author">
+            <div class="rv-review-avatar">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae6fb19e1ac5f52ae00b8.png" alt="">
+            </div>
+            <div>
+              <div class="rv-review-name">Kenny Stewart</div>
+              <div class="rv-review-role">Magician</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 7 -->
+        <div class="rv-review-card">
+          <div class="rv-review-summary">Business client — consistent quality, fast turnaround</div>
+          <span class="rv-review-stars">★★★★★</span>
+          <p class="rv-review-text">Cory has been an amazing part to our team and the quality and speed we get the work back. Not only does he get the vision, he understands the overall scope of what we are looking for. With minor if any re edits.</p>
+          <div class="rv-review-author">
+            <div class="rv-review-avatar">
+              <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae6fb8d08689eb2b8c526.png" alt="">
+            </div>
+            <div>
+              <div class="rv-review-name">Paul Carpenter</div>
+              <div class="rv-review-role">Local Guide · 78 Reviews</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CTA SECTION ─── -->
+  <section class="rv-cta">
+    <div class="rv-cta-inner">
+      <h2 class="rv-cta-title">Ready to Work <span>Together?</span></h2>
+      <p class="rv-cta-sub">Whether you need a promo video, monthly edits, social content, or something custom — I'm here to help. Let's create something amazing.</p>
+      <div class="rv-btn-row">
+        <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="rv-btn-primary">⭐ Leave a Google Review</a>
+        <a href="index.html#leQuoteForm" class="rv-btn-primary">🎩 Request a Quote</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="le-footer">
+  <div class="le-footer-inner">
+    <div class="le-footer-top">
+
+      <!-- Col 1 — Brand -->
+      <div>
+        <a href="index.html" class="le-footer-logo">
+          <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits">
+          <span class="le-footer-logo-text">Laffin Edits</span>
+        </a>
+        <div class="le-footer-tagline">The World's Only Video Editor Who Is Also a Magician</div>
+        <p class="le-footer-desc">Professional video editing for magicians, performers, entertainers, and businesses. Based in Las Vegas. Serving clients worldwide.</p>
+      </div>
+
+      <!-- Col 2 — Pages -->
+      <div>
+        <div class="le-footer-col-title">Pages</div>
+        <ul class="le-footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Client Work</a></li>
+          <li><a href="performance.html">Performance Edits</a></li>
+          <li><a href="social.html">Social Media</a></li>
+          <li><a href="promos.html">Promo Videos</a></li>
+          <li><a href="monthly.html">Monthly Packages</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 — Contact -->
+      <div>
+        <div class="le-footer-col-title">Contact</div>
+        <div class="le-footer-contact">
+          <a href="tel:+17026660797" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">📞</span>
+            (702) 666-0797
+          </a>
+          <a href="mailto:contact@laffinedits.com" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">✉️</span>
+            contact@laffinedits.com
+          </a>
+          <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">⭐</span>
+            Leave a Google Review
+          </a>
+          <a href="index.html#leQuoteForm" class="le-footer-contact-item">
+            <span class="le-footer-contact-icon">🎩</span>
+            Request a Quote
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="le-footer-bottom">
+      <div class="le-footer-copy">© 2026 <span>Laffin Edits</span>. All rights reserved. Las Vegas, NV.</div>
+      <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-google">★★★★★ See Our Google Reviews</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
