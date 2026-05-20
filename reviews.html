@@ -484,223 +484,253 @@ window.addEventListener('scroll', function() {
   <section class="rv-section">
     <div class="rv-section-inner">
 
-      <!-- AUTO-SCROLLING CAROUSEL -->
+      <!-- AUTO-ADVANCE REVIEW SHOWCASE -->
       <style>
-        .rv-carousel-wrap {
-          overflow: hidden;
-          width: 100%;
+        .rv-showcase-wrap {
           position: relative;
-          mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
-          -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+          max-width: 750px;
+          margin: 0 auto;
+          padding: 40px 20px;
         }
-        .rv-carousel-track {
-          display: flex;
-          gap: 24px;
-          width: max-content;
-          animation: rv-scroll 40s linear infinite;
+        .rv-glow {
+          position: absolute;
+          inset: 0;
+          border-radius: 24px;
+          background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(192,57,43,0.18) 0%, rgba(26,111,212,0.12) 50%, transparent 75%);
+          filter: blur(30px);
+          animation: rv-glow-pulse 3s ease-in-out infinite;
+          z-index: 0;
+          pointer-events: none;
         }
-        .rv-carousel-track:hover { animation-play-state: paused; }
-        @keyframes rv-scroll {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+        @keyframes rv-glow-pulse {
+          0%, 100% { opacity: 0.7; transform: scale(1); }
+          50%       { opacity: 1;   transform: scale(1.05); }
         }
-        .rv-carousel-card {
-          background: #0f0f1e;
-          border: 1px solid rgba(26,111,212,0.12);
-          border-radius: 14px;
-          padding: 28px 24px;
-          width: 340px;
-          flex-shrink: 0;
-          transition: border-color 0.3s;
+        .rv-slide {
+          display: none;
+          position: relative;
+          z-index: 1;
+          background: rgba(15,15,30,0.95);
+          border: 1px solid rgba(192,57,43,0.25);
+          border-radius: 20px;
+          padding: 48px 44px;
+          text-align: center;
+          box-shadow: 0 0 40px rgba(192,57,43,0.15), 0 0 80px rgba(26,111,212,0.1);
+          animation: rv-fade-in 0.7s ease forwards;
         }
-        .rv-carousel-card:hover { border-color: rgba(192,57,43,0.35); }
-        .rv-carousel-summary {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-weight: 700; font-size: 0.68rem;
-          letter-spacing: 2px; text-transform: uppercase;
-          color: #e05544; margin-bottom: 10px;
-          text-shadow: 0 0 12px rgba(192,57,43,0.6);
+        .rv-slide.active { display: block; }
+        @keyframes rv-fade-in {
+          from { opacity: 0; transform: translateY(12px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
-        .rv-carousel-stars { color: #f59e0b; font-size: 0.95rem; letter-spacing: 2px; margin-bottom: 12px; display: block; }
-        .rv-carousel-text {
+        .rv-slide-stars { color: #f59e0b; font-size: 1.3rem; letter-spacing: 4px; margin-bottom: 20px; display: block; text-shadow: 0 0 12px rgba(245,158,11,0.6); }
+        .rv-slide-text {
           font-family: 'Inter', sans-serif;
-          font-size: 0.88rem; line-height: 1.75;
-          color: rgba(200,204,224,0.72); margin-bottom: 18px; font-style: italic;
+          font-size: 1.1rem; line-height: 1.85;
+          color: rgba(200,204,224,0.85);
+          font-style: italic; margin-bottom: 32px;
+          max-width: 600px; margin-left: auto; margin-right: auto;
         }
-        .rv-carousel-text::before { content: '"'; color: #e05544; font-size: 1.3rem; line-height: 0; vertical-align: -0.3em; margin-right: 2px; font-style: normal; }
-        .rv-carousel-text::after  { content: '"'; color: #e05544; font-size: 1.3rem; line-height: 0; vertical-align: -0.3em; margin-left: 2px; font-style: normal; }
-        .rv-carousel-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(26,111,212,0.1); padding-top: 14px; }
-        .rv-carousel-avatar { width: 38px; height: 38px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
-        .rv-carousel-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-        .rv-carousel-name {
+        .rv-slide-text::before { content: '"'; color: #e05544; font-size: 2rem; line-height: 0; vertical-align: -0.4em; margin-right: 4px; font-style: normal; }
+        .rv-slide-text::after  { content: '"'; color: #e05544; font-size: 2rem; line-height: 0; vertical-align: -0.4em; margin-left: 4px; font-style: normal; }
+        .rv-slide-author { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 32px; }
+        .rv-slide-avatar { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 2px solid rgba(192,57,43,0.4); box-shadow: 0 0 16px rgba(192,57,43,0.3); }
+        .rv-slide-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+        .rv-slide-name {
           font-family: 'Barlow Condensed', sans-serif;
-          font-weight: 800; font-size: 0.85rem;
-          letter-spacing: 1px; text-transform: uppercase; color: #f0eeff;
+          font-weight: 800; font-size: 1rem;
+          letter-spacing: 2px; text-transform: uppercase;
+          color: #f0eeff; text-align: left;
           text-shadow: 0 0 8px rgba(26,111,212,1), 0 0 20px rgba(26,111,212,0.8);
         }
-        .rv-carousel-role { font-family: 'Inter', sans-serif; font-size: 0.72rem; color: #e05544; margin-top: 2px; }
+        .rv-slide-role { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: #e05544; margin-top: 3px; text-align: left; }
+        .rv-slide-summary {
+          font-family: 'Barlow Condensed', sans-serif;
+          font-weight: 700; font-size: 0.72rem;
+          letter-spacing: 3px; text-transform: uppercase;
+          color: rgba(200,204,224,0.4); margin-bottom: 16px;
+        }
+
+        /* Progress bar */
+        .rv-progress-wrap {
+          position: relative; z-index: 1;
+          display: flex; gap: 8px; justify-content: center;
+          margin-top: 28px;
+        }
+        .rv-progress-dot {
+          width: 8px; height: 8px; border-radius: 50%;
+          background: rgba(200,204,224,0.2);
+          cursor: pointer; transition: all 0.3s;
+        }
+        .rv-progress-dot.active {
+          background: #e05544;
+          box-shadow: 0 0 8px rgba(192,57,43,0.6);
+          width: 24px; border-radius: 4px;
+        }
+
+        /* Progress line */
+        .rv-progress-bar-wrap {
+          position: relative; z-index: 1;
+          height: 2px; background: rgba(200,204,224,0.1);
+          border-radius: 2px; margin-top: 16px;
+          overflow: hidden;
+        }
+        .rv-progress-bar {
+          height: 100%; width: 0%;
+          background: linear-gradient(90deg, #8b1a10, #e05544);
+          border-radius: 2px;
+          transition: width 0.1s linear;
+          box-shadow: 0 0 8px rgba(192,57,43,0.5);
+        }
+
+        @media (max-width: 600px) {
+          .rv-slide { padding: 32px 24px; }
+          .rv-slide-text { font-size: 0.95rem; }
+        }
       </style>
 
-      <div class="rv-carousel-wrap">
-        <div class="rv-carousel-track">
+      <div class="rv-showcase-wrap" id="rvShowcase">
+        <div class="rv-glow"></div>
 
-          <!-- CARD 1 — Luke Harrison -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">Booked better gigs directly from his promo video</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">I've already booked better gigs because of this promo video. Cory knows exactly how to showcase a performer's best moments.</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae52edbe569a25dcd24a1.png" alt="Luke Harrison"></div>
-              <div><div class="rv-carousel-name">Luke Harrison</div><div class="rv-carousel-role">Sword Swallower & Magician</div></div>
-            </div>
+        <!-- SLIDE 1 — Luke Harrison -->
+        <div class="rv-slide active">
+          <div class="rv-slide-summary">Booked better gigs directly from his promo video</div>
+          <span class="rv-slide-stars">★★★★★</span>
+          <p class="rv-slide-text">I've already booked better gigs because of this promo video. Cory knows exactly how to showcase a performer's best moments.</p>
+          <div class="rv-slide-author">
+            <div class="rv-slide-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae52edbe569a25dcd24a1.png" alt="Luke Harrison"></div>
+            <div><div class="rv-slide-name">Luke Harrison</div><div class="rv-slide-role">Sword Swallower & Magician</div></div>
           </div>
-
-          <!-- CARD 2 — Michael Little -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">High quality professional video with all the greatest hits</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">Cory did an amazing job creating a promo video for my magic business. He created a high quality, professional video with all the greatest hits.</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b8d08689eb2b89a73.png" alt="Michael Little"></div>
-              <div><div class="rv-carousel-name">Michael Little</div><div class="rv-carousel-role">Magician</div></div>
-            </div>
-          </div>
-
-          <!-- CARD 3 — Jason R. Smith -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">Creative, passionate, and captures the moments that matter</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">Cory was easy to work with, creative, and genuinely passionate about capturing the reactions, atmosphere, and moments that matter. He brings real energy and a creative eye to every project.</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b2e98e28fa18ff8de.png" alt="Jason R. Smith"></div>
-              <div><div class="rv-carousel-name">Jason R. Smith</div><div class="rv-carousel-role">Magician</div></div>
-            </div>
-          </div>
-
-          <!-- CARD 4 — Robert Apodaca -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">Nailed the editing and delivered a final product I'm really happy with</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">Cory nailed the editing, making everything flow smoothly while capturing the energy of my performance. He picked out the best moments, was super responsive to feedback, and delivered a final product I'm really happy with.</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b19e1ac5f52add52d.png" alt="Robert Apodaca"></div>
-              <div><div class="rv-carousel-name">Robert Apodaca</div><div class="rv-carousel-role">Magician</div></div>
-            </div>
-          </div>
-
-          <!-- CARD 5 — Bryan Ignozzi -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">The Vernon of video editing — the Copperfield of storytelling</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">Helpful, fast, and brilliant — Cory is the Vernon of Video editing and the Copperfield of storytelling. He saw possibilities in the footage I never imagined. Highly recommended!</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b8d08689eb2b89a72.png" alt="Bryan Ignozzi"></div>
-              <div><div class="rv-carousel-name">Bryan Ignozzi</div><div class="rv-carousel-role">Magician · @MarriedByMagic</div></div>
-            </div>
-          </div>
-
-          <!-- CARD 6 — Kenny Stewart -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">Professional, polished, and highly recommended</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">Cory was a pleasure to work with. He was professional and polished. His editing was superb. Would highly recommend any content creator to hire Cory.</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae6fb19e1ac5f52ae00b8.png" alt="Kenny Stewart"></div>
-              <div><div class="rv-carousel-name">Kenny Stewart</div><div class="rv-carousel-role">Magician</div></div>
-            </div>
-          </div>
-
-          <!-- CARD 7 — Paul Carpenter -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">Business client — consistent quality, fast turnaround</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">Cory has been an amazing part to our team and the quality and speed we get the work back. Not only does he get the vision, he understands the overall scope of what we are looking for. With minor if any re edits.</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae6fb8d08689eb2b8c526.png" alt="Paul Carpenter"></div>
-              <div><div class="rv-carousel-name">Paul Carpenter</div><div class="rv-carousel-role">Local Guide · 78 Reviews</div></div>
-            </div>
-          </div>
-
-          <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
-          <!-- CARD 1 — Luke Harrison -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">Booked better gigs directly from his promo video</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">I've already booked better gigs because of this promo video. Cory knows exactly how to showcase a performer's best moments.</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae52edbe569a25dcd24a1.png" alt="Luke Harrison"></div>
-              <div><div class="rv-carousel-name">Luke Harrison</div><div class="rv-carousel-role">Sword Swallower & Magician</div></div>
-            </div>
-          </div>
-
-          <!-- CARD 2 — Michael Little -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">High quality professional video with all the greatest hits</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">Cory did an amazing job creating a promo video for my magic business. He created a high quality, professional video with all the greatest hits.</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b8d08689eb2b89a73.png" alt="Michael Little"></div>
-              <div><div class="rv-carousel-name">Michael Little</div><div class="rv-carousel-role">Magician</div></div>
-            </div>
-          </div>
-
-          <!-- CARD 3 — Jason R. Smith -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">Creative, passionate, and captures the moments that matter</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">Cory was easy to work with, creative, and genuinely passionate about capturing the reactions, atmosphere, and moments that matter. He brings real energy and a creative eye to every project.</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b2e98e28fa18ff8de.png" alt="Jason R. Smith"></div>
-              <div><div class="rv-carousel-name">Jason R. Smith</div><div class="rv-carousel-role">Magician</div></div>
-            </div>
-          </div>
-
-          <!-- CARD 4 — Robert Apodaca -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">Nailed the editing and delivered a final product I'm really happy with</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">Cory nailed the editing, making everything flow smoothly while capturing the energy of my performance. He picked out the best moments, was super responsive to feedback, and delivered a final product I'm really happy with.</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b19e1ac5f52add52d.png" alt="Robert Apodaca"></div>
-              <div><div class="rv-carousel-name">Robert Apodaca</div><div class="rv-carousel-role">Magician</div></div>
-            </div>
-          </div>
-
-          <!-- CARD 5 — Bryan Ignozzi -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">The Vernon of video editing — the Copperfield of storytelling</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">Helpful, fast, and brilliant — Cory is the Vernon of Video editing and the Copperfield of storytelling. He saw possibilities in the footage I never imagined. Highly recommended!</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b8d08689eb2b89a72.png" alt="Bryan Ignozzi"></div>
-              <div><div class="rv-carousel-name">Bryan Ignozzi</div><div class="rv-carousel-role">Magician · @MarriedByMagic</div></div>
-            </div>
-          </div>
-
-          <!-- CARD 6 — Kenny Stewart -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">Professional, polished, and highly recommended</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">Cory was a pleasure to work with. He was professional and polished. His editing was superb. Would highly recommend any content creator to hire Cory.</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae6fb19e1ac5f52ae00b8.png" alt="Kenny Stewart"></div>
-              <div><div class="rv-carousel-name">Kenny Stewart</div><div class="rv-carousel-role">Magician</div></div>
-            </div>
-          </div>
-
-          <!-- CARD 7 — Paul Carpenter -->
-          <div class="rv-carousel-card">
-            <div class="rv-carousel-summary">Business client — consistent quality, fast turnaround</div>
-            <span class="rv-carousel-stars">★★★★★</span>
-            <p class="rv-carousel-text">Cory has been an amazing part to our team and the quality and speed we get the work back. Not only does he get the vision, he understands the overall scope of what we are looking for. With minor if any re edits.</p>
-            <div class="rv-carousel-author">
-              <div class="rv-carousel-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae6fb8d08689eb2b8c526.png" alt="Paul Carpenter"></div>
-              <div><div class="rv-carousel-name">Paul Carpenter</div><div class="rv-carousel-role">Local Guide · 78 Reviews</div></div>
-            </div>
-          </div>
-
         </div>
-      </div>    </div>
+
+        <!-- SLIDE 2 — Michael Little -->
+        <div class="rv-slide">
+          <div class="rv-slide-summary">High quality professional video with all the greatest hits</div>
+          <span class="rv-slide-stars">★★★★★</span>
+          <p class="rv-slide-text">Cory did an amazing job creating a promo video for my magic business. He created a high quality, professional video with all the greatest hits.</p>
+          <div class="rv-slide-author">
+            <div class="rv-slide-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b8d08689eb2b89a73.png" alt="Michael Little"></div>
+            <div><div class="rv-slide-name">Michael Little</div><div class="rv-slide-role">Magician</div></div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3 — Jason R. Smith -->
+        <div class="rv-slide">
+          <div class="rv-slide-summary">Creative, passionate, and captures the moments that matter</div>
+          <span class="rv-slide-stars">★★★★★</span>
+          <p class="rv-slide-text">Cory was easy to work with, creative, and genuinely passionate about capturing the reactions, atmosphere, and moments that matter. He brings real energy and a creative eye to every project.</p>
+          <div class="rv-slide-author">
+            <div class="rv-slide-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b2e98e28fa18ff8de.png" alt="Jason R. Smith"></div>
+            <div><div class="rv-slide-name">Jason R. Smith</div><div class="rv-slide-role">Magician</div></div>
+          </div>
+        </div>
+
+        <!-- SLIDE 4 — Robert Apodaca -->
+        <div class="rv-slide">
+          <div class="rv-slide-summary">Nailed the editing and delivered a final product I'm really happy with</div>
+          <span class="rv-slide-stars">★★★★★</span>
+          <p class="rv-slide-text">Cory nailed the editing, making everything flow smoothly while capturing the energy of my performance. He picked out the best moments, was super responsive to feedback, and delivered a final product I'm really happy with.</p>
+          <div class="rv-slide-author">
+            <div class="rv-slide-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b19e1ac5f52add52d.png" alt="Robert Apodaca"></div>
+            <div><div class="rv-slide-name">Robert Apodaca</div><div class="rv-slide-role">Magician</div></div>
+          </div>
+        </div>
+
+        <!-- SLIDE 5 — Bryan Ignozzi -->
+        <div class="rv-slide">
+          <div class="rv-slide-summary">The Vernon of video editing — the Copperfield of storytelling</div>
+          <span class="rv-slide-stars">★★★★★</span>
+          <p class="rv-slide-text">Helpful, fast, and brilliant — Cory is the Vernon of Video editing and the Copperfield of storytelling. He saw possibilities in the footage I never imagined. Highly recommended!</p>
+          <div class="rv-slide-author">
+            <div class="rv-slide-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b8d08689eb2b89a72.png" alt="Bryan Ignozzi"></div>
+            <div><div class="rv-slide-name">Bryan Ignozzi</div><div class="rv-slide-role">Magician · @MarriedByMagic</div></div>
+          </div>
+        </div>
+
+        <!-- SLIDE 6 — Kenny Stewart -->
+        <div class="rv-slide">
+          <div class="rv-slide-summary">Professional, polished, and highly recommended</div>
+          <span class="rv-slide-stars">★★★★★</span>
+          <p class="rv-slide-text">Cory was a pleasure to work with. He was professional and polished. His editing was superb. Would highly recommend any content creator to hire Cory.</p>
+          <div class="rv-slide-author">
+            <div class="rv-slide-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae6fb19e1ac5f52ae00b8.png" alt="Kenny Stewart"></div>
+            <div><div class="rv-slide-name">Kenny Stewart</div><div class="rv-slide-role">Magician</div></div>
+          </div>
+        </div>
+
+        <!-- SLIDE 7 — Paul Carpenter -->
+        <div class="rv-slide">
+          <div class="rv-slide-summary">Business client — consistent quality, fast turnaround</div>
+          <span class="rv-slide-stars">★★★★★</span>
+          <p class="rv-slide-text">Cory has been an amazing part to our team and the quality and speed we get the work back. Not only does he get the vision, he understands the overall scope of what we are looking for. With minor if any re edits.</p>
+          <div class="rv-slide-author">
+            <div class="rv-slide-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae6fb8d08689eb2b8c526.png" alt="Paul Carpenter"></div>
+            <div><div class="rv-slide-name">Paul Carpenter</div><div class="rv-slide-role">Local Guide · 78 Reviews</div></div>
+          </div>
+        </div>
+
+        <!-- Dots + Progress Bar -->
+        <div class="rv-progress-wrap" id="rvDots"></div>
+        <div class="rv-progress-bar-wrap"><div class="rv-progress-bar" id="rvProgressBar"></div></div>
+      </div>
+
+      <script>
+        (function() {
+          var slides = document.querySelectorAll('.rv-slide');
+          var dotsWrap = document.getElementById('rvDots');
+          var bar = document.getElementById('rvProgressBar');
+          var current = 0;
+          var total = slides.length;
+          var duration = 5000;
+          var interval = null;
+          var paused = false;
+          var startTime = null;
+          var elapsed = 0;
+
+          // Build dots
+          for (var i = 0; i < total; i++) {
+            var dot = document.createElement('div');
+            dot.className = 'rv-progress-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('data-index', i);
+            dot.addEventListener('click', function() {
+              goTo(parseInt(this.getAttribute('data-index')));
+            });
+            dotsWrap.appendChild(dot);
+          }
+
+          function goTo(index) {
+            slides[current].classList.remove('active');
+            dotsWrap.children[current].classList.remove('active');
+            current = index % total;
+            slides[current].classList.add('active');
+            dotsWrap.children[current].classList.add('active');
+            elapsed = 0;
+            bar.style.width = '0%';
+            startTime = performance.now();
+          }
+
+          function tick(timestamp) {
+            if (!startTime) startTime = timestamp;
+            if (!paused) {
+              elapsed = timestamp - startTime;
+              var pct = Math.min((elapsed / duration) * 100, 100);
+              bar.style.width = pct + '%';
+              if (elapsed >= duration) {
+                goTo(current + 1);
+              }
+            } else {
+              startTime = timestamp - elapsed;
+            }
+            requestAnimationFrame(tick);
+          }
+
+          requestAnimationFrame(tick);
+
+          var showcase = document.getElementById('rvShowcase');
+          showcase.addEventListener('mouseenter', function() { paused = true; });
+          showcase.addEventListener('mouseleave', function() { paused = false; });
+        })();
+      </script>    </div>
   </section>
 
   <!-- ─── CTA SECTION ─── -->
