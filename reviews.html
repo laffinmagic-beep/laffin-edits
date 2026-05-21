@@ -583,9 +583,16 @@ window.addEventListener('scroll', function() {
           box-shadow: 0 0 8px rgba(192,57,43,0.5);
         }
 
-        @media (max-width: 600px) {
-          .rv-slide { padding: 32px 24px; }
-          .rv-slide-text { font-size: 0.95rem; }
+        @media (max-width: 768px) {
+          .rv-showcase-wrap { padding: 20px 16px; }
+          .rv-slide { padding: 28px 20px; }
+          .rv-slide-text { font-size: 0.92rem; line-height: 1.7; margin-bottom: 20px; }
+          .rv-slide-stars { font-size: 1.1rem; margin-bottom: 14px; }
+          .rv-slide-summary { font-size: 0.65rem; }
+          .rv-slide-author { flex-direction: row; gap: 10px; margin-bottom: 20px; }
+          .rv-slide-avatar { width: 44px; height: 44px; }
+          .rv-slide-name { font-size: 0.85rem; }
+          .rv-glow { filter: blur(20px); }
         }
       </style>
 
