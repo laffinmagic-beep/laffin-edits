@@ -513,6 +513,73 @@ window.addEventListener('scroll', function() {
 .le-service-link span { transition: transform 0.2s; }
 .le-service-card:hover .le-service-link span { transform: translateX(4px); }
 
+
+/* ─── FEATURED HOME VIDEO ─── */
+.le-featured-video {
+  background: var(--deep);
+  position: relative;
+}
+.le-featured-video::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+}
+.le-featured-card {
+  max-width: 860px;
+  margin: 42px auto 0;
+  background: var(--card);
+  border: 1px solid rgba(192,57,43,0.18);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+}
+.le-featured-video-frame {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.le-featured-video-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.le-featured-info {
+  padding: 22px 24px 26px;
+  text-align: center;
+}
+.le-featured-kicker {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 8px;
+}
+.le-featured-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 10px;
+  text-shadow: 0 0 18px rgba(26,111,212,0.8);
+}
+.le-featured-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(200,204,224,0.65);
+  max-width: 620px;
+  margin: 0 auto 18px;
+}
+
 /* ─── WHY CHOOSE ─── */
 .le-why { background: var(--deep); position: relative; }
 .le-why::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--blue), transparent); }
@@ -771,6 +838,31 @@ window.addEventListener('scroll', function() {
     </div>
   </section>
 
+  <!-- ─── FEATURED HOME VIDEO ─── -->
+  <section class="le-section le-featured-video">
+    <div class="le-section-inner">
+      <div class="le-section-header">
+        <div class="le-label">Featured Edit</div>
+        <h2 class="le-title">See the <span>Work</span></h2>
+        <p class="le-section-desc">One example of how raw footage can be shaped into a clean, professional promo built around pacing, reactions, and presentation.</p>
+      </div>
+
+      <div class="le-featured-card">
+        <div class="le-featured-video-frame">
+          <video controls preload="none" poster="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69eee2240d66f2a6657bbee0.png">
+            <source src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69ee8a9a717d5dd4e1314765.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="le-featured-info">
+          <div class="le-featured-kicker">Featured Project</div>
+          <div class="le-featured-name">Jason R. Smith — Performance Promo</div>
+          <p class="le-featured-desc">A clean promo edit built to highlight strong moments, reactions, pacing, and professional presentation.</p>
+          <a href="/work" class="le-btn-outline">▶ See More Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── WHY CHOOSE ─── -->
   <section class="le-section le-why">
     <div class="le-section-inner">
@@ -808,9 +900,9 @@ window.addEventListener('scroll', function() {
   <section class="le-section le-reviews-preview" id="le-portfolio">
     <div class="le-section-inner">
       <div class="le-section-header">
-        <div class="le-label">Real Performers</div>
+        <div class="le-label">Real Clients</div>
         <h2 class="le-title">What They <span>Say</span></h2>
-        <p class="le-section-desc">Don't take my word for it. Here's what magicians and performers are saying after working with Laffin Edits.</p>
+        <p class="le-section-desc">Don't take my word for it. Here's what clients are saying after working with Laffin Edits.</p>
       </div>
       <div class="le-reviews-grid">
         <div class="le-review-card">
