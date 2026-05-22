@@ -8,13 +8,15 @@
 /* === LAFFIN MOBILE CLEANUP START === */
 /* Mobile cleanup pass */
 @media (max-width: 600px) {
-  .sm-hero-desc, .sm-section-desc { font-size: 0.92rem !important; line-height: 1.55 !important; }
-  .sm-grid { gap: 14px !important; }
-  .sm-card { padding: 18px 16px !important; }
-  .sm-card-icon { font-size: 1.55rem !important; margin-bottom: 8px !important; }
-  .sm-card-name { font-size: 0.92rem !important; margin-bottom: 6px !important; }
-  .sm-card-desc { font-size: 0.86rem !important; line-height: 1.45 !important; }
-  .sm-stats, .sm-packages { gap: 14px !important; }
+  .sm-hero-desc, .sm-section-desc { font-size: 0.92rem !important; line-height: 1.5 !important; }
+  .sm-grid { gap: 10px !important; }
+  .sm-card { padding: 14px 14px !important; border-radius: 10px !important; }
+  .sm-card-icon { font-size: 1.35rem !important; margin-bottom: 6px !important; }
+  .sm-card-name { font-size: 0.9rem !important; margin-bottom: 4px !important; }
+  .sm-card-desc { font-size: 0.84rem !important; line-height: 1.38 !important; }
+  .sm-stats, .sm-packages { gap: 10px !important; }
+  .sm-package { padding: 16px 14px !important; }
+  .sm-package-desc { font-size: 0.86rem !important; line-height: 1.42 !important; }
 }
 /* === LAFFIN MOBILE CLEANUP END === */
 
@@ -587,7 +589,7 @@ window.addEventListener('scroll', function() {
     <div class="sm-hero-content">
       <div class="sm-label">Grow Your Audience</div>
       <h1 class="sm-hero-h1">Social Media<br><span>Editing</span></h1>
-      <p class="sm-hero-desc">Scroll-stopping content for Instagram, TikTok, YouTube, and more. Platform-optimized edits that reach new audiences, build your following, and keep people watching.</p>
+      <p class="sm-hero-desc">Platform-ready clips for Instagram, TikTok, YouTube, and more — edited to grab attention fast and keep people watching.</p>
       <div class="sm-btn-row">
         <button onclick="document.getElementById('smQuoteForm').scrollIntoView({behavior:'smooth'})" class="sm-btn-primary">🎩 Request a Quote</button>
         <a href="tel:+17027638683" class="sm-btn-outline">📞 (702) 763-8683</a>
@@ -603,38 +605,23 @@ window.addEventListener('scroll', function() {
       <div class="sm-section-header">
         <div class="sm-label">Platforms & Formats</div>
         <h2 class="sm-title">What's <span>Covered</span></h2>
-        <p class="sm-section-desc">Every platform has its own rules. I edit for the platform — not just the footage.</p>
+        <p class="sm-section-desc">Clean edits formatted for the platforms you actually use.</p>
       </div>
       <div class="sm-grid">
         <div class="sm-card">
-          <div class="sm-card-icon">📸</div>
-          <div class="sm-card-name">Instagram Reels</div>
-          <p class="sm-card-desc">Short-form vertical video optimized for Reels. Paced for the algorithm, designed for the viewer. Short-form content that stops the scroll and keeps people watching.</p>
-        </div>
-        <div class="sm-card">
-          <div class="sm-card-icon">🎵</div>
-          <div class="sm-card-name">TikTok Edits</div>
-          <p class="sm-card-desc">Fast-paced, attention-grabbing cuts built around TikTok's viewing behavior. First 3 seconds engineered to hook the viewer every time.</p>
+          <div class="sm-card-icon">📱</div>
+          <div class="sm-card-name">Short-Form Clips</div>
+          <p class="sm-card-desc">Instagram, TikTok, Reels, and Shorts edited with strong hooks and clean pacing.</p>
         </div>
         <div class="sm-card">
           <div class="sm-card-icon">▶️</div>
-          <div class="sm-card-name">YouTube Content</div>
-          <p class="sm-card-desc">Longer-form edits for YouTube — whether it's a full performance, a behind-the-scenes, or a polished highlight. Professional quality that builds your channel.</p>
+          <div class="sm-card-name">YouTube & Long-Form</div>
+          <p class="sm-card-desc">Highlights, full edits, and channel content shaped for watch time and clarity.</p>
         </div>
         <div class="sm-card">
           <div class="sm-card-icon">💼</div>
-          <div class="sm-card-name">LinkedIn & Professional</div>
-          <p class="sm-card-desc">Clean, professional edits for corporate bookings and B2B audiences. A different tone, a different purpose — same attention to your performance.</p>
-        </div>
-        <div class="sm-card">
-          <div class="sm-card-icon">🔄</div>
-          <div class="sm-card-name">Multi-Platform Packages</div>
-          <p class="sm-card-desc">One set of footage edited into multiple formats for multiple platforms. Maximize the value of every performance you film.</p>
-        </div>
-        <div class="sm-card">
-          <div class="sm-card-icon">📊</div>
-          <div class="sm-card-name">Content Strategy Alignment</div>
-          <p class="sm-card-desc">Edits that match your posting strategy, brand voice, and audience expectations — not generic templates.</p>
+          <div class="sm-card-name">Business & Multi-Platform</div>
+          <p class="sm-card-desc">Brand, LinkedIn, and client-facing edits delivered in the formats you need.</p>
         </div>
       </div>
     </div>
@@ -683,18 +670,18 @@ window.addEventListener('scroll', function() {
       <div class="sm-section-header">
         <div class="sm-label">Options</div>
         <h2 class="sm-title">One-Time or <span>Monthly</span></h2>
-        <p class="sm-section-desc">Whether you need a single clip or consistent monthly content — there's an option that fits.</p>
+        <p class="sm-section-desc">Choose a single edit or ongoing content support.</p>
       </div>
       <div class="sm-packages">
         <div class="sm-package">
           <div class="sm-package-tag">Single Project</div>
           <div class="sm-package-name">One-Time Edit</div>
-          <p class="sm-package-desc">Have footage ready to go? Send it over and I'll turn it into a polished platform-ready clip. Perfect for a single performance, event, or moment you want to capture.</p>
+          <p class="sm-package-desc">Send your footage and I'll turn it into a polished, platform-ready clip.</p>
         </div>
         <div class="sm-package">
           <div class="sm-package-tag">Best Value · Recurring Work</div>
           <div class="sm-package-name">Monthly Package</div>
-          <p class="sm-package-desc">Fresh edited content delivered every month. Priority turnaround, consistent style, and someone who knows your brand. The easiest way to stay visible and keep growing.</p>
+          <p class="sm-package-desc">Fresh edited content delivered monthly with consistent style and priority turnaround.</p>
         </div>
       </div>
     </div>
