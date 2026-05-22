@@ -796,8 +796,59 @@ window.addEventListener('scroll', function() {
 }
 @media (max-width: 600px) {
   .le-services-grid { grid-template-columns: 1fr; }
-  .le-why-grid { grid-template-columns: 1fr; }
-  .le-process-steps { grid-template-columns: 1fr; }
+
+  .le-why-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .le-why-card {
+    padding: 16px 10px;
+    border-radius: 8px;
+  }
+  .le-why-icon {
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+  }
+  .le-why-title {
+    font-size: 0.78rem;
+    margin-bottom: 5px;
+    letter-spacing: 0.7px;
+  }
+  .le-why-text {
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+
+  .le-process-steps {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .le-process-step {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    column-gap: 12px;
+    text-align: left;
+    align-items: start;
+    padding: 12px 14px;
+    background: rgba(15,15,30,0.55);
+    border: 1px solid rgba(26,111,212,0.12);
+    border-radius: 10px;
+  }
+  .le-step-num {
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    font-size: 1rem;
+  }
+  .le-step-title {
+    font-size: 0.78rem;
+    margin-bottom: 3px;
+  }
+  .le-step-desc {
+    font-size: 0.74rem;
+    line-height: 1.35;
+  }
 }
 </style>
 
@@ -905,10 +956,10 @@ window.addEventListener('scroll', function() {
         <h2 class="le-title">The <span>Difference</span></h2>
       </div>
       <div class="le-why-grid">
-        <div class="le-why-card"><span class="le-why-icon">🎬</span><div class="le-why-title">Story-First Editing</div><p class="le-why-text">Every edit is built around pacing, clarity, and the moments that make people keep watching.</p></div>
-        <div class="le-why-card"><span class="le-why-icon">🔒</span><div class="le-why-title">Methods Protected</div><p class="le-why-text">You never have to explain what can't be shown. I already know — because I perform the same way.</p></div>
-        <div class="le-why-card"><span class="le-why-icon">⏱️</span><div class="le-why-title">Timing Preserved</div><p class="le-why-text">Key moments, reactions, and rhythm stay intact so the edit feels clean and professional.</p></div>
-        <div class="le-why-card"><span class="le-why-icon">💬</span><div class="le-why-title">Fully Collaborative</div><p class="le-why-text">Your feedback shapes the final product. We work together until the video truly represents you.</p></div>
+        <div class="le-why-card"><span class="le-why-icon">🎬</span><div class="le-why-title">Story-First Editing</div><p class="le-why-text">Pacing, clarity, and moments that keep people watching.</p></div>
+        <div class="le-why-card"><span class="le-why-icon">🔒</span><div class="le-why-title">Methods Protected</div><p class="le-why-text">Sensitive performance moments stay protected.</p></div>
+        <div class="le-why-card"><span class="le-why-icon">⏱️</span><div class="le-why-title">Timing Preserved</div><p class="le-why-text">Key reactions and rhythm stay intact.</p></div>
+        <div class="le-why-card"><span class="le-why-icon">💬</span><div class="le-why-title">Fully Collaborative</div><p class="le-why-text">Your feedback shapes the final edit.</p></div>
       </div>
     </div>
   </section>
@@ -921,11 +972,11 @@ window.addEventListener('scroll', function() {
         <h2 class="le-title">The <span>Process</span></h2>
       </div>
       <div class="le-process-steps">
-        <div class="le-process-step"><div class="le-step-num">1</div><div class="le-step-title">Send Your Footage</div><p class="le-step-desc">Share your raw footage — any format, any platform. I'll review what you've got.</p></div>
-        <div class="le-process-step"><div class="le-step-num">2</div><div class="le-step-title">Discuss the Goal</div><p class="le-step-desc">Booking reel, social clip, or promo? We'll get clear on exactly what the video needs to achieve.</p></div>
-        <div class="le-process-step"><div class="le-step-num">3</div><div class="le-step-title">First Draft</div><p class="le-step-desc">I deliver a complete first cut with full attention to timing, reactions, and protecting what matters.</p></div>
-        <div class="le-process-step"><div class="le-step-num">4</div><div class="le-step-title">Your Feedback</div><p class="le-step-desc">You tell me what works and what doesn't. Your input directly shapes every revision.</p></div>
-        <div class="le-process-step"><div class="le-step-num">5</div><div class="le-step-title">Final Delivery</div><p class="le-step-desc">Platform-ready files delivered. You walk away with a video that makes people take notice.</p></div>
+        <div class="le-process-step"><div class="le-step-num">1</div><div class="le-step-title">Send Footage</div><p class="le-step-desc">Upload your raw clips.</p></div>
+        <div class="le-process-step"><div class="le-step-num">2</div><div class="le-step-title">Set the Goal</div><p class="le-step-desc">We define what the video needs to do.</p></div>
+        <div class="le-process-step"><div class="le-step-num">3</div><div class="le-step-title">First Draft</div><p class="le-step-desc">You get a clean first cut.</p></div>
+        <div class="le-process-step"><div class="le-step-num">4</div><div class="le-step-title">Your Feedback</div><p class="le-step-desc">You tell me what to adjust.</p></div>
+        <div class="le-process-step"><div class="le-step-num">5</div><div class="le-step-title">Final Delivery</div><p class="le-step-desc">Ready-to-share video delivered.</p></div>
       </div>
     </div>
   </section>
