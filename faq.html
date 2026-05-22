@@ -200,6 +200,26 @@
   transition: color 0.2s;
 }
 .le-footer-google:hover { color: #e05544; }
+.le-footer-google {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 18px rgba(255,255,255,0.08);
+}
+.le-footer-google:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+.le-footer-google-img {
+  display: block;
+  width: 150px;
+  max-width: 100%;
+  height: auto;
+}
 
 @media (max-width: 900px) {
   .le-footer-top { grid-template-columns: 1fr; gap: 30px; }
@@ -826,7 +846,7 @@ window.addEventListener('scroll', function() {
 
     <div class="le-footer-bottom">
       <div class="le-footer-copy">© 2026 <span>Laffin Edits</span>. All rights reserved. Las Vegas, NV.</div>
-      <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-google">★★★★★ See Our Google Reviews</a>
+      <a href="https://maps.app.goo.gl/rwRchg1Raj6bD9t77" target="_blank" rel="noopener" class="le-footer-google"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0fadea3c3aed7c63773353.png" alt="Read Google Reviews" class="le-footer-google-img" loading="lazy"></a>
     </div>
   </div>
 </footer>
