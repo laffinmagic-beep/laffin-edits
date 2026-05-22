@@ -14,6 +14,32 @@
 }
 /* === LAFFIN MOBILE CLEANUP END === */
 
+
+/* Tighten vertical Work page video cards */
+.wk-vertical-showcase {
+  max-width: 560px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+.wk-vertical-showcase video {
+  max-height: 520px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+@media (max-width: 900px) {
+  .wk-vertical-showcase {
+    max-width: 100% !important;
+  }
+  .wk-vertical-showcase video {
+    max-height: 420px !important;
+  }
+}
+
 </style>
 <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;overflow-x:hidden !important;}</style>
 
@@ -887,7 +913,7 @@ window.addEventListener('scroll', function() {
         </div>
 
         <!-- SHOWCASE CARD — Social Media Section -->
-        <div class="wk-video-card" style="border-color: rgba(192,57,43,0.35); background: linear-gradient(145deg, rgba(192,57,43,0.08), rgba(15,15,30,1)); grid-column: span 2;">
+        <div class="wk-video-card wk-vertical-showcase" style="border-color: rgba(192,57,43,0.35); background: linear-gradient(145deg, rgba(192,57,43,0.08), rgba(15,15,30,1)); grid-column: span 2;">
           <div style="background: rgba(192,57,43,0.15); padding: 6px 14px; display:flex; align-items:center; justify-content:space-between;">
             <span style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:3px; text-transform:uppercase; color:#e05544;">Service Showcase · Social Media Editing</span>
           </div>
@@ -948,7 +974,7 @@ window.addEventListener('scroll', function() {
         </div>
 
         <!-- SHOWCASE CARD — Product Promos Section -->
-        <div class="wk-video-card" style="border-color: rgba(192,57,43,0.35); background: linear-gradient(145deg, rgba(192,57,43,0.08), rgba(15,15,30,1)); grid-column: span 2;">
+        <div class="wk-video-card wk-vertical-showcase" style="border-color: rgba(192,57,43,0.35); background: linear-gradient(145deg, rgba(192,57,43,0.08), rgba(15,15,30,1)); grid-column: span 2;">
           <div style="background: rgba(192,57,43,0.15); padding: 6px 14px; display:flex; align-items:center; justify-content:space-between;">
             <span style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:3px; text-transform:uppercase; color:#e05544;">Service Showcase · Magic Product Promos</span>
           </div>
