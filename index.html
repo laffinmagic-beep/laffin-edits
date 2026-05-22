@@ -691,13 +691,14 @@ window.addEventListener('scroll', function() {
 }
 .le-review-text::before { content: '"'; color: var(--red-bright); font-size: 1.4rem; line-height: 0; vertical-align: -0.3em; margin-right: 2px; font-style: normal; text-shadow: 0 0 15px rgba(192,57,43,0.8); }
 .le-review-text::after  { content: '"'; color: var(--red-bright); font-size: 1.4rem; line-height: 0; vertical-align: -0.3em; margin-left: 2px; font-style: normal; text-shadow: 0 0 15px rgba(192,57,43,0.8); }
-.le-review-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(192,57,43,0.15); padding-top: 16px; }
+.le-review-author { display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(192,57,43,0.15); padding-top: 16px; }
 .le-review-avatar {
-  width: 40px; height: 40px; border-radius: 50%;
+  width: 76px; height: 76px; border-radius: 50%;
   background: linear-gradient(135deg, #8b1a10, var(--red));
   display: flex; align-items: center; justify-content: center;
   font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--white); flex-shrink: 0;
-  box-shadow: 0 0 15px rgba(192,57,43,0.4);
+  box-shadow: 0 0 18px rgba(192,57,43,0.45);
+  overflow: hidden;
 }
 .le-review-name {
   font-family: 'Barlow Condensed', sans-serif;
@@ -921,70 +922,60 @@ window.addEventListener('scroll', function() {
       <div class="le-section-header">
         <div class="le-label">Real Clients</div>
         <h2 class="le-title">What They <span>Say</span></h2>
-        <p class="le-section-desc">Don't take my word for it. Here's what clients are saying after working with Laffin Edits.</p>
+        <p class="le-section-desc">Quick feedback from real clients. Full reviews are on the Reviews page.</p>
       </div>
-      <div class="le-reviews-grid">
-        <div class="le-review-card">
-          <div class="le-review-summary">Booked better gigs directly from his promo video</div>
-          <span class="le-review-stars">★★★★★</span>
-          <p class="le-review-text">I've already booked better gigs because of this promo video. Cory knows exactly how to showcase a performer's best moments.</p>
-          <div class="le-review-author">
-            <div class="le-review-avatar">LH</div>
-            <div>
-              <div class="le-review-name">Luke Harrison</div>
-              <div class="le-review-role">Sword Swallower &amp; Magician</div>
-              <div class="le-review-links">
-                <a href="https://www.instagram.com/lewquee" target="_blank" rel="noopener" class="le-review-link">
-                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                  @lewquee
-                </a>
+
+      <div class="le-home-review-slider" id="leHomeReviewSlider">
+        <button type="button" class="le-home-review-arrow" id="leHomeReviewPrev" aria-label="Previous review">‹</button>
+
+        <div class="le-home-review-stage">
+          <div class="le-home-review-card active">
+            <div class="le-review-summary">Booked better gigs directly from his promo video</div>
+            <span class="le-review-stars">★★★★★</span>
+            <p class="le-review-text">I've already booked better gigs because of this promo video...</p>
+            <div class="le-review-author">
+              <div class="le-review-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae52edbe569a25dcd24a1.png" alt="Luke Harrison" loading="lazy"></div>
+              <div>
+                <div class="le-review-name">Luke Harrison</div>
+                <div class="le-review-role">Sword Swallower &amp; Magician</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="le-home-review-card">
+            <div class="le-review-summary">The Vernon of video editing — the Copperfield of storytelling</div>
+            <span class="le-review-stars">★★★★★</span>
+            <p class="le-review-text">Helpful, fast, and brilliant — Cory is the Vernon of Video editing and the Copperfield of storytelling...</p>
+            <div class="le-review-author">
+              <div class="le-review-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae61b8d08689eb2b89a72.png" alt="Bryan Ignozzi" loading="lazy"></div>
+              <div>
+                <div class="le-review-name">Bryan Ignozzi</div>
+                <div class="le-review-role">Magician</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="le-home-review-card">
+            <div class="le-review-summary">Business client — consistent quality, fast turnaround</div>
+            <span class="le-review-stars">★★★★★</span>
+            <p class="le-review-text">Cory has been an amazing part to our team and the quality and speed we get the work back...</p>
+            <div class="le-review-author">
+              <div class="le-review-avatar"><img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a0ae6fb8d08689eb2b8c526.png" alt="Paul Carpenter" loading="lazy"></div>
+              <div>
+                <div class="le-review-name">Paul Carpenter</div>
+                <div class="le-review-role">Local Guide · 78 Reviews</div>
               </div>
             </div>
           </div>
         </div>
-        <div class="le-review-card">
-          <div class="le-review-summary">The Vernon of video editing — the Copperfield of storytelling</div>
-          <span class="le-review-stars">★★★★★</span>
-          <p class="le-review-text">Helpful, fast, and brilliant — Cory is the Vernon of Video editing and the Copperfield of storytelling. Highly recommended!</p>
-          <div class="le-review-author">
-            <div class="le-review-avatar">BI</div>
-            <div>
-              <div class="le-review-name">Bryan Ignozzi</div>
-              <div class="le-review-role">Magician</div>
-              <div class="le-review-links">
-                <a href="https://www.instagram.com/marriedbymagic" target="_blank" rel="noopener" class="le-review-link">
-                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                  @MarriedByMagic
-                </a>
-                <a href="https://www.google.com/maps/contrib/114206902688102124364/place/ChIJ3TVtaLRujWgRKlRAv8nGfUk/" target="_blank" rel="noopener" class="le-review-link">
-                  <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-                  Google Review
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="le-review-card">
-          <div class="le-review-summary">Business client — consistent quality, fast turnaround</div>
-          <span class="le-review-stars">★★★★★</span>
-          <p class="le-review-text">Cory has been an amazing part to our team and the quality and speed we get the work back. Not only does he get the vision, he understands the overall scope of what we are looking for.</p>
-          <div class="le-review-author">
-            <div class="le-review-avatar">PC</div>
-            <div>
-              <div class="le-review-name">Paul Carpenter</div>
-              <div class="le-review-role">Local Guide · 78 Reviews</div>
-              <div class="le-review-links">
-                <a href="https://www.google.com/maps/contrib/102403463315060937043/place/ChIJ3TVtaLRujWgRKlRAv8nGfUk/" target="_blank" rel="noopener" class="le-review-link">
-                  <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-                  Google Review
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+
+        <button type="button" class="le-home-review-arrow" id="leHomeReviewNext" aria-label="Next review">›</button>
       </div>
-      <div style="text-align:center;">
-        <a href="https://laffinmagic-beep.github.io/laffin-edits/reviews.html" class="le-btn-outline">★ See All Reviews</a>
+
+      <div class="le-home-review-dots" id="leHomeReviewDots"></div>
+
+      <div style="text-align:center; margin-top:24px;">
+        <a href="reviews.html" class="le-btn-outline le-work-pulse">★ Read More Reviews</a>
       </div>
     </div>
   </section>
@@ -1042,7 +1033,116 @@ window.addEventListener('scroll', function() {
       </iframe>
       <script src="https://files.bizlyapp.com/js/form_embed.js" defer></script>
       </div>
-      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;overflow-x:hidden !important;}</style>
+      <style>html,body,#root,.page-wrapper,.container{background:#06060a !important;overflow-x:hidden !important;}
+.le-home-review-slider {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 720px) 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 20px auto 0;
+}
+.le-home-review-stage {
+  position: relative;
+  min-height: 260px;
+  perspective: 1000px;
+}
+.le-home-review-card {
+  display: none;
+  background: var(--card);
+  border: 1px solid rgba(192,57,43,0.18);
+  border-radius: 18px;
+  padding: 28px 24px;
+  text-align: left;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.42);
+  transform-origin: left center;
+}
+.le-home-review-card.active {
+  display: block;
+  animation: leReviewPageTurn 0.42s ease both;
+}
+@keyframes leReviewPageTurn {
+  from { opacity: 0; transform: rotateY(-10deg) translateX(18px); }
+  to { opacity: 1; transform: rotateY(0deg) translateX(0); }
+}
+.le-home-review-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(224,85,68,0.45);
+  background: rgba(192,57,43,0.14);
+  color: #ffffff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(224,85,68,0.22);
+  transition: all 0.25s;
+}
+.le-home-review-arrow:hover {
+  background: rgba(192,57,43,0.32);
+  transform: translateY(-2px);
+}
+.le-home-review-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+.le-home-review-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(200,204,224,0.22);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.le-home-review-dot.active {
+  width: 24px;
+  background: var(--red-bright);
+  box-shadow: 0 0 10px rgba(224,85,68,0.5);
+}
+@media (max-width: 700px) {
+  .le-home-review-slider {
+    grid-template-columns: 38px minmax(0, 1fr) 38px;
+    gap: 8px;
+  }
+  .le-home-review-stage {
+    min-height: 300px;
+  }
+  .le-home-review-card {
+    padding: 22px 18px;
+  }
+  .le-home-review-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 1.6rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .le-home-review-card.active { animation: none; }
+}
+
+
+.le-review-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 52% center;
+  border-radius: 50%;
+  display: block;
+  transform: scale(1.32);
+}
+
+
+@media (max-width: 700px) {
+  .le-review-avatar {
+    width: 62px;
+    height: 62px;
+    flex: 0 0 62px;
+  }
+}
+
+</style>
 <!-- ============================================================
            PASTE YOUR BIZLY FORM EMBED CODE ABOVE THIS LINE
            ============================================================ -->
@@ -1147,4 +1247,42 @@ document.querySelectorAll('.le-service-card, .le-why-card, .le-review-card, .le-
 });
 }); // end load
 </script>
+
+<script>
+(function() {
+  var cards = document.querySelectorAll('.le-home-review-card');
+  var prev = document.getElementById('leHomeReviewPrev');
+  var next = document.getElementById('leHomeReviewNext');
+  var dotsWrap = document.getElementById('leHomeReviewDots');
+  var current = 0;
+
+  if (!cards.length || !dotsWrap) return;
+
+  function showReview(index) {
+    cards[current].classList.remove('active');
+    if (dotsWrap.children[current]) dotsWrap.children[current].classList.remove('active');
+
+    current = (index + cards.length) % cards.length;
+
+    cards[current].classList.add('active');
+    if (dotsWrap.children[current]) dotsWrap.children[current].classList.add('active');
+  }
+
+  for (var i = 0; i < cards.length; i++) {
+    var dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'le-home-review-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Show review ' + (i + 1));
+    dot.setAttribute('data-index', i);
+    dot.addEventListener('click', function() {
+      showReview(parseInt(this.getAttribute('data-index'), 10));
+    });
+    dotsWrap.appendChild(dot);
+  }
+
+  if (prev) prev.addEventListener('click', function() { showReview(current - 1); });
+  if (next) next.addEventListener('click', function() { showReview(current + 1); });
+})();
+</script>
+
 </body></html>
