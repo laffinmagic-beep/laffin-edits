@@ -10,13 +10,15 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Laffin Edits — Professional Video Editing">
 <meta property="og:description" content="Professional video editing for creators, businesses, brands, performers, and entertainers.">
-<meta property="og:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
+<meta property="og:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a66d572847bbd8a6432fbde.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://www.laffinedits.com/">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Laffin Edits — Professional Video Editing">
 <meta name="twitter:description" content="Professional video editing for creators, businesses, brands, performers, and entertainers.">
-<meta name="twitter:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
+<meta name="twitter:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a66d572847bbd8a6432fbde.jpg">
 <link rel="apple-touch-icon" href="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -135,6 +137,8 @@
 
 /* ─── FOOTER ─── */
 .le-footer {
+  position: relative;
+  z-index: 2;
   background: #06060a;
   border-top: 1px solid rgba(192,57,43,0.2);
   padding: 50px 24px 30px;
@@ -305,6 +309,8 @@ window.addEventListener('scroll', function() {
 /* ─── RESET & BASE ─── */
 .le-wrap * { margin: 0; padding: 0; box-sizing: border-box; }
 .le-wrap {
+  position: relative;
+  z-index: 2;
   --black:  #06060a;
   --deep:   #0d0d18;
   --mid:    #13131f;
@@ -374,7 +380,7 @@ window.addEventListener('scroll', function() {
 .le-page-particles {
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
 }
