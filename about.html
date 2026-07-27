@@ -21,15 +21,15 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<meta property="og:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png">
-<meta property="og:image:secure_url" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png">
+<meta property="og:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
+<meta property="og:image:secure_url" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png">
-<link rel="apple-touch-icon" href="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png">
-<link rel="preload" as="image" href="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" fetchpriority="high">
+<meta name="twitter:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
+<link rel="apple-touch-icon" href="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
+<link rel="preload" as="image" href="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap&display=swap" rel="stylesheet">
 
 <style>
@@ -54,7 +54,10 @@
 }
 .le-nav-logo img {
   height: 40px; width: 40px; object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(192,57,43,0.4));
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 .le-nav-logo-text {
   font-family: 'Oswald', sans-serif;
@@ -156,7 +159,7 @@
   display: flex; align-items: center; gap: 12px;
   margin-bottom: 14px; text-decoration: none;
 }
-.le-footer-logo img { height: 48px; width: 48px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(192,57,43,0.4)); }
+.le-footer-logo img { height: 48px; width: 48px; object-fit: contain; background: transparent; border: none; outline: none; box-shadow: none; }
 .le-footer-logo-text {
   font-family: 'Oswald', sans-serif;
   font-weight: 700; font-size: 1.2rem;
@@ -247,10 +250,49 @@
 }
 </style>
 
+
+<style>
+/* ─── FULL-PAGE FLOATING SPARKS / DUST ─── */
+.le-page-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.le-page-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+@keyframes le-sparkDrift1 {
+  0%   { transform: translate3d(0, 100vh, 0) scale(0.3); opacity: 0; }
+  8%   { opacity: 0.9; }
+  50%  { transform: translate3d(30px, 40vh, 0) scale(1); opacity: 0.65; }
+  92%  { opacity: 0.35; }
+  100% { transform: translate3d(-20px, -15vh, 0) scale(0.6); opacity: 0; }
+}
+@keyframes le-sparkDrift2 {
+  0%   { transform: translate3d(0, 110vh, 0) scale(0.2); opacity: 0; }
+  10%  { opacity: 0.85; }
+  45%  { transform: translate3d(-40px, 50vh, 0) scale(1.1); opacity: 0.6; }
+  90%  { opacity: 0.3; }
+  100% { transform: translate3d(25px, -10vh, 0) scale(0.5); opacity: 0; }
+}
+@keyframes le-sparkDrift3 {
+  0%   { transform: translate3d(0, 105vh, 0) scale(0.4); opacity: 0; }
+  12%  { opacity: 0.88; }
+  55%  { transform: translate3d(50px, 35vh, 0) scale(0.9); opacity: 0.55; }
+  100% { transform: translate3d(-35px, -20vh, 0) scale(0.4); opacity: 0; }
+}
+</style>
+
 <!-- HEADER HTML -->
 <nav class="le-nav" id="leNav">
   <a href="index.html" class="le-nav-logo">
-    <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits" width="40" height="40" loading="eager">
+    <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png" alt="Laffin Edits" width="40" height="40" loading="eager">
     <span class="le-nav-logo-text">Laffin Edits</span>
   </a>
   <ul class="le-nav-links">
@@ -284,6 +326,9 @@
 </div>
 
 <div class="le-nav-spacer"></div>
+
+<div class="le-page-particles" id="lePageParticles" aria-hidden="true"></div>
+
 
 <script>
 function toggleMobileNav() {
@@ -863,7 +908,7 @@ window.addEventListener('scroll', function() {
       <!-- Col 1 — Brand -->
       <div>
         <a href="index.html" class="le-footer-logo">
-          <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/69f82cbf945c4a6aa513043a.png" alt="Laffin Edits" width="48" height="48" loading="lazy">
+          <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png" alt="Laffin Edits" width="48" height="48" loading="lazy">
           <span class="le-footer-logo-text">Laffin Edits</span>
         </a>
         <div class="le-footer-tagline">Professional Video Editing for Creators, Businesses, and Brands</div>
@@ -931,4 +976,43 @@ document.querySelectorAll('.ab-diff-card, .ab-check-item, .ab-stat').forEach(fun
   abObserver.observe(el);
 });
 </script>
+
+<script>
+(function spawnPageSparks() {
+  var pageContainer = document.getElementById('lePageParticles');
+  if (!pageContainer || pageContainer.dataset.loaded) return;
+  pageContainer.dataset.loaded = '1';
+  var colors = [
+    'rgba(255,107,91,0.95)',
+    'rgba(224,85,68,0.9)',
+    'rgba(192,57,43,0.85)',
+    'rgba(74,158,245,0.8)',
+    'rgba(100,180,255,0.7)',
+    'rgba(255,150,120,0.75)',
+    'rgba(240,240,255,0.55)'
+  ];
+  var drifts = ['le-sparkDrift1', 'le-sparkDrift2', 'le-sparkDrift3'];
+  for (var j = 0; j < 60; j++) {
+    (function() {
+      var p = document.createElement('div');
+      p.className = 'le-page-particle';
+      var size = Math.random() * 4.5 + 1.2;
+      var delay = Math.random() * 20;
+      var duration = Math.random() * 16 + 14;
+      var left = Math.random() * 100;
+      var color = colors[Math.floor(Math.random() * colors.length)];
+      var drift = drifts[Math.floor(Math.random() * drifts.length)];
+      p.style.cssText =
+        'width:'+size+'px;height:'+size+'px;'+
+        'left:'+left+'%;'+
+        'background:'+color+';'+
+        'box-shadow:0 0 '+(size*5)+'px '+color+', 0 0 '+(size*10)+'px '+color+';'+
+        'animation:'+drift+' '+duration+'s linear '+delay+'s infinite;'+
+        'border-radius:50%;';
+      pageContainer.appendChild(p);
+    })();
+  }
+})();
+</script>
+
 </body></html>
