@@ -22,13 +22,13 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<meta property="og:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
+<meta property="og:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a66d572847bbd8a6432fbde.jpg">
 <meta property="og:image:secure_url" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
+<meta name="twitter:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a66d572847bbd8a6432fbde.jpg">
 <link rel="apple-touch-icon" href="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
 <link rel="preload" as="image" href="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap&display=swap" rel="stylesheet">
@@ -144,6 +144,8 @@
 
 /* ─── FOOTER ─── */
 .le-footer {
+  position: relative;
+  z-index: 2;
   background: #06060a;
   border-top: 1px solid rgba(192,57,43,0.2);
   padding: 50px 24px 30px;
@@ -257,7 +259,7 @@
 .le-page-particles {
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
 }
@@ -305,6 +307,7 @@
     <li><a href="monthly.html">Monthly</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="faq.html">FAQ</a></li>
+    <li><a href="index.html#rates">Rates</a></li>
     <li><a href="reviews.html">Reviews</a></li>
     <li><a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a></li>
   </ul>
@@ -322,6 +325,7 @@
   <a href="monthly.html">Monthly Packages</a>
   <a href="about.html">About</a>
   <a href="faq.html">FAQ</a>
+  <a href="index.html#rates">Rates</a>
   <a href="reviews.html">Reviews</a>
   <a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a>
 </div>
@@ -355,6 +359,8 @@ window.addEventListener('scroll', function() {
 <style>
 .mp-wrap * { margin: 0; padding: 0; box-sizing: border-box; }
 .mp-wrap {
+  position: relative;
+  z-index: 2;
   --black:  #06060a;
   --deep:   #0d0d18;
   --card:   #0f0f1e;
@@ -669,6 +675,12 @@ window.addEventListener('scroll', function() {
   .mp-who-grid { grid-template-columns: 1fr; }
   .mp-steps { grid-template-columns: 1fr; }
 }
+.mp-rates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.mp-rate-card { background: var(--card); border: 1px solid rgba(192,57,43,0.22); border-radius: 10px; padding: 28px 22px; text-align: center; }
+.mp-rate-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem; color: var(--red-bright); margin-bottom: 10px; }
+.mp-rate-price { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.6rem; letter-spacing: 1px; color: var(--white); margin-bottom: 8px; }
+.mp-rate-note { font-family: 'Inter', sans-serif; font-size: 0.88rem; line-height: 1.5; color: rgba(200,204,224,0.6); }
+@media (max-width: 800px) { .mp-rates-grid { grid-template-columns: 1fr; } }
 </style>
 
 <div class="mp-wrap">
@@ -680,12 +692,40 @@ window.addEventListener('scroll', function() {
     <div class="mp-hero-content">
       <div class="mp-label">Recurring Work · Consistent Content</div>
       <h1 class="mp-hero-h1">Stop Chasing.<br>Start <span>Growing.</span></h1>
-      <p class="mp-hero-desc">The creators, performers, and businesses that stay visible are the ones who show up consistently. A monthly content package gives you fresh edited video on a schedule, without the stress.</p>
+      <p class="mp-hero-desc">The creators, performers, and businesses that stay visible are the ones who show up consistently. Monthly plans start at $499 for 4 social clips. Bigger plans are quoted to fit the client.</p>
       <div class="mp-btn-row">
         <button onclick="document.getElementById('mpQuoteForm').scrollIntoView({behavior:'smooth'})" class="mp-btn-primary">🎩 Get a Monthly Package</button>
         <a href="tel:+17027638683" class="mp-btn-outline">📞 (702) 763-8683</a>
       
         <a href="mailto:contact@laffinedits.com" class="mp-btn-outline">✉️ contact@laffinedits.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RATES ─── -->
+  <section class="mp-section" id="rates">
+    <div class="mp-section-inner">
+      <div class="mp-section-header">
+        <div class="mp-label">Monthly Rates</div>
+        <h2 class="mp-title">Starting at <span>$499/mo</span></h2>
+        <p class="mp-section-desc">4 social clips each month. 2 revisions included. On a budget? Start here and add more later.</p>
+      </div>
+      <div class="mp-rates-grid">
+        <div class="mp-rate-card">
+          <div class="mp-rate-label">Starter</div>
+          <div class="mp-rate-price">$499/mo</div>
+          <div class="mp-rate-note">4 social clips. Best first monthly plan for performers and small brands.</div>
+        </div>
+        <div class="mp-rate-card">
+          <div class="mp-rate-label">Growth</div>
+          <div class="mp-rate-price">Quoted</div>
+          <div class="mp-rate-note">8 clips or a mix of social + promo. Built around how often you need to post.</div>
+        </div>
+        <div class="mp-rate-card">
+          <div class="mp-rate-label">Custom</div>
+          <div class="mp-rate-price">Quoted</div>
+          <div class="mp-rate-note">Brands and heavier months. Tell me the goal and I’ll price the plan.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -947,7 +987,8 @@ window.addEventListener('scroll', function() {
           <li><a href="monthly.html">Monthly Packages</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="index.html#rates">Rates</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
         </ul>
       </div>
 
