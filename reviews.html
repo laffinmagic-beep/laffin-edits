@@ -20,13 +20,13 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<meta property="og:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
+<meta property="og:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a66d572847bbd8a6432fbde.jpg">
 <meta property="og:image:secure_url" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
+<meta name="twitter:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a66d572847bbd8a6432fbde.jpg">
 <link rel="apple-touch-icon" href="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
 <link rel="preload" as="image" href="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap&display=swap" rel="stylesheet">
@@ -139,6 +139,8 @@
 
 /* ─── FOOTER ─── */
 .le-footer {
+  position: relative;
+  z-index: 2;
   background: #06060a;
   border-top: 1px solid rgba(192,57,43,0.2);
   padding: 50px 24px 30px;
@@ -251,6 +253,8 @@
 <style>
 .rv-wrap * { margin: 0; padding: 0; box-sizing: border-box; }
 .rv-wrap {
+  position: relative;
+  z-index: 2;
   --black:  #06060a;
   --deep:   #0d0d18;
   --card:   #0f0f1e;
@@ -465,7 +469,7 @@
 .le-page-particles {
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
 }
@@ -497,6 +501,47 @@
   100% { transform: translate3d(-35px, -20vh, 0) scale(0.4); opacity: 0; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Laffin Edits",
+  "url": "https://www.laffinedits.com/",
+  "telephone": "+1-702-763-8683",
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Michael Little" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Cory did an amazing job creating a promo video for my magic business. He created a high quality, professional video with all the greatest hits."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Jason R. Smith" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Cory was easy to work with, creative, and genuinely passionate about capturing the reactions, atmosphere, and moments that matter."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Paul Carpenter" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Cory has been an amazing part to our team and the quality and speed we get the work back."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Bryan Ignozzi" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Helpful, fast, and brilliant. He saw possibilities in the footage I never imagined."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Kenny Stewart" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Cory was a pleasure to work with. He was professional and polished. His editing was superb."
+    }
+  ]
+}
+</script>
 
 <!-- HEADER HTML -->
 <nav class="le-nav" id="leNav">
@@ -513,6 +558,7 @@
     <li><a href="monthly.html">Monthly</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="faq.html">FAQ</a></li>
+    <li><a href="index.html#rates">Rates</a></li>
     <li><a href="reviews.html">Reviews</a></li>
     <li><a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a></li>
   </ul>
@@ -530,6 +576,7 @@
   <a href="monthly.html">Monthly Packages</a>
   <a href="about.html">About</a>
   <a href="faq.html">FAQ</a>
+  <a href="index.html#rates">Rates</a>
   <a href="reviews.html">Reviews</a>
   <a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a>
 </div>
@@ -922,7 +969,8 @@ window.addEventListener('scroll', function() {
           <li><a href="monthly.html">Monthly Packages</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="index.html#rates">Rates</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
         </ul>
       </div>
 
