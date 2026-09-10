@@ -22,13 +22,13 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<meta property="og:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
+<meta property="og:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a66d572847bbd8a6432fbde.jpg">
 <meta property="og:image:secure_url" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
+<meta name="twitter:image" content="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a66d572847bbd8a6432fbde.jpg">
 <link rel="apple-touch-icon" href="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png">
 <link rel="preload" as="image" href="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap&display=swap" rel="stylesheet">
@@ -144,6 +144,8 @@
 
 /* ─── FOOTER ─── */
 .le-footer {
+  position: relative;
+  z-index: 2;
   background: #06060a;
   border-top: 1px solid rgba(192,57,43,0.2);
   padding: 50px 24px 30px;
@@ -257,7 +259,7 @@
 .le-page-particles {
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
 }
@@ -296,15 +298,11 @@
     <img src="https://assets.cdn.filesafe.space/SmAelT8y3Vrn0z7sHkYM/media/6a669f71fb06386edef76905.png" alt="Laffin Edits" width="40" height="40" loading="eager">
     <span class="le-nav-logo-text">Laffin Edits</span>
   </a>
-  <ul class="le-nav-links">
+    <ul class="le-nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="work.html">Work</a></li>
-    <li><a href="performance.html">Performance</a></li>
-    <li><a href="social.html">Social Media</a></li>
-    <li><a href="promos.html">Promos</a></li>
-    <li><a href="monthly.html">Monthly</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="reviews.html">Reviews</a></li>
     <li><a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a></li>
   </ul>
@@ -316,12 +314,8 @@
 <div class="le-nav-mobile" id="leMobileNav">
   <a href="index.html">Home</a>
   <a href="work.html">Work</a>
-  <a href="performance.html">Performance Edits</a>
-  <a href="social.html">Social Media</a>
-  <a href="promos.html">Promos</a>
-  <a href="monthly.html">Monthly Packages</a>
   <a href="about.html">About</a>
-  <a href="faq.html">FAQ</a>
+  <a href="blog.html">Blog</a>
   <a href="reviews.html">Reviews</a>
   <a href="index.html#leQuoteForm" class="le-nav-cta">🎩 Get a Quote</a>
 </div>
@@ -355,6 +349,8 @@ window.addEventListener('scroll', function() {
 <style>
 .pe-wrap * { margin: 0; padding: 0; box-sizing: border-box; }
 .pe-wrap {
+  position: relative;
+  z-index: 2;
   --black:  #06060a;
   --deep:   #0d0d18;
   --card:   #0f0f1e;
@@ -803,7 +799,8 @@ window.addEventListener('scroll', function() {
           <li><a href="monthly.html">Monthly Packages</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="index.html#rates">Rates</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
         </ul>
       </div>
 
